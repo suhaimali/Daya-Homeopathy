@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ================= SEO TAGS ================= -->
+    <title>Daya Homeopathy | Best Homeopathic Clinic in Kerala Since 1979</title>
+    <meta name="description" content="Daya Homeopathy is one of the best homeopathic clinics in Kerala. Specialized in Allergy, Asthma, Infertility and more.">
+    
+    <!-- ================= FONTS & ICONS ================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.png">
+
+    <style>
+        /* ================= CSS VARIABLES & RESET ================= */
+        :root {
+            --primary-color: #2E7D32; /* Deep Green */
+            --primary-gradient: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
+            --secondary-color: #E8F5E9; /* Light Green Background */
+            --accent-color: #F9A825; /* Gold */
+            --text-dark: #1B3322;
+            --text-light: #546e7a;
+            --bg-body: #FAFAFA;
+            --card-bg: #ffffff;
+            --input-bg: #f4f6f6;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-hover: 0 15px 35px rgba(46, 125, 50, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        html, body {
+            overflow-x: hidden; 
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ================= PRELOADER ================= */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--card-bg); z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            flex-direction: column;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loader-spinner {
+            width: 60px; height: 60px;
+            border: 5px solid var(--secondary-color);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        .loader-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary-color); font-weight: 700; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; z-index: 1000;
+        }
+
+        .logo { display: flex; align-items: center; text-decoration: none; flex: 0 0 auto; gap: 10px; z-index: 1002; }
+        .nav-logo-img { height: 45px; width: auto; }
+
+        /* Desktop Nav */
+        .nav-links { 
+            display: flex; gap: 30px; align-items: center; 
+        }
+        
+        @media (min-width: 901px) {
+            .nav-links {
+                position: absolute; left: 50%; transform: translateX(-50%);
+            }
+        }
+
+        .nav-links a.link-item { 
+            font-weight: 600; font-size: 1rem; position: relative; color: var(--text-dark); padding: 5px 0;
+        }
+        
+        .nav-links a.link-item::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: 0; left: 0; background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        .nav-links a.link-item:hover { color: var(--primary-color); }
+        .nav-links a.link-item:hover::after { width: 100%; }
+        
+        /* Action Icons */
+        .nav-actions { display: flex; gap: 10px; align-items: center; z-index: 1002; }
+        .social-circle {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: white; transition: transform 0.3s;
+            font-size: 0.9rem; border: none; cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        .social-circle:hover { transform: translateY(-3px) scale(1.1); }
+        
+        .ph { background: linear-gradient(45deg, #02aab0, #00cdac); } 
+        .fb { background: #1877F2; } 
+        .wa { background: #25D366; } 
+        .em { background: #EA4335; }
+        .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+
+        .mobile-menu-content { display: none; }
+        .mobile-toggle { display: none; font-size: 1.6rem; cursor: pointer; color: var(--primary-color); z-index: 1002; }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            min-height: 100vh; width: 100%; position: relative;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
+            background: linear-gradient(-45deg, #e8f5e9, #ffffff, #c8e6c9, #e8f5e9);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 100px 20px 50px;
+        }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        
+        .hero-bubble {
+            position: absolute; border-radius: 50%; background: rgba(46, 125, 50, 0.05);
+            animation: floatBubble 8s infinite ease-in-out; z-index: 1; pointer-events: none;
+        }
+        .bubble-1 { width: 300px; height: 300px; top: -50px; left: -50px; animation-duration: 12s; }
+        .bubble-2 { width: 200px; height: 200px; bottom: 10%; right: 5%; animation-duration: 15s; animation-delay: 1s; }
+        @keyframes floatBubble { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
+
+        .hero-text { position: relative; z-index: 2; max-width: 800px; width: 100%; padding: 0 10px; }
+        .welcome-badge {
+            background: white; color: var(--primary-color);
+            padding: 8px 20px; border-radius: 30px; font-weight: 700; font-size: 0.9rem;
+            border: 1px solid var(--primary-color); display: inline-block; margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); letter-spacing: 1px;
+        }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1; color: var(--primary-color); margin-bottom: 20px; 
+            text-shadow: 2px 2px 0px rgba(255,255,255,1);
+        }
+        .hero h2 { font-size: clamp(1.2rem, 3vw, 2rem); color: var(--accent-color); margin-bottom: 25px; font-weight: 700; }
+        .hero p { color: var(--text-dark); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6; }
+
+        /* ================= SECTIONS GENERAL ================= */
+        .section { padding: 80px 8%; }
+        .section-header { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9rem; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--text-dark); margin-bottom: 25px; line-height: 1.2; }
+        .text-content { font-size: 1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 20px; text-align: justify; }
+
+        /* About */
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img-wrapper { width: 100%; }
+        .about-img-wrapper img { width: 100%; border-radius: 20px; box-shadow: var(--shadow-soft); border: 8px solid white; }
+
+        /* ================= 3D COLORFUL SPECIALTIES ================= */
+        .spec-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            gap: 25px; margin-top: 40px; max-width: 1400px; margin-left: auto; margin-right: auto;
+            perspective: 1000px; /* Essential for 3D effect */
+        }
+        .spec-card {
+            background: #fff;
+            border-radius: 20px; 
+            overflow: hidden;
+            position: relative; 
+            cursor: pointer;
+            /* 3D Colorful Border Logic */
+            border: 2px solid transparent;
+            background: linear-gradient(#fff, #fff) padding-box,
+                        linear-gradient(45deg, #2E7D32, #F9A825, #25D366) border-box;
+            
+            display: flex; flex-direction: column; 
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+            transform-style: preserve-3d;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .spec-card:hover { 
+            transform: translateY(-10px) rotateX(5deg) scale(1.03); 
+            box-shadow: 0 20px 40px rgba(46, 125, 50, 0.25);
+        }
+
+        .spec-img-box { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+        .spec-img-box img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 0.6s ease; 
+        }
+        .spec-card:hover .spec-img-box img { transform: scale(1.15); }
+        
+        /* Colorful overlay on hover */
+        .spec-img-box::after {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(46, 125, 50, 0.8));
+            opacity: 0; transition: 0.3s;
+        }
+        .spec-card:hover .spec-img-box::after { opacity: 1; }
+
+        .spec-title-box { 
+            padding: 15px 10px; text-align: center; background: white; flex-grow: 1; 
+            display: flex; align-items: center; justify-content: center; 
+            z-index: 2; position: relative;
+        }
+        .spec-name { 
+            font-size: 1rem; font-weight: 700; color: var(--text-dark); line-height: 1.3; 
+            transition: color 0.3s;
+        }
+        .spec-card:hover .spec-name { color: var(--primary-color); }
+
+        /* ================= DOCTORS ================= */
+        #doctors { background: linear-gradient(to bottom, #ffffff, #f1f8e9); }
+        .doc-grid-3d { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 50px; perspective: 1000px; }
+        
+        .doc-card-3d {
+            width: 320px; max-width: 100%; background: #ffffff; border-radius: 20px; overflow: hidden; position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: all 0.5s;
+            border-bottom: 4px solid var(--primary-color);
+        }
+        
+        .doc-img-wrapper { width: 100%; height: 350px; position: relative; overflow: hidden; }
+        .doc-img-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.8s ease; }
+        .doc-card-3d:hover .doc-img-wrapper img { transform: scale(1.05); }
+        
+        .doc-social-slide {
+            position: absolute; bottom: 15px; left: 0; right: 0; 
+            display: flex; justify-content: center; gap: 15px; z-index: 10;
+        }
+        
+        .doc-icon-btn {
+            width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--primary-color);
+            display: flex; justify-content: center; align-items: center; font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;
+        }
+        
+        .doc-details-3d { padding: 20px; text-align: center; background: white; }
+        .doc-name-3d { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; }
+        .doc-role-3d { color: var(--accent-color); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px; }
+        .doc-qual-3d { font-size: 0.85rem; color: var(--text-light); border-top: 1px solid #eee; padding-top: 10px; }
+
+        /* ================= BOOKING ================= */
+        #booking { background: linear-gradient(180deg, #f0f7f7 0%, #c8e6c9 100%); }
+        .booking-container-limit { max-width: 1200px; margin: 0 auto; width: 100%; }
+        .contact-wrapper {
+            display: grid; grid-template-columns: 1.1fr 0.9fr; 
+            background: var(--card-bg); border-radius: 25px; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 137, 123, 0.15);
+        }
+        .booking-side { padding: 40px; }
+        
+        .form-group label { display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-color); }
+        .form-control {
+            width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #e0e0e0;
+            background: var(--input-bg); font-family: 'Outfit', sans-serif; font-size: 1rem;
+            color: var(--text-dark); transition: all 0.3s ease;
+        }
+        .form-control:focus { outline: none; border-color: var(--primary-color); background: white; }
+        
+        .submit-btn {
+            width: 100%; padding: 14px; background: #25D366; color: white; border: none; border-radius: 50px;
+            font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 20px;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+            box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2);
+        }
+        
+        .phone-group-flex { display: flex; gap: 10px; }
+        .country-select { width: 90px; padding: 12px 5px; }
+
+        .map-side { position: relative; min-height: 400px; background: #eee; }
+        .map-frame { width: 100%; height: 100%; border: 0; display: block; }
+        .info-overlay {
+            position: absolute; bottom: 20px; left: 20px; right: 20px;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(5px);
+            padding: 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+        .info-item { display: flex; align-items: start; margin-bottom: 10px; gap: 12px; font-size: 0.9rem; }
+        .info-item i { color: var(--primary-color); margin-top: 3px; }
+
+        /* ================= PROMO ================= */
+        .promo-banner-section { padding: 60px 5%; background: #e8f5e9; }
+        .promo-banner-box {
+            width: 100%; max-width: 600px; margin: 0 auto;
+            border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        /* ================= FIXED FOOTER ================= */
+        footer { background: #1a262b; color: white; padding: 60px 5% 30px; }
+        .footer-flex { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .footer-col h4 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul li { margin-bottom: 12px; opacity: 0.8; font-size: 0.95rem; }
+        
+        .footer-socials {
+            display: flex; gap: 10px; margin-top: 20px;
+        }
+
+        .copyright { border-top: 1px solid rgba(255,255,255,0.1); text-align: center; padding-top: 20px; margin-top: 40px; font-size: 0.85rem; opacity: 0.6; }
+
+        /* ================= MODAL ================= */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { 
+            background: var(--card-bg); width: 100%; max-width: 400px; 
+            border-radius: 15px; padding: 25px; text-align: center; 
+            position: relative; animation: zoomIn 0.3s ease; 
+        }
+        @keyframes zoomIn { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 28px; color: #888; cursor: pointer; }
+        .modal img { width: 100%; max-height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+        .modal-btn { padding: 12px 30px; background: var(--primary-gradient); color: white; border-radius: 50px; font-weight: 600; display: inline-block; margin-top: 10px; }
+
+        /* ================= RESPONSIVE MEDIA QUERIES ================= */
+        
+        /* Tablet & Mobile Breakpoint (Max Width 900px) */
+        @media (max-width: 900px) {
+            nav { padding: 0 5%; height: 70px; }
+            .nav-actions { display: none; }
+            .nav-logo-img { height: 40px; }
+
+            /* Mobile Menu Reset */
+            .nav-links { 
+                display: none; position: fixed; top: 70px; left: 0; width: 100%; height: auto;
+                background: white; flex-direction: column; padding: 30px 0; 
+                text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+                border-top: 1px solid #f0f0f0; transform: none; 
+                gap: 0; z-index: 999;
+            }
+            .nav-links.active { display: flex; }
+            
+            .nav-links a.link-item { 
+                width: 100%; display: block; padding: 15px; 
+                border-bottom: 1px solid #f9f9f9; font-size: 1.1rem;
+            }
+
+            .mobile-toggle { display: block; }
+            
+            .mobile-menu-content { 
+                display: flex; flex-direction: column; align-items: center; 
+                width: 100%; margin-top: 20px;
+            }
+            .mobile-socials { display: flex; gap: 15px; justify-content: center; }
+
+            .hero { padding-top: 90px; height: auto; min-height: auto; padding-bottom: 60px; }
+            .about-container { grid-template-columns: 1fr; gap: 30px; }
+            
+            .section { padding: 60px 5%; }
+            .section-title { margin-bottom: 15px; }
+            
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .booking-side { padding: 30px 20px; }
+            .map-side { height: 350px; min-height: 350px; }
+        }
+
+        /* Small Mobile (Max Width 480px) */
+        @media (max-width: 480px) {
+            .spec-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .spec-title-box { padding: 10px 5px; }
+            .spec-name { font-size: 0.85rem; }
+            
+            .doc-card-3d { width: 100%; }
+            .doc-img-wrapper { height: 300px; }
+
+            .phone-group-flex { flex-direction: column; }
+            .country-select { width: 100%; margin-bottom: 10px; }
+            
+            .info-overlay { position: relative; bottom: 0; left: 0; right: 0; margin: 0; border-radius: 0; box-shadow: none; border-left: none; border-top: 4px solid var(--primary-color); background: #fff; }
+            
+            /* Footer Fix for Mobile */
+            .footer-flex { flex-direction: column; gap: 30px; text-align: center; }
+            .footer-col { min-width: 100%; width: 100%; }
+            .footer-socials { justify-content: center; width: 100%; }
+            .footer-col ul li { display: block; }
+            .logo { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= PRELOADER ================= -->
+    <div id="preloader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Daya Homeopathy</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home" class="logo">
+            <img src="img/dh logo.png" alt="Daya Logo" class="nav-logo-img">
+        </a>
+
+        <!-- Links -->
+        <ul class="nav-links" id="navMenu">
+            <li><a href="#home" class="link-item" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#about" class="link-item" onclick="toggleMenu()">About Us</a></li>
+            <li><a href="#specialties" class="link-item" onclick="toggleMenu()">Specialties</a></li>
+            <li><a href="#doctors" class="link-item" onclick="toggleMenu()">Doctors</a></li>
+            <li><a href="#booking" class="link-item" onclick="toggleMenu()">Appointment</a></li>
+            
+            <!-- Mobile Only Socials -->
+            <li class="mobile-menu-content">
+                <div class="mobile-socials">
+                    <a href="tel:+919947576123" class="social-circle ph"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://wa.me/919947576123" class="social-circle wa"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/people/Daya-Homeopathy-Pathappiriyam/100095537707367/" class="social-circle fb"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/dayahomeopathypathappiriyam" class="social-circle ig"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:dayahomeopathyclinic@gmail.com" class="social-circle em"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Right Side Actions (Desktop) -->
+        <div class="nav-actions">
+            <a href="tel:+919947576123" class="social-circle ph"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://wa.me/919947576123" class="social-circle wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/people/Daya-Homeopathy-Pathappiriyam/100095537707367/" class="social-circle fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/dayahomeopathypathappiriyam" class="social-circle ig"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:dayahomeopathyclinic@gmail.com" class="social-circle em"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bubble bubble-1"></div>
+        <div class="hero-bubble bubble-2"></div>
+
+        <div class="hero-text" data-aos="zoom-in" data-aos-duration="1200">
+            <span class="welcome-badge">Est. 1979</span>
+            <h1>Welcome to <br> Daya Homeopathy</h1>
+            <h2>Real Health, Happiness & Peace of Mind</h2>
+            <p>
+                One of the best homeopathic clinics in Kerala situated at Pathappiriyam, Malappuram district. Experience natural healing with us.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section" id="about">
+        <div class="about-container">
+            <div class="about-img-wrapper" data-aos="fade-right">
+                <img src="img/WhatsApp Image 2025-11-23 at 14.41.56_fbac80e4.jpg" alt="Daya Homeopathy Clinic">
+            </div>
+            <div class="about-content" data-aos="fade-left">
+                <span class="section-header">Who We Are</span>
+                <h2 class="section-title">A Legacy of Healing</h2>
+                <p class="text-content">
+                    Daya Homeopathy is one of the most trusted homeopathic clinics in Kerala, situated at Pathappiriyam, Malappuram district. Established in 1979, we have been serving patients from different parts of India and abroad with dedication.
+                </p>
+                <p class="text-content">
+                    <b>Our Mission:</b> To restore the sick to health by providing high-quality medical services in a simple, easy, and harmless way.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="section" id="specialties">
+        <div style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
+            <span class="section-header">Comprehensive Care</span>
+            <h2 class="section-title">Our Specialties</h2>
+            <p style="color:var(--text-light); font-size: 0.95rem; font-weight: 500;">(Click cards to see details)</p>
+        </div>
+
+        <div class="spec-grid">
+            <!-- Cards -->
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/allerfy astma.jpeg', 'Allergy, Asthma')">
+                <div class="spec-img-box"><img src="img/allerfy astma.jpeg" alt="Allergy & Asthma"></div>
+                <div class="spec-title-box"><div class="spec-name">Allergy, Asthma</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Migraine.jpeg', 'Migraine')">
+                <div class="spec-img-box"><img src="img/Migraine.jpeg" alt="Migraine"></div>
+                <div class="spec-title-box"><div class="spec-name">Migraine</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Child Health.jpeg', 'Child Health')">
+                <div class="spec-img-box"><img src="img/Child Health.jpeg" alt="Child Health"></div>
+                <div class="spec-title-box"><div class="spec-name">Child Health</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/WhatsApp Image 2025-11-23 at 16.53.33_d898cf4d.jpg', 'Female Disorders')">
+                <div class="spec-img-box"><img src="img/WhatsApp Image 2025-11-23 at 16.53.33_d898cf4d.jpg" alt="Female Disorders"></div>
+                <div class="spec-title-box"><div class="spec-name">Female Disorders</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Infertility Male & Female.jpeg', 'Infertility (M&F)')">
+                <div class="spec-img-box"><img src="img/Infertility Male & Female.jpeg" alt="Infertility"></div>
+                <div class="spec-title-box"><div class="spec-name">Infertility (M&F)</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Eczema.jpeg', 'Eczema')">
+                <div class="spec-img-box"><img src="img/Eczema.jpeg" alt="Eczema"></div>
+                <div class="spec-title-box"><div class="spec-name">Eczema</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Depression.jpeg', 'Depression')">
+                <div class="spec-img-box"><img src="img/Depression.jpeg" alt="Depression"></div>
+                <div class="spec-title-box"><div class="spec-name">Depression</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Acidity, Ulcer.jpeg', 'Acidity, Ulcer')">
+                <div class="spec-img-box"><img src="img/Acidity, Ulcer.jpeg" alt="Acidity"></div>
+                <div class="spec-title-box"><div class="spec-name">Acidity, Ulcer</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Arthritis.jpeg', 'Arthritis')">
+                <div class="spec-img-box"><img src="img/Arthritis.jpeg" alt="Arthritis"></div>
+                <div class="spec-title-box"><div class="spec-name">Arthritis</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Cancer Support.jpeg', 'Cancer Support')">
+                <div class="spec-img-box"><img src="img/Cancer Support.jpeg" alt="Cancer Support"></div>
+                <div class="spec-title-box"><div class="spec-name">Cancer Support</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Old age Problems.jpeg', 'Old Age Problems')">
+                <div class="spec-img-box"><img src="img/Old age Problems.jpeg" alt="Old Age"></div>
+                <div class="spec-title-box"><div class="spec-name">Old Age Problems</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Hair fall treatment.jpeg', 'Hair Fall Treatment')">
+                <div class="spec-img-box"><img src="img/Hair fall treatment.jpeg" alt="Hair Fall"></div>
+                <div class="spec-title-box"><div class="spec-name">Hair Fall Treatment</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Epilepsy.jpeg', 'Epilepsy')">
+                <div class="spec-img-box"><img src="img/Epilepsy.jpeg" alt="Epilepsy"></div>
+                <div class="spec-title-box"><div class="spec-name">Epilepsy</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Piles & Fissures.jpeg', 'Piles & Fissures')">
+                <div class="spec-img-box"><img src="img/Piles & Fissures.jpeg" alt="Piles"></div>
+                <div class="spec-title-box"><div class="spec-name">Piles & Fissures</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Kidney Stone.jpeg', 'Kidney Stone')">
+                <div class="spec-img-box"><img src="img/Kidney Stone.jpeg" alt="Kidney Stone"></div>
+                <div class="spec-title-box"><div class="spec-name">Kidney Stone</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/BPH.jpeg', 'BPH (Prostate)')">
+                <div class="spec-img-box"><img src="img/BPH.jpeg" alt="BPH"></div>
+                <div class="spec-title-box"><div class="spec-name">BPH (Prostate)</div></div>
+            </div>
+             <div class="spec-card" data-aos="fade-up" onclick="openModal('img/pcod.jpeg', 'PCOD')">
+                <div class="spec-img-box"><img src="img/pcod.jpeg" alt="PCOD"></div>
+                <div class="spec-title-box"><div class="spec-name">PCOD</div></div>
+            </div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Counselling service.jpeg', 'Counselling Service')">
+                <div class="spec-img-box"><img src="img/Counselling service.jpeg" alt="Counselling"></div>
+                <div class="spec-title-box"><div class="spec-name">Counselling Service</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="specModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBtn()">&times;</span>
+            <img id="modalImg" src="" alt="Treatment">
+            <h3 id="modalTitle">Title</h3>
+            <p>Effective homeopathic treatment available for this condition. Contact us for consultation.</p>
+            <a href="#booking" class="modal-btn" onclick="closeBtn()">
+                Book Consultation <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Doctors Section -->
+    <section class="section" id="doctors">
+        <div style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
+            <span class="section-header">Expert Care</span>
+            <h2 class="section-title">Meet Our Doctors</h2>
+        </div>
+
+        <div class="doc-grid-3d">
+            <!-- Doctor 1 -->
+            <div class="doc-card-3d" data-aos="fade-up" data-aos-delay="100">
+                <div class="doc-img-wrapper">
+                    <img src="img/Dr ashraf.jpg" alt="Dr VPM. ASHRAF">
+                    <div class="doc-social-slide">
+                       
+                    </div>
+                </div>
+                <div class="doc-details-3d">
+                    <h3 class="doc-name-3d">Dr VPM. ASHRAF</h3>
+                    <div class="doc-role-3d"> Senior Consultant</div>
+                    <div class="doc-qual-3d">
+                       <strong>BSc, DHMS, BAc, PhD</strong><br>
+                       Provides Treatment Guidelines
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div class="doc-card-3d" data-aos="fade-up" data-aos-delay="200">
+                <div class="doc-img-wrapper">
+                    <img src="img/dr jaseela..jpg" alt="Dr VP Jaseela MANSOOR">
+                    <div class="doc-social-slide">
+                        
+                    </div>
+                </div>
+                <div class="doc-details-3d">
+                    <h3 class="doc-name-3d">Dr VP Jaseela</h3>
+                    <div class="doc-role-3d"> Consultant Physician</div>
+                    <div class="doc-qual-3d">
+                        <strong>BHMS, PGDPC</strong><br>
+                        Homeopath & Psychology Counsellor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="section" id="booking">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <span class="section-header">Get In Touch</span>
+            <h2 class="section-title" data-aos="fade-down">Book Appointment</h2>
+        </div>
+
+        <div class="booking-container-limit">
+            <div class="contact-wrapper" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="booking-side">
+                    <h3>Consultation Request</h3>
+                    <form id="whatsappForm">
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label>Your Name (പേര്)</label>
+                                <input type="text" id="pName" class="form-control" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number (ഫോൺ നമ്പർ)</label>
+                                <div class="phone-group-flex">
+                                    <select id="pCode" class="form-control country-select">
+                                        <option value="+91">🇮🇳 +91</option>
+                                        <option value="+971">🇦🇪 +971</option>
+                                        <option value="+966">🇸🇦 +966</option>
+                                        <option value="+974">🇶🇦 +974</option>
+                                        <option value="+968">🇴🇲 +968</option>
+                                        <option value="+965">🇰🇼 +965</option>
+                                        <option value="+973">🇧🇭 +973</option>
+                                        <option value="">Other</option>
+                                    </select>
+                                    <input type="tel" id="pPhone" class="form-control" placeholder="Mobile Number" required style="flex: 1;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label>Place (സ്ഥലം)</label>
+                            <input type="text" id="pPlace" class="form-control" placeholder="Your Location" required>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label>Select Symptom (രോഗലക്ഷണം)</label>
+                            <select id="pSymptomDrop" class="form-control">
+                                <option value="">-- Select Symptom --</option>
+                                <option value="Allergy / Asthma">Allergy, Asthma</option>
+                                <option value="Migraine">Migraine</option>
+                                <option value="Child Health">Child Health</option>
+                                <option value="Female Disorders">Female Disorders</option>
+                                <option value="Infertility">Infertility</option>
+                                <option value="Eczema">Eczema</option>
+                                <option value="Depression">Depression</option>
+                                <option value="Acidity / Ulcer">Acidity, Ulcer</option>
+                                <option value="Arthritis">Arthritis</option>
+                                <option value="Cancer Support">Cancer Support</option>
+                                <option value="Old Age Problems">Old Age Problems</option>
+                                <option value="Hair Fall Treatment">Hair Fall</option>
+                                <option value="Epilepsy">Epilepsy</option>
+                                <option value="Piles & Fissures">Piles</option>
+                                <option value="Kidney Stone">Kidney Stone</option>
+                                <option value="BPH (Prostate)">BPH (Prostate)</option>
+                                <option value="PCOD">PCOD</option>
+                                <option value="Counselling Service">Counselling</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label>Other Details (വിശദാംശങ്ങൾ)</label>
+                            <textarea id="pMsg" class="form-control" rows="3" placeholder="Briefly describe your problem..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+                <div class="map-side">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7827.71690414237!2d76.136648!3d11.198107!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6379e41a4084d%3A0xfc0d03ac283d758f!2sDaya%20Homeopathy%20Pathappiriyam!5e0!3m2!1sen!2sin!4v1763915062530!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map-frame"></iframe>
+                    <div class="info-overlay">
+                        <h4>Contact Details</h4>
+                        <div class="info-item"><i class="fa-solid fa-location-dot"></i><span>Pathappiriyam, Malappuram<br>Kerala, India</span></div>
+                        <div class="info-item"><i class="fa-brands fa-whatsapp"></i><span>+91 99475 76123</span></div>
+                        <div class="info-item"><i class="fa-regular fa-clock"></i><span>Mon-Sat: 9:30 AM - 02:00 PM</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Image -->
+    <section class="promo-banner-section" data-aos="fade-up">
+        <div class="promo-banner-box">
+            <img src="img/poster daya.jpg" alt="Daya Homeopathy Flyer" class="promo-banner-img">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-flex">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 20px;">
+                 <h2 style="font-family:'Playfair Display', serif;">Daya <span style="color:var(--accent-color);">Homeopathy</span></h2>
+                </div>
+                <p style="opacity: 0.7; line-height: 1.6; font-size: 0.95rem;">Restoring health, happiness, and peace of mind since 1979.</p>
+                
+                <div class="footer-socials">
+                    <a href="tel:+919947576123" class="social-circle ph"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://wa.me/919947576123" class="social-circle wa"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/people/Daya-Homeopathy-Pathappiriyam/100095537707367/" class="social-circle fb"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/dayahomeopathypathappiriyam/" class="social-circle ig"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:dayahomeopathyclinic@gmail.com" class="social-circle em"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#specialties">Specialties</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                    <li><a href="#booking">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Clinic Timing</h4>
+                <ul>
+                    <li><i class="fa-solid fa-clock" style="color: var(--accent-color); margin-right: 10px;"></i> Mon-Sat: 9:30 AM - 02:00 PM</li>
+                    <li><i class="fa-solid fa-calendar-xmark" style="color: var(--accent-color); margin-right: 10px;"></i> Sunday: Holiday</li>
+                    <li><i class="fa-brands fa-whatsapp" style="color: var(--accent-color); margin-right: 10px;"></i> +91 99475 76123</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Daya Homeopathy. All rights reserved Design by Suhaim Soft.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Preloader set to 2 seconds (2000ms)
+        window.onload = function() {
+            setTimeout(function() {
+                var preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                AOS.init({ duration: 1000, once: true });
+            }, 2000); // CHANGED TO 2 SECONDS
+        };
+
+        // Mobile Menu Toggle
+        function toggleMenu() { 
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('specModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+
+        function openModal(imgSrc, title) {
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+            modalTitle.innerText = title;
+        }
+
+        function closeBtn() { modal.style.display = "none"; }
+        function closeModal(event) { if (event.target == modal) modal.style.display = "none"; }
+
+        // WhatsApp Form Logic
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('pName').value;
+            var place = document.getElementById('pPlace').value;
+            var symptom = document.getElementById('pSymptomDrop').value;
+            var msg = document.getElementById('pMsg').value;
+            var countryCode = document.getElementById('pCode').value;
+            var phoneNum = document.getElementById('pPhone').value;
+            var fullPhone = countryCode + " " + phoneNum;
+            var clinicNumber = "919947576123"; 
+            
+            var finalMsg = "";
+            if(symptom) finalMsg += "Selected Symptom: " + symptom + ". ";
+            if(msg) finalMsg += "Details: " + msg;
+
+            var url = "https://wa.me/" + clinicNumber + "?text=" 
+            + "Hello Daya Homeopathy, I would like to book an appointment." + "%0a"
+            + "*Name:* " + name + "%0a"
+            + "*Phone:* " + fullPhone + "%0a"
+            + "*Place:* " + place + "%0a"
+            + "*Issue:* " + finalMsg;
+
+            window.open(url, '_blank').focus();
+        });
+    </script>
+</body>
+</html>
