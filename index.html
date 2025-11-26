@@ -2,36 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ================= SEO POWER PACK (Included in Old Design) ================= -->
+    <title>Daya Homeopathy | Best Homeopathic Clinic in Kerala | Since 1979</title>
+    <meta name="description" content="Daya Homeopathy (Est. 1979) is the best homeopathic clinic in Malappuram, Kerala. Experts in Allergy, Infertility, PCOD, Migraine & Child Health. Dr. VPM Ashraf.">
+    <meta name="keywords" content="Daya Homeopathy, Homeopathy Kerala, Best Homeopath Malappuram, Infertility Treatment, Allergy Cure, Dr VPM Ashraf, PCOD Homeopathy">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Daya Homeopathy">
+    <link rel="canonical" href="https://www.dayahomeopathy.com/">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <head>
 
     <!-- ================= GENERAL SEO ================= -->
     <title>Daya Homeopathy – Best Homeopathic Clinic in Kerala | Since 1979</title>
         
 
-    
-    <link rel="canonical" href="https://www.dayahomeopathy.com/">
+    <!-- Social Media Previews (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Daya Homeopathy | Real Health & Peace of Mind">
+    <meta property="og:description" content="Trusted by thousands since 1979. Specialized natural treatment for chronic diseases.">
+    <meta property="og:image" content="https://www.dayahomeopathy.com/img/logo.png">
 
-    <!-- ================= GOOGLE SEARCH ================= -->
-    <meta name="google-site-verification" content="gIjhySTsYPeOeiSLomNrGbEFgHIoqJ6XkI5wlOYkeOw" />
-
-    </div>
-
-</head>
-
-   
+    <!-- Google Business Schema (The "Secret Sauce" for Local Ranking) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Daya Homeopathy",
+      "image": "https://www.dayahomeopathy.com/img/logo.png",
+      "telephone": "+919947576123",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pathappiriyam",
+        "addressLocality": "Edavanna",
+        "addressRegion": "Kerala",
+        "postalCode": "676123",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 11.198107,
+        "longitude": 76.136648
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:30",
+        "closes": "14:00"
+      }
+    }
+    </script>
+  
+    <!-- ================= FONTS & ICONS ================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6.4.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Animation Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Favicon -->
     <link rel="icon" href="img/logo.png">
+    
 
     <style>
-        /* ================= CSS VARIABLES & RESET ================= */
+        /* ================= ORIGINAL LIGHT THEME VARIABLES ================= */
         :root {
             --primary-color: #2E7D32; /* Deep Green */
             --primary-dark: #1B5E20;
@@ -126,7 +160,7 @@
         .mobile-menu-content { display: none; }
         .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); z-index: 1002; }
 
-        /* ================= HERO SECTION ================= */
+        /* ================= HERO SECTION (Original Light Gradient) ================= */
         .hero {
             min-height: 90vh; width: 100%; position: relative;
             display: flex; align-items: center; justify-content: center;
@@ -192,7 +226,7 @@
         .spec-name { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
         .spec-card:hover .spec-name { color: var(--primary-color); }
 
-        /* ================= DOCTORS (Simple Portrait) ================= */
+        /* ================= DOCTORS (Original Simple Portrait) ================= */
         #doctors { background: linear-gradient(to bottom, #ffffff, #f1f8e9); }
         .doctors-wrapper { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
         .doc-simple-card {
@@ -239,14 +273,12 @@
         .footer-col h4 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.1rem; }
         .footer-col ul li { margin-bottom: 12px; opacity: 0.8; font-size: 0.95rem; }
         
-        /* Footer Socials - Desktop Default */
         .footer-socials { 
             display: flex; 
             gap: 15px; 
             margin-top: 25px;
             flex-wrap: wrap;
         }
-
         .copyright { border-top: 1px solid rgba(255,255,255,0.1); text-align: center; padding-top: 20px; margin-top: 40px; font-size: 0.85rem; opacity: 0.6; }
 
         /* ================= MODAL ================= */
@@ -288,18 +320,8 @@
             /* Footer Mobile Fix */
             .footer-flex { flex-direction: column; gap: 40px; text-align: center; }
             .footer-col { width: 100%; display: flex; flex-direction: column; align-items: center; }
-            
-            /* Center social icons row on mobile and make them visible */
-            .footer-socials { 
-                justify-content: center; 
-                width: 100%; 
-                margin-top: 25px; 
-                gap: 20px; /* Space between icons */
-            }
-            .footer-socials .social-circle {
-                width: 45px; height: 45px; /* Slightly larger on mobile */
-                font-size: 1.2rem;
-            }
+            .footer-socials { justify-content: center; width: 100%; margin-top: 25px; gap: 20px; }
+            .footer-socials .social-circle { width: 45px; height: 45px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -673,14 +695,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // Preloader set to 1 second (1000ms)
+        // Preloader
         window.onload = function() {
             setTimeout(function() {
                 var preloader = document.getElementById('preloader');
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
                 AOS.init({ duration: 1000, once: true });
-            }, 1000); // CHANGED TO 1 SECOND
+            }, 1000); 
         };
 
         // Mobile Menu Toggle
@@ -730,6 +752,4 @@
         });
     </script>
 </body>
-
 </html>
-
