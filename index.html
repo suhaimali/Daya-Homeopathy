@@ -5,27 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- ================= SEO POWER PACK (Included in Old Design) ================= -->
+    <!-- ================= SEO POWER PACK ================= -->
     <title>Daya Homeopathy | Best Homeopathic Clinic in Kerala | Since 1979</title>
     <meta name="description" content="Daya Homeopathy (Est. 1979) is the best homeopathic clinic in Malappuram, Kerala. Experts in Allergy, Infertility, PCOD, Migraine & Child Health. Dr. VPM Ashraf.">
     <meta name="keywords" content="Daya Homeopathy, Homeopathy Kerala, Best Homeopath Malappuram, Infertility Treatment, Allergy Cure, Dr VPM Ashraf, PCOD Homeopathy">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Daya Homeopathy">
     <link rel="canonical" href="https://www.dayahomeopathy.com/">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <head>
-
-    <!-- ================= GENERAL SEO ================= -->
-    <title>Daya Homeopathy – Best Homeopathic Clinic in Kerala | Since 1979</title>
-        
-
+    
     <!-- Social Media Previews (Open Graph) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Daya Homeopathy | Real Health & Peace of Mind">
     <meta property="og:description" content="Trusted by thousands since 1979. Specialized natural treatment for chronic diseases.">
     <meta property="og:image" content="https://www.dayahomeopathy.com/img/logo.png">
 
-    <!-- Google Business Schema (The "Secret Sauce" for Local Ranking) -->
+    <!-- Google Business Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,7 +59,7 @@
     
 
     <style>
-        /* ================= ORIGINAL LIGHT THEME VARIABLES ================= */
+        /* ================= VARIABLES ================= */
         :root {
             --primary-color: #2E7D32; /* Deep Green */
             --primary-dark: #1B5E20;
@@ -160,7 +154,7 @@
         .mobile-menu-content { display: none; }
         .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); z-index: 1002; }
 
-        /* ================= HERO SECTION (Original Light Gradient) ================= */
+        /* ================= HERO SECTION ================= */
         .hero {
             min-height: 90vh; width: 100%; position: relative;
             display: flex; align-items: center; justify-content: center;
@@ -226,7 +220,7 @@
         .spec-name { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
         .spec-card:hover .spec-name { color: var(--primary-color); }
 
-        /* ================= DOCTORS (Original Simple Portrait) ================= */
+        /* ================= DOCTORS ================= */
         #doctors { background: linear-gradient(to bottom, #ffffff, #f1f8e9); }
         .doctors-wrapper { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
         .doc-simple-card {
@@ -265,6 +259,39 @@
         .co-icon { width: 40px; height: 40px; background: var(--secondary-color); color: var(--primary-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
         .co-text h5 { font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
         .co-text p { font-size: 0.85rem; color: var(--text-gray); margin: 0; line-height: 1.4; }
+
+        /* ================= PROMO ANIMATION ================= */
+        .promo-banner-section { 
+            padding: 60px 5%; 
+            background: #e8f5e9;
+            text-align: center;
+        }
+
+        .promo-animate-box {
+            width: 100%; max-width: 600px; margin: 0 auto; 
+            border-radius: 15px; 
+            /* Start state for animation */
+            animation: floatPromo 6s ease-in-out infinite;
+        }
+        
+        .promo-animate-box img { 
+            border-radius: 15px;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            filter: brightness(1);
+        }
+
+        /* Hover Effect for 3D feel */
+        .promo-animate-box:hover img {
+            transform: scale(1.03) rotateX(2deg);
+            filter: brightness(1.05);
+        }
+
+        @keyframes floatPromo {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
 
         /* ================= FOOTER ================= */
         footer { background: #1a262b; color: white; padding: 60px 5% 30px; }
@@ -598,7 +625,6 @@
                             <option value="Piles">Piles & Fissures</option>
                             <option value="Stone">Kidney Stone</option>
                             <option value="Other">Other</option>
-                        </select>
                     </div>
 
                     <div style="margin-bottom: 25px;">
@@ -642,10 +668,16 @@
         </div>
     </section>
 
-    <!-- Promo Image -->
-    <section class="promo-banner-section" data-aos="fade-up" style="padding: 60px 5%; background: #e8f5e9;">
-        <div style="width: 100%; max-width: 600px; margin: 0 auto; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.15);">
+    <!-- ANIMATED PROMO IMAGE SECTION -->
+    <section class="promo-banner-section" data-aos="fade-up">
+        <div class="promo-animate-box">
             <img src="img/poster daya.jpg" alt="Daya Homeopathy Flyer">
+        </div>
+    </section>
+    <!-- ANIMATED PROMO IMAGE SECTION -->
+    <section class="promo-banner-section" data-aos="fade-up">
+        <div class="promo-animate-box">
+            <img src="img/online.jpg" alt="Daya Homeopathy Flyer">
         </div>
     </section>
 
@@ -753,4 +785,3 @@
     </script>
 </body>
 </html>
-
