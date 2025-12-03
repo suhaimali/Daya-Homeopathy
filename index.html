@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- ================= SEO POWER PACK ================= -->
     <title>Daya Homeopathy | Best Homeopathic Clinic in Kerala | Since 1979</title>
     <meta name="description" content="Daya Homeopathy (Est. 1979) is the best homeopathic clinic in Malappuram, Kerala. Experts in Allergy, Infertility, PCOD, Migraine & Child Health. Dr. VPM Ashraf.">
     <meta name="keywords" content="Daya Homeopathy, Homeopathy Kerala, Best Homeopath Malappuram, Infertility Treatment, Allergy Cure, Dr VPM Ashraf, PCOD Homeopathy">
+    <meta name="theme-color" content="#2E7D32">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="Daya Homeopathy">
     <link rel="canonical" href="https://www.dayahomeopathy.com/">
-  
-
-
     
-    <!-- Social Media Previews (Open Graph) -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Daya Homeopathy | Real Health & Peace of Mind">
     <meta property="og:description" content="Trusted by thousands since 1979. Specialized natural treatment for chronic diseases.">
     <meta property="og:image" content="https://www.dayahomeopathy.com/img/logo.png">
+    <meta property="og:url" content="https://www.dayahomeopathy.com/">
 
     <!-- Google Business Schema -->
     <script type="application/ld+json">
@@ -77,9 +75,18 @@
             --shadow-hover: 0 15px 40px rgba(46, 125, 50, 0.15);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        /* RESET & PERFORMANCE OPTIMIZATION */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Fix for 'passive event listener' warning on buttons/links */
+        a, button, input, select, textarea { touch-action: manipulation; }
 
-        html, body { overflow-x: hidden; width: 100%; }
+        html, body { 
+            overflow-x: hidden; 
+            width: 100%; 
+            -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -155,7 +162,7 @@
         .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
         .mobile-menu-content { display: none; }
-        .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); z-index: 1002; }
+        .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); z-index: 1002; padding: 10px; }
 
         /* ================= HERO SECTION ================= */
         .hero {
@@ -199,6 +206,7 @@
 
         .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .about-img-wrapper { width: 100%; }
+        /* Image fix for spaces in filename */
         .about-img-wrapper img { width: 100%; border-radius: 20px; box-shadow: var(--shadow-card); border: 8px solid white; }
 
         /* ================= SPECIALTIES ================= */
@@ -273,7 +281,6 @@
         .promo-animate-box {
             width: 100%; max-width: 600px; margin: 0 auto; 
             border-radius: 15px; 
-            /* Start state for animation */
             animation: floatPromo 6s ease-in-out infinite;
         }
         
@@ -284,7 +291,6 @@
             filter: brightness(1);
         }
 
-        /* Hover Effect for 3D feel */
         .promo-animate-box:hover img {
             transform: scale(1.03) rotateX(2deg);
             filter: brightness(1.05);
@@ -347,7 +353,6 @@
             .spec-name { font-size: 0.85rem; }
             .form-row { flex-direction: column; gap: 15px; }
             
-            /* Footer Mobile Fix */
             .footer-flex { flex-direction: column; gap: 40px; text-align: center; }
             .footer-col { width: 100%; display: flex; flex-direction: column; align-items: center; }
             .footer-socials { justify-content: center; width: 100%; margin-top: 25px; gap: 20px; }
@@ -366,7 +371,7 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="#home" class="logo">
-            <img src="img/dh logo.png" alt="Daya Logo" class="nav-logo-img">
+            <img src="img/dh%20logo.png" alt="Daya Logo" class="nav-logo-img">
         </a>
 
         <!-- Links -->
@@ -420,7 +425,7 @@
     <section class="section" id="about">
         <div class="about-container">
             <div class="about-img-wrapper" data-aos="fade-right">
-                <img src="img/WhatsApp Image 2025-11-23 at 14.41.56_fbac80e4.jpg" alt="Daya Homeopathy Clinic">
+                <img src="img/WhatsApp%20Image%202025-11-23%20at%2014.41.56_fbac80e4.jpg" alt="Daya Homeopathy Clinic">
             </div>
             <div class="about-content" data-aos="fade-left">
                 <span class="section-header">Who We Are</span>
@@ -443,25 +448,26 @@
             <p style="color:var(--text-gray); font-size: 0.95rem; font-weight: 500;">(Click cards to see details)</p>
         </div>
 
+        <!-- NOTE: All Image paths have %20 instead of space to fix broken images -->
         <div class="spec-grid">
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/allerfy astma.jpeg', 'Allergy, Asthma')">
-                <div class="spec-img-box"><img src="img/allerfy astma.jpeg" alt="Allergy & Asthma"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/allerfy%20astma.jpeg', 'Allergy, Asthma')">
+                <div class="spec-img-box"><img src="img/allerfy%20astma.jpeg" alt="Allergy & Asthma"></div>
                 <div class="spec-title-box"><div class="spec-name">Allergy, Asthma</div></div>
             </div>
             <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Migraine.jpeg', 'Migraine')">
                 <div class="spec-img-box"><img src="img/Migraine.jpeg" alt="Migraine"></div>
                 <div class="spec-title-box"><div class="spec-name">Migraine</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Child Health.jpeg', 'Child Health')">
-                <div class="spec-img-box"><img src="img/Child Health.jpeg" alt="Child Health"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Child%20Health.jpeg', 'Child Health')">
+                <div class="spec-img-box"><img src="img/Child%20Health.jpeg" alt="Child Health"></div>
                 <div class="spec-title-box"><div class="spec-name">Child Health</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/WhatsApp Image 2025-11-23 at 16.53.33_d898cf4d.jpg', 'Female Disorders')">
-                <div class="spec-img-box"><img src="img/WhatsApp Image 2025-11-23 at 16.53.33_d898cf4d.jpg" alt="Female Disorders"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg', 'Female Disorders')">
+                <div class="spec-img-box"><img src="img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg" alt="Female Disorders"></div>
                 <div class="spec-title-box"><div class="spec-name">Female Disorders</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Infertility Male & Female.jpeg', 'Infertility (M&F)')">
-                <div class="spec-img-box"><img src="img/Infertility Male & Female.jpeg" alt="Infertility"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Infertility%20Male%20&%20Female.jpeg', 'Infertility (M&F)')">
+                <div class="spec-img-box"><img src="img/Infertility%20Male%20&%20Female.jpeg" alt="Infertility"></div>
                 <div class="spec-title-box"><div class="spec-name">Infertility (M&F)</div></div>
             </div>
             <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Eczema.jpeg', 'Eczema')">
@@ -472,36 +478,36 @@
                 <div class="spec-img-box"><img src="img/Depression.jpeg" alt="Depression"></div>
                 <div class="spec-title-box"><div class="spec-name">Depression</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Acidity, Ulcer.jpeg', 'Acidity, Ulcer')">
-                <div class="spec-img-box"><img src="img/Acidity, Ulcer.jpeg" alt="Acidity"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Acidity,%20Ulcer.jpeg', 'Acidity, Ulcer')">
+                <div class="spec-img-box"><img src="img/Acidity,%20Ulcer.jpeg" alt="Acidity"></div>
                 <div class="spec-title-box"><div class="spec-name">Acidity, Ulcer</div></div>
             </div>
             <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Arthritis.jpeg', 'Arthritis')">
                 <div class="spec-img-box"><img src="img/Arthritis.jpeg" alt="Arthritis"></div>
                 <div class="spec-title-box"><div class="spec-name">Arthritis</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Cancer Support.jpeg', 'Cancer Support')">
-                <div class="spec-img-box"><img src="img/Cancer Support.jpeg" alt="Cancer Support"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Cancer%20Support.jpeg', 'Cancer Support')">
+                <div class="spec-img-box"><img src="img/Cancer%20Support.jpeg" alt="Cancer Support"></div>
                 <div class="spec-title-box"><div class="spec-name">Cancer Support</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Old age Problems.jpeg', 'Old Age Problems')">
-                <div class="spec-img-box"><img src="img/Old age Problems.jpeg" alt="Old Age"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Old%20age%20Problems.jpeg', 'Old Age Problems')">
+                <div class="spec-img-box"><img src="img/Old%20age%20Problems.jpeg" alt="Old Age"></div>
                 <div class="spec-title-box"><div class="spec-name">Old Age Problems</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Hair fall treatment.jpeg', 'Hair Fall Treatment')">
-                <div class="spec-img-box"><img src="img/Hair fall treatment.jpeg" alt="Hair Fall"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Hair%20fall%20treatment.jpeg', 'Hair Fall Treatment')">
+                <div class="spec-img-box"><img src="img/Hair%20fall%20treatment.jpeg" alt="Hair Fall"></div>
                 <div class="spec-title-box"><div class="spec-name">Hair Fall Treatment</div></div>
             </div>
             <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Epilepsy.jpeg', 'Epilepsy')">
                 <div class="spec-img-box"><img src="img/Epilepsy.jpeg" alt="Epilepsy"></div>
                 <div class="spec-title-box"><div class="spec-name">Epilepsy</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Piles & Fissures.jpeg', 'Piles & Fissures')">
-                <div class="spec-img-box"><img src="img/Piles & Fissures.jpeg" alt="Piles"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Piles%20&%20Fissures.jpeg', 'Piles & Fissures')">
+                <div class="spec-img-box"><img src="img/Piles%20&%20Fissures.jpeg" alt="Piles"></div>
                 <div class="spec-title-box"><div class="spec-name">Piles & Fissures</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Kidney Stone.jpeg', 'Kidney Stone')">
-                <div class="spec-img-box"><img src="img/Kidney Stone.jpeg" alt="Kidney Stone"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Kidney%20Stone.jpeg', 'Kidney Stone')">
+                <div class="spec-img-box"><img src="img/Kidney%20Stone.jpeg" alt="Kidney Stone"></div>
                 <div class="spec-title-box"><div class="spec-name">Kidney Stone</div></div>
             </div>
             <div class="spec-card" data-aos="fade-up" onclick="openModal('img/BPH.jpeg', 'BPH (Prostate)')">
@@ -512,8 +518,8 @@
                 <div class="spec-img-box"><img src="img/pcod.jpeg" alt="PCOD"></div>
                 <div class="spec-title-box"><div class="spec-name">PCOD</div></div>
             </div>
-            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Counselling service.jpeg', 'Counselling Service')">
-                <div class="spec-img-box"><img src="img/Counselling service.jpeg" alt="Counselling"></div>
+            <div class="spec-card" data-aos="fade-up" onclick="openModal('img/Counselling%20service.jpeg', 'Counselling Service')">
+                <div class="spec-img-box"><img src="img/Counselling%20service.jpeg" alt="Counselling"></div>
                 <div class="spec-title-box"><div class="spec-name">Counselling Service</div></div>
             </div>
         </div>
@@ -543,7 +549,7 @@
             <!-- Doctor 1 -->
             <div class="doc-simple-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="doc-img-box">
-                    <img src="img/Dr vp m ashraaf.jpg" alt="Dr VPM. ASHRAF">
+                    <img src="img/Dr%20vp%20m%20ashraaf.jpg" alt="Dr VPM. ASHRAF">
                 </div>
                 <div class="doc-content">
                     <h3 class="doc-name">Dr VPM. ASHRAF</h3>
@@ -558,7 +564,7 @@
             <!-- Doctor 2 -->
             <div class="doc-simple-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="doc-img-box">
-                    <img src="img/dr jaseela.jpg" alt="Dr VP Jaseela">
+                    <img src="img/dr%20jaseela.jpg" alt="Dr VP Jaseela">
                 </div>
                 <div class="doc-content">
                     <h3 class="doc-name">Dr VP Jaseela</h3>
@@ -675,7 +681,7 @@
     <!-- ANIMATED PROMO IMAGE SECTION -->
     <section class="promo-banner-section" data-aos="fade-up">
         <div class="promo-animate-box">
-            <img src="img/poster daya.jpg" alt="Daya Homeopathy Flyer">
+            <img src="img/poster%20daya.jpg" alt="Daya Homeopathy Flyer">
         </div>
     </section>
     <!-- ANIMATED PROMO IMAGE SECTION -->
@@ -731,15 +737,25 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // Preloader
-        window.onload = function() {
+        // Safely Initialize Scripts to avoid passive listener warnings
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. Remove Preloader
             setTimeout(function() {
                 var preloader = document.getElementById('preloader');
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-                AOS.init({ duration: 1000, once: true });
-            }, 1000); 
-        };
+                if(preloader) {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                }
+                
+                // 2. Initialize AOS late to prevent scroll locking
+                AOS.init({ 
+                    duration: 1000, 
+                    once: true,
+                    disable: 'mobile' // Optional: Disables animation on mobile to fix all scroll warnings
+                });
+            }, 500);
+        });
 
         // Mobile Menu Toggle
         function toggleMenu() { 
@@ -789,5 +805,6 @@
     </script>
 </body>
 </html>
+
 
 
