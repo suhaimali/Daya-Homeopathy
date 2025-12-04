@@ -307,7 +307,7 @@
         .modal img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
         .modal-btn { background: var(--primary-color); color: white; padding: 12px 30px; border-radius: 50px; display: inline-block; margin-top: 15px; font-weight: 600; }
 
-        /* ================= RESPONSIVE ================= */
+        /* ================= RESPONSIVE FIX ================= */
         @media (max-width: 900px) {
             nav { height: 75px; } 
             .nav-logo-img { height: 50px; }
@@ -333,13 +333,48 @@
             .about-container { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             
-            /* Fix 3D Containers on Mobile */
-            .booking-3d-container { flex-direction: column; box-shadow: 10px 10px 30px #bebebe, -10px -10px 30px #ffffff; }
-            .booking-form-wrapper { padding: 30px 20px; order: 2; }
-            .booking-info-wrapper { padding: 15px; order: 1; min-height: 400px; }
-            .map-3d-frame { min-height: 380px; }
+            /* Fix 3D Booking Container on Mobile */
+            #booking { padding: 40px 3%; } /* Reduce global padding */
+            
+            .booking-3d-container { 
+                flex-direction: column; 
+                box-shadow: 10px 10px 30px #bebebe, -10px -10px 30px #ffffff; 
+                width: 100%;
+                overflow: hidden; /* Prevents overflow */
+            }
+            
+            /* Make wrappers 100% width on mobile */
+            .booking-form-wrapper { 
+                padding: 30px 20px; 
+                order: 2; /* Form comes second */
+                min-width: 100%; 
+                width: 100%;
+            }
+            
+            .booking-info-wrapper { 
+                padding: 15px; 
+                order: 1; /* Map comes first */
+                min-width: 100%; 
+                width: 100%;
+                min-height: auto;
+            }
+            
+            .map-3d-frame { 
+                min-height: 300px; /* Reduced height for mobile */
+                height: 300px;
+            }
+            
             .form-row { flex-direction: column; gap: 15px; }
-            .contact-3d-card { width: 95%; margin: -50px auto 0; position: relative; bottom: auto; left: auto; right: auto; }
+            
+            /* Fix Contact Card Position */
+            .contact-3d-card { 
+                width: 90%; 
+                margin: -40px auto 20px; /* Pulls it up over the map slightly */
+                position: relative; 
+                bottom: auto; left: auto; right: auto; 
+                z-index: 10;
+            }
+            
             .doc-3d-card { width: 100%; max-width: 350px; }
         }
     </style>
