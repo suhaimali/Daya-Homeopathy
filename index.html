@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Icons / FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -64,6 +65,7 @@
 
         .nav-logo-img { height: 65px; padding: 5px 0; object-fit: contain; }
         
+        /* Centered Links Logic */
         .nav-center { flex: 2; display: flex; justify-content: center; }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a.link-item { font-weight: 600; color: var(--text-dark); padding: 5px 0; position: relative; font-size: 1rem; }
@@ -88,14 +90,16 @@
         .hero { 
             position: relative; 
             min-height: 85vh; 
-            display: flex; align-items: center; justify-content: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; /* Ensures content is centered */
             text-align: center; 
-            background: #f4f9f4; /* Very light tint */
+            background: #f4f9f4; 
             overflow: hidden; 
             padding: 40px 20px; 
         }
 
-        .bubbles-3d { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; }
+        .bubbles-3d { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
         .bubble { position: absolute; border-radius: 50%; bottom: -150px; animation: bubbleFloat 15s infinite ease-in-out; opacity: 0.8; }
         .b1 { left: 10%; width: 80px; height: 80px; background: linear-gradient(135deg, #a5d6a7, #2e7d32); animation-duration: 12s; } 
         .b2 { left: 25%; width: 40px; height: 40px; background: linear-gradient(135deg, #fff59d, #fbc02d); animation-duration: 18s; animation-delay: 2s; }
@@ -107,7 +111,7 @@
 
         @keyframes bubbleFloat { 0% { transform: translateY(0) scale(1); opacity: 0; } 20% { opacity: 0.8; } 50% { transform: translateY(-50vh) scale(1.1); } 100% { transform: translateY(-110vh) scale(1); opacity: 0; } }
 
-        .hero-text { position: relative; z-index: 2; }
+        .hero-text { position: relative; z-index: 2; margin-top: -20px; }
         .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); color: var(--primary-color); margin-bottom: 15px; text-shadow: 2px 2px 0px #fff; line-height: 1.2; }
         .hero h2 { font-size: clamp(1.1rem, 3vw, 1.8rem); color: var(--accent-color); margin-bottom: 20px; font-weight: 700; }
         .welcome-badge { background: white; color: var(--primary-color); padding: 6px 18px; border-radius: 30px; border: 1px solid var(--primary-color); display: inline-block; margin-bottom: 15px; font-weight: 700; font-size: 0.9rem; }
@@ -253,6 +257,7 @@
             .nav-logo-img { height: 50px; }
             .nav-right { display: none; } 
             
+            /* Toggle aligned right */
             .mobile-toggle { display: block; margin-left: auto; } 
             
             /* Mobile Menu Styles */
@@ -265,7 +270,7 @@
                 border-top: 2px solid var(--primary-color);
                 transform: translateY(-150%); 
                 transition: transform 0.4s ease-in-out;
-                z-index: 999;
+                z-index: 998;
             }
             .nav-center.active { transform: translateY(0); } 
             
@@ -461,6 +466,7 @@
                 <div class="spec-title-box">PCOD</div>
             </div>
 
+            <!-- FIXED HERE: Psychology text update -->
             <div class="spec-card" onclick="openModal('img/Counselling%20service.jpeg', 'Counselling service' )">
                 <div class="spec-img-box"><img src="img/Counselling%20service.jpeg" alt="Counselling service"></div>
                 <div class="spec-title-box">Counselling Service</div>
@@ -483,7 +489,7 @@
                 <div class="doc-qual"><strong>BSc, DHMS, BAc, PhD</strong><br>Expert Treatment Guidelines</div>
             </div>
             <div class="doc-3d-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="doc-3d-img-box"><img src="img/dr jessy.jpg" alt="Dr VP Jaseela"></div>
+                <div class="doc-3d-img-box"><img src="img/doctor.png" alt="Dr VP Jaseela"></div>
                 <h3 class="doc-name">Dr VP Jaseela</h3>
                 <div class="doc-role">Consultant Physician</div>
                 <div class="doc-qual"><strong>BHMS, PGDPC</strong><br>Homeopath & Psychologist</div>
@@ -499,7 +505,7 @@
                 <div class="form-header-new">
                     <span style="color:var(--primary-color); font-weight:700; text-transform:uppercase; letter-spacing:1px; font-size:0.8rem;">Online Consultation</span>
                     <h3>Book Appointment</h3>
-                    <p>Fill the form to connect directly with Dr. Ashraf via WhatsApp.</p>
+                    <p>Fill the form below to start a WhatsApp chat with us for booking your appointment.</p>
                 </div>
                 
                 <form id="whatsappForm">
@@ -512,9 +518,10 @@
                     </div>
 
                     <!-- Date & Time Row -->
+                    <!-- FIXED HERE: Time input removed required attribute -->
                     <div class="modern-input-group" style="display:flex; gap:10px;">
                         <input type="date" id="pDate" class="modern-input" style="flex:1; cursor:pointer;" required>
-                        <input type="time" id="pTime" class="modern-input" style="flex:1; cursor:pointer;" required>
+                        <input type="time" id="pTime" class="modern-input" style="flex:1; cursor:pointer;"> 
                     </div>
 
                     <div class="modern-input-group" style="display:flex; gap:10px;">
@@ -539,7 +546,8 @@
                             <option value="Child Health">Child Health</option>
                             <option value="Gastric">Gastric / Ulcer</option>
                             <option value="Piles">Piles</option>
-                            <option value="Psychology">Counselling Service</option>
+                            <!-- FIXED HERE: Changed value from Psychology to Counselling Service -->
+                            <option value="Counselling Service">Counselling Service</option>
                             <option value="Other">Other Problem</option>
                         </select>
                     </div>
@@ -583,9 +591,12 @@
         </div>
     </section>
 
-    <!-- PROMO SECTION (ADDED BACK) -->
+    <!-- PROMO SECTION -->
     <section class="promo-banner-section" data-aos="fade-up">
         <div class="promo-animate-box"><img src="img/poster%20daya.jpg" alt="Poster"></div>
+    </section>
+    <section class="promo-banner-section" data-aos="fade-up">
+        <div class="promo-animate-box"><img src="img/online.jpg" alt="Poster"></div>
     </section>
 
     <!-- FOOTER -->
@@ -706,16 +717,19 @@
             const place = document.getElementById('pPlace').value.trim();
             const phone = document.getElementById('pPhone').value.trim();
             const date = document.getElementById('pDate').value;
-            const time = document.getElementById('pTime').value;
+            // FIXED HERE: Time is optional, handle empty
+            const timeInput = document.getElementById('pTime').value;
+            const time = timeInput ? timeInput : "Not Specified";
+            
             const code = document.getElementById('pCode').value;
             const symptom = document.getElementById('pSymptomDrop').value;
             const extra = document.getElementById('pExtra').value;
 
-            // 2. Strict Validation with Warning Alert (OK Button)
-            if (!name || !place || !phone || !date || !time) {
+            // 2. Strict Validation (Removed Time from required check)
+            if (!name || !place || !phone || !date) {
                 Swal.fire({
                     title: 'Incomplete Details',
-                    text: 'Please fill in all required fields.',
+                    text: 'Please fill in Name, Place, Phone and Date.',
                     icon: 'warning',
                     confirmButtonColor: '#d33',
                     confirmButtonText: 'OK'
@@ -724,6 +738,7 @@
             }
 
             // 3. Format WhatsApp Message
+            // Now 'symptom' variable holds "Counselling Service" if selected
             const fullPhone = code + " " + phone;
             let issueText = symptom ? "Selected Symptom: " + symptom : "General Inquiry";
             
@@ -732,6 +747,8 @@
                 `Name: ${name}%0a` +
                 `Phone: ${fullPhone}%0a` +
                 `Place: ${place}%0a` +
+                `Date: ${date}%0a` +
+                `Time: ${time}%0a` +
                 `Issue: ${issueText}` + 
                 (extra ? `%0aNote: ${extra}` : ``);
 
