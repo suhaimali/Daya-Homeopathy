@@ -187,11 +187,25 @@
         .btn-whatsapp-modern:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); }
 
         .booking-right-map { flex: 1; position: relative; background: var(--primary-dark); min-height: 450px; }
-        .map-overlay-info { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 25px; border-radius: 25px 25px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
-        .info-grid-new { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        /* Map Overlay */
+        .map-overlay-info { 
+            position: absolute; bottom: 0; left: 0; width: 100%; 
+            background: rgba(255, 255, 255, 0.95); /* White Background */
+            backdrop-filter: blur(10px); 
+            padding: 25px; 
+            border-radius: 25px 25px 0 0; 
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1); 
+        }
+        
+        .info-grid-new { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .info-item-new { margin-bottom: 8px; }
-        .info-item-new h5 { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 4px; font-weight: 700; letter-spacing: 1px; }
-        .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; line-height: 1.4; }
+        
+        /* Label Color (Gray) */
+        .info-item-new h5 { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+        
+        /* Value Color (Dark) */
+        .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; line-height: 1.4; padding-left: 2px; }
 
         /* ================= PROMO BANNER SECTION ================= */
         .promo-banner-section { padding: 50px 5%; background: #e8f5e9; text-align: center; }
@@ -212,8 +226,10 @@
         .footer-social-row { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
         .footer-soc-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
         .footer-soc-btn:hover { background: var(--primary-color); transform: translateY(-3px); }
-        .footer-contact-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.9rem; }
-        .footer-contact-item i { color: var(--primary-color); margin-top: 5px; font-size: 0.9rem; }
+        
+        .footer-contact-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.9rem; align-items: flex-start; }
+        .footer-contact-item i { color: var(--primary-color); margin-top: 5px; font-size: 0.9rem; flex-shrink: 0; }
+        
         .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
 
         /* ================= FLOATING UI & CHAT ================= */
@@ -271,10 +287,20 @@
             .mobile-socials { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
             
             .about-container { grid-template-columns: 1fr; }
+            
+            /* Responsive Booking Section */
             .booking-modern-container { flex-direction: column; }
             .booking-left-form { padding: 30px 20px; order: 1; }
             .booking-right-map { order: 2; min-height: 400px; }
-            .map-overlay-info { position: relative; border-radius: 0; background: white; padding: 25px; }
+            
+            /* Fix for Map Overlay on Mobile (Stack it below map instead of absolute) */
+            .map-overlay-info { 
+                position: relative; 
+                border-radius: 0; 
+                background: white; /* White bg for mobile too */
+                padding: 30px; 
+            }
+            
             .info-grid-new { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero { padding: 30px 15px; }
@@ -570,19 +596,22 @@
                 <div class="map-overlay-info">
                     <div class="info-grid-new">
                         <div class="info-item-new">
-                            <h5>Location</h5>
+                            <h5><i class="fa-solid fa-location-dot"></i> Location</h5>
                             <p>Pathappiriyam, Edavanna<br>Malappuram, Kerala</p>
                         </div>
                         <div class="info-item-new">
-                            <h5>Contact</h5>
+                            <h5><i class="fa-solid fa-phone"></i> Contact</h5>
                             <p>+91 99475 76123</p>
                         </div>
                         <div class="info-item-new">
-                            <h5>Timing</h5>
-                            <p>09:30 AM - 02:00 PM</p>
+                            <h5><i class="fa-regular fa-clock"></i> Timing</h5>
+                            <p>Mon-Sat: 09:30 AM - 02:00 PM</p>
+                            <p style="color:#000000; margin-top:5px; font-weight:700; display:flex; align-items:center; gap:5px;">
+                                <i class="fa-solid fa-circle-xmark" style="color: #d32f2f;"></i> Sunday: Holiday
+                            </p>
                         </div>
                         <div class="info-item-new">
-                            <h5>Email</h5>
+                            <h5><i class="fa-solid fa-envelope"></i> Email</h5>
                             <p style="font-size:0.9rem; word-break:break-all;">dayahomeopathyclinic@gmail.com</p>
                         </div>
                     </div>
@@ -638,7 +667,12 @@
                 </div>
                 <div class="footer-contact-item">
                     <i class="fa-regular fa-clock"></i>
-                    <span>Mon-Sat: 09:30 - 02:00</span>
+                    <div>
+                        <span>Mon-Sat: 09:30 - 02:00</span><br>
+                        <span style="color: #ffffff; display:flex; align-items:center; gap:5px; margin-top:2px;">
+                            <i class="fa-solid fa-circle-xmark" style="color: #d32f2f;"></i> Sunday: Holiday
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
