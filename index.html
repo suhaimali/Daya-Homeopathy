@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- ================= SEO POWER PACK ================= -->
-    <title>Daya Homeopathy | Best Homeopathic Clinic in Kerala | Since 1979</title>
-    <meta name="description" content="Daya Homeopathy (Est. 1979) is the best homeopathic clinic in Malappuram, Kerala. Experts in Allergy, Infertility, PCOD, Migraine & Child Health. Dr. VPM Ashraf.">
+    <!-- SEO & Title -->
+    <title>Daya Homeopathy | Best Homeopathic Clinic in Kerala</title>
+    <meta name="description" content="Daya Homeopathy (Est. 1979) - Best Homeopathic Clinic in Malappuram, Kerala. Experts in Allergy, Infertility, PCOD & Migraine.">
     <meta name="theme-color" content="#2E7D32">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Daya Homeopathy | Real Health & Peace of Mind">
-    <meta property="og:image" content="https://www.dayahomeopathy.com/img/logo.png">
 
-    <!-- ================= FAVICON ================= -->
-    <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="img/logo.png">
-
-    <!-- ================= FONTS & ICONS ================= -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -39,7 +30,7 @@
             --gradient-chat: linear-gradient(135deg, #11998e, #38ef7d);
         }
 
-        /* RESET & GLOBAL */
+        /* ================= RESET & GLOBAL ================= */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { overflow-x: hidden; width: 100%; scroll-behavior: smooth; }
         body { font-family: 'Outfit', sans-serif; color: var(--text-dark); background-color: var(--bg-body); padding-top: 80px; }
@@ -52,7 +43,7 @@
         .loader-spinner { width: 60px; height: 60px; border: 5px solid #eee; border-top: 5px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* ================= NAV ================= */
+        /* ================= NAVIGATION (RESPONSIVE) ================= */
         nav {
             position: fixed; top: 0; left: 0; width: 100%; height: 80px;
             background: #ffffff; 
@@ -62,8 +53,9 @@
             padding: 0 5%; z-index: 9999;
         }
 
-        .nav-logo-img { height: 65px; padding: 5px 0; object-fit: contain; }
+        .nav-logo-img { height: 60px; object-fit: contain; }
         
+        /* Desktop Menu */
         .nav-center { flex: 2; display: flex; justify-content: center; }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a.link-item { font-weight: 600; color: var(--text-dark); padding: 5px 0; position: relative; font-size: 1rem; }
@@ -81,10 +73,12 @@
         .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
         .em { background: linear-gradient(135deg, #EA4335, #c5221f); }
         
-        .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); }
+        /* Mobile Elements */
+        .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); margin-left: auto; }
         .mobile-socials { display: none; }
+        .mobile-menu-content { display: none; }
 
-        /* ================= HERO ================= */
+        /* ================= HERO SECTION ================= */
         .hero { 
             position: relative; 
             min-height: 85vh; 
@@ -95,16 +89,13 @@
             padding: 40px 20px; 
         }
 
+        /* 3D Bubbles Animation */
         .bubbles-3d { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
         .bubble { position: absolute; border-radius: 50%; bottom: -150px; animation: bubbleFloat 15s infinite ease-in-out; opacity: 0.8; }
         .b1 { left: 10%; width: 80px; height: 80px; background: linear-gradient(135deg, #a5d6a7, #2e7d32); animation-duration: 12s; } 
         .b2 { left: 25%; width: 40px; height: 40px; background: linear-gradient(135deg, #fff59d, #fbc02d); animation-duration: 18s; animation-delay: 2s; }
         .b3 { left: 40%; width: 100px; height: 100px; background: linear-gradient(135deg, #90caf9, #1976d2); animation-duration: 20s; animation-delay: 5s; opacity: 0.6; }
         .b4 { left: 65%; width: 60px; height: 60px; background: linear-gradient(135deg, #ef9a9a, #c62828); animation-duration: 15s; animation-delay: 1s; }
-        .b5 { left: 85%; width: 90px; height: 90px; background: linear-gradient(135deg, #ce93d8, #7b1fa2); animation-duration: 22s; animation-delay: 3s; }
-        .b6 { left: 55%; width: 30px; height: 30px; background: linear-gradient(135deg, #80cbc4, #00695c); animation-duration: 10s; animation-delay: 6s; }
-        .b7 { left: 15%; width: 20px; height: 20px; background: linear-gradient(135deg, #ffe082, #ff6f00); animation-duration: 25s; animation-delay: 4s; }
-
         @keyframes bubbleFloat { 0% { transform: translateY(0) scale(1); opacity: 0; } 20% { opacity: 0.8; } 50% { transform: translateY(-50vh) scale(1.1); } 100% { transform: translateY(-110vh) scale(1); opacity: 0; } }
 
         .hero-text { position: relative; z-index: 2; margin-top: -20px; }
@@ -112,7 +103,7 @@
         .hero h2 { font-size: clamp(1.1rem, 3vw, 1.8rem); color: var(--accent-color); margin-bottom: 20px; font-weight: 700; }
         .welcome-badge { background: white; color: var(--primary-color); padding: 6px 18px; border-radius: 30px; border: 1px solid var(--primary-color); display: inline-block; margin-bottom: 15px; font-weight: 700; font-size: 0.9rem; }
 
-        /* ================= SECTIONS ================= */
+        /* ================= SECTIONS GENERAL ================= */
         .section { padding: 50px 8%; }
         .section-header { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color); display: block; font-size: 0.85rem; margin-bottom: 5px; }
         .section-title { font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--text-dark); margin-bottom: 20px; }
@@ -123,49 +114,20 @@
         .about-img-wrapper img { width: 100%; border-radius: 20px; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
 
         /* ================= SPECIALTIES GRID ================= */
-        .spec-grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 5px 0;
-        }
-
-        .spec-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.03);
-            display: flex; flex-direction: column; position: relative;
-        }
-
+        .spec-grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 5px 0; }
+        .spec-card { background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); display: flex; flex-direction: column; }
         .spec-card:nth-child(4n+1) { border-bottom: 3px solid #F9A825; } 
         .spec-card:nth-child(4n+2) { border-bottom: 3px solid #03A9F4; } 
         .spec-card:nth-child(4n+3) { border-bottom: 3px solid #E91E63; } 
         .spec-card:nth-child(4n+4) { border-bottom: 3px solid #4CAF50; } 
-
         .spec-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .spec-card:nth-child(4n+1):hover .spec-title-box { background: #fffde7; color: #F57F17; }
-        .spec-card:nth-child(4n+2):hover .spec-title-box { background: #e1f5fe; color: #0288D1; }
-        .spec-card:nth-child(4n+3):hover .spec-title-box { background: #fce4ec; color: #C2185B; }
-        .spec-card:nth-child(4n+4):hover .spec-title-box { background: #e8f5e9; color: #388E3C; }
-
         .spec-img-box { width: 100%; height: 130px; overflow: hidden; background: #f1f1f1; }
         .spec-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .spec-card:hover .spec-img-box img { transform: scale(1.1); }
+        .spec-title-box { padding: 12px 10px; text-align: center; font-weight: 600; color: var(--text-dark); font-size: 0.9rem; background: white; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
 
-        .spec-title-box { padding: 12px 10px; text-align: center; font-weight: 600; color: var(--text-dark); font-size: 0.9rem; background: white; flex-grow: 1; display: flex; align-items: center; justify-content: center; transition: background 0.3s, color 0.3s; }
-
-        @media (min-width: 768px) {
-            .spec-grid-container { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-            .spec-img-box { height: 160px; }
-            .spec-title-box { font-size: 1rem; padding: 15px; }
-        }
-        @media (min-width: 1024px) {
-            .spec-grid-container { grid-template-columns: repeat(4, 1fr); }
-        }
+        @media (min-width: 768px) { .spec-grid-container { grid-template-columns: repeat(3, 1fr); gap: 20px; } .spec-img-box { height: 160px; } }
+        @media (min-width: 1024px) { .spec-grid-container { grid-template-columns: repeat(4, 1fr); } }
 
         /* ================= DOCTORS ================= */
         #doctors { background-color: var(--bg-3d); padding: 50px 5%; }
@@ -195,51 +157,40 @@
         .booking-right-map { flex: 1; position: relative; background: var(--primary-dark); min-height: 450px; }
         .map-overlay-info { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 25px; border-radius: 25px 25px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
         .info-grid-new { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .info-item-new { margin-bottom: 8px; }
-        .info-item-new h5 { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 4px; font-weight: 700; letter-spacing: 1px; }
-        .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; line-height: 1.4; }
+        .info-item-new h5 { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 4px; font-weight: 700; }
+        .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; }
 
-        /* ================= PROMO BANNER SECTION ================= */
+        /* ================= PROMO & FOOTER ================= */
         .promo-banner-section { padding: 50px 5%; background: #e8f5e9; text-align: center; }
         .promo-animate-box { max-width: 100%; margin: 0 auto; display: flex; justify-content: center; }
-        .promo-animate-box img { max-width: 100%; width: auto; max-height: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-        .promo-animate-box img:hover { transform: translateY(-5px); }
+        .promo-animate-box img { max-width: 100%; width: auto; max-height: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        /* ================= FOOTER ================= */
         footer { background: #1a262b; color: #d1d1d1; padding: 40px 5% 20px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 30px; margin-bottom: 25px; }
         .footer-col h4 { color: white; margin-bottom: 15px; font-size: 1.1rem; font-family: 'Playfair Display', serif; position: relative; padding-bottom: 8px; }
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: var(--primary-color); }
-        .footer-col p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; color: #b0bec5; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 8px; }
-        .footer-col ul li a { color: #d1d1d1; font-size: 0.9rem; display: block; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--primary-color); padding-left: 5px; }
         .footer-social-row { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
-        .footer-soc-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
-        .footer-soc-btn:hover { background: var(--primary-color); transform: translateY(-3px); }
+        .footer-soc-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
+        .footer-soc-btn:hover { background: var(--primary-color); }
         .footer-contact-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.9rem; }
-        .footer-contact-item i { color: var(--primary-color); margin-top: 5px; font-size: 0.9rem; }
         .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
 
-        /* ================= FLOATING UI & CHAT ================= */
-        .scroll-to-top { position: fixed; bottom: 25px; left: 25px; width: 45px; height: 45px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 3px 8px rgba(0,0,0,0.25); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; cursor: pointer; }
+        /* ================= FLOATING & MODAL ================= */
+        .scroll-to-top { position: fixed; bottom: 25px; left: 25px; width: 45px; height: 45px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 3px 8px rgba(0,0,0,0.25); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; }
         .scroll-to-top.show { opacity: 1; visibility: visible; }
 
         .chat-launcher { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366, #128c7e); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; cursor: pointer; z-index: 2001; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); animation: pulse-green 2s infinite; }
         @keyframes pulse-green { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        .chat-widget { position: fixed; bottom: 100px; right: 25px; width: 300px; background: #ffffff; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 2000; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.9); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+        .chat-widget { position: fixed; bottom: 100px; right: 25px; width: 300px; background: #ffffff; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 2000; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.9); transition: all 0.4s; overflow: hidden; }
         .chat-widget.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
         .chat-widget-header { background: var(--gradient-chat); color: white; padding: 18px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-widget-header h4 { font-size: 1rem; margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; }
-        .chat-close-btn { cursor: pointer; font-size: 1.4rem; opacity: 0.8; transition:0.3s; }
         .chat-widget-body { padding: 20px; text-align: center; }
-        .chat-avatar-3d { width: 60px; height: 60px; margin: 0 auto 12px; background: linear-gradient(145deg, #ffffff, #e6e6e6); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff; color: var(--primary-color); font-size: 1.8rem; }
-        .btn-chat { background: var(--gradient-chat); color: white; padding: 12px; border-radius: 40px; display: block; margin-top: 12px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(17, 153, 142, 0.3); transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-chat:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(17, 153, 142, 0.4); }
+        .chat-avatar-3d { width: 60px; height: 60px; margin: 0 auto 12px; background: linear-gradient(145deg, #ffffff, #e6e6e6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 1.8rem; }
+        .btn-chat { background: var(--gradient-chat); color: white; padding: 12px; border-radius: 40px; display: block; margin-top: 12px; font-weight: 600; font-size: 0.95rem; }
 
-        /* ================= MODAL ================= */
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 20px; }
         .modal-content { background: white; width: 100%; max-width: 400px; border-radius: 20px; padding: 30px; text-align: center; position: relative; animation: popUp 0.3s ease; }
         @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -247,14 +198,14 @@
         .modal img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
         .modal-btn { background: var(--primary-color); color: white; padding: 12px 30px; border-radius: 50px; display: inline-block; margin-top: 15px; font-weight: 600; }
 
-        /* ================= RESPONSIVE FIX (TOGGLE & LAYOUT) ================= */
+        /* ================= MOBILE BREAKPOINTS (900px) ================= */
         @media (max-width: 900px) {
-            nav { height: 75px; } 
+            nav { height: 75px; padding: 0 5%; } 
             .nav-logo-img { height: 50px; }
-            .nav-right { display: none; } 
+            .nav-right { display: none; } /* Hide Desktop Socials */
             
             /* Toggle aligned right */
-            .mobile-toggle { display: block; margin-left: auto; } 
+            .mobile-toggle { display: block; } 
             
             /* Mobile Menu Styles */
             .nav-center { 
@@ -264,26 +215,31 @@
                 padding: 30px 0; 
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
                 border-top: 2px solid var(--primary-color);
-                transform: translateY(-150%); 
+                transform: translateY(-150%); /* Hidden by default */
                 transition: transform 0.4s ease-in-out;
                 z-index: 998;
+                justify-content: flex-start;
+                height: auto;
             }
-            .nav-center.active { transform: translateY(0); } 
+            .nav-center.active { transform: translateY(0); } /* Show when active */
             
-            .nav-links { flex-direction: column; gap: 15px; width: 100%; }
-            .nav-links a.link-item { width: 100%; display: block; padding: 10px; text-align: center; font-size: 1.1rem; border-bottom: 1px solid #f5f5f5; }
+            .nav-links { flex-direction: column; gap: 0; width: 100%; }
+            .nav-links a.link-item { width: 100%; display: block; padding: 15px; text-align: center; font-size: 1.1rem; border-bottom: 1px solid #f5f5f5; }
             
-            .mobile-menu-content { display: block; margin-top: 25px; width: 100%; }
+            /* Show Socials inside Mobile Menu */
+            .mobile-menu-content { display: block; width: 100%; padding: 20px 0; }
             .mobile-socials { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
             
+            /* Layout Adjustments */
             .about-container { grid-template-columns: 1fr; }
             .booking-modern-container { flex-direction: column; }
             .booking-left-form { padding: 30px 20px; order: 1; }
-            .booking-right-map { order: 2; min-height: 400px; }
-            .map-overlay-info { position: relative; border-radius: 0; background: white; padding: 25px; }
+            .booking-right-map { order: 2; min-height: 400px; } /* Ensure map is visible on mobile */
+            .map-overlay-info { position: relative; border-radius: 0; background: white; padding: 25px; box-shadow: none; border-top: 1px solid #eee; }
             .info-grid-new { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero { padding: 30px 15px; }
+            .hero { padding: 30px 15px; min-height: 80vh; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -296,7 +252,7 @@
     <nav>
         <div class="nav-left"><a href="#home"><img src="img/dh%20logo.png" alt="Logo" class="nav-logo-img"></a></div>
         
-        <!-- Toggle Button -->
+        <!-- Toggle Button for Mobile -->
         <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
 
         <!-- Menu Links -->
@@ -308,7 +264,7 @@
                 <li><a href="#doctors" class="link-item" onclick="toggleMenu()">Doctors</a></li>
                 <li><a href="#booking" class="link-item" onclick="toggleMenu()">Appointment</a></li>
                 
-                <!-- Socials for Mobile Menu -->
+                <!-- Socials (Only Visible in Mobile Menu) -->
                 <li class="mobile-menu-content">
                     <div class="mobile-socials">
                         <a href="tel:+919947576123" class="social-circle ph"><i class="fa-solid fa-phone"></i></a>
@@ -321,7 +277,7 @@
             </ul>
         </div>
         
-        <!-- Desktop Right Socials -->
+        <!-- Desktop Right Socials (Hidden on Mobile) -->
         <div class="nav-right">
             <a href="tel:+919947576123" class="social-circle ph"><i class="fa-solid fa-phone"></i></a>
             <a href="https://wa.me/919947576123" class="social-circle wa"><i class="fa-brands fa-whatsapp"></i></a>
@@ -333,15 +289,9 @@
 
     <!-- Hero -->
     <section class="hero" id="home">
-        <!-- 3D Colorful Bubbles -->
         <div class="bubbles-3d">
-            <div class="bubble b1"></div>
-            <div class="bubble b2"></div>
-            <div class="bubble b3"></div>
-            <div class="bubble b4"></div>
-            <div class="bubble b5"></div>
-            <div class="bubble b6"></div>
-            <div class="bubble b7"></div>
+            <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
+            <div class="bubble b4"></div><div class="bubble b5"></div><div class="bubble b6"></div>
         </div>
 
         <div class="hero-text" data-aos="zoom-in">
@@ -376,97 +326,79 @@
         </div>
 
         <div class="spec-grid-container" data-aos="fade-up">
-            
+            <!-- Grid Items -->
             <div class="spec-card" onclick="openModal('img/allerfy%20astma.jpeg', 'Allergy, Asthma')">
                 <div class="spec-img-box"><img src="img/allerfy%20astma.jpeg" alt="Allergy"></div>
                 <div class="spec-title-box">Allergy, Asthma</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Migraine.jpeg', 'Migraine')">
                 <div class="spec-img-box"><img src="img/Migraine.jpeg" alt="Migraine"></div>
                 <div class="spec-title-box">Migraine</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Child%20Health.jpeg', 'Child Health')">
                 <div class="spec-img-box"><img src="img/Child%20Health.jpeg" alt="Child Health"></div>
                 <div class="spec-title-box">Child Health</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg', 'Female Disorders')">
                 <div class="spec-img-box"><img src="img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg" alt="Female Disorders"></div>
                 <div class="spec-title-box">Female Disorders</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Infertility%20Male%20&%20Female.jpeg', 'Infertility')">
                 <div class="spec-img-box"><img src="img/Infertility%20Male%20&%20Female.jpeg" alt="Infertility"></div>
                 <div class="spec-title-box">Infertility (M&F)</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Eczema.jpeg', 'Eczema')">
                 <div class="spec-img-box"><img src="img/Eczema.jpeg" alt="Eczema"></div>
                 <div class="spec-title-box">Eczema</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Depression.jpeg', 'Depression')">
                 <div class="spec-img-box"><img src="img/Depression.jpeg" alt="Depression"></div>
                 <div class="spec-title-box">Depression</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Acidity,%20Ulcer.jpeg', 'Acidity, Ulcer')">
                 <div class="spec-img-box"><img src="img/Acidity,%20Ulcer.jpeg" alt="Acidity, Ulcer"></div>
                 <div class="spec-title-box">Acidity, Ulcer</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Arthritis.jpeg', 'Arthritis')">
                 <div class="spec-img-box"><img src="img/Arthritis.jpeg" alt="Arthritis"></div>
                 <div class="spec-title-box">Arthritis</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Cancer%20Support.jpeg', 'Cancer Support')">
                 <div class="spec-img-box"><img src="img/Cancer%20Support.jpeg" alt="Cancer Support"></div>
                 <div class="spec-title-box">Cancer Support</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Old%20age%20Problems.jpeg', 'Old Age Problems')">
                 <div class="spec-img-box"><img src="img/Old%20age%20Problems.jpeg" alt="Old Age Problems"></div>
                 <div class="spec-title-box">Old Age Problems</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Hair%20fall%20treatment.jpeg', 'Hair Fall Treatment')">
                 <div class="spec-img-box"><img src="img/Hair%20fall%20treatment.jpeg" alt="Hair Fall"></div>
                 <div class="spec-title-box">Hair Fall Treatment</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Epilepsy.jpeg', 'Epilepsy')">
                 <div class="spec-img-box"><img src="img/Epilepsy.jpeg" alt="Epilepsy"></div>
                 <div class="spec-title-box">Epilepsy</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Piles%20&%20Fissures.jpeg', 'Piles & Fissures')">
                 <div class="spec-img-box"><img src="img/Piles%20&%20Fissures.jpeg" alt="Piles & Fissures"></div>
                 <div class="spec-title-box">Piles & Fissures</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Kidney%20Stone.jpeg', 'Kidney Stone')">
                 <div class="spec-img-box"><img src="img/Kidney%20Stone.jpeg" alt="Kidney Stone"></div>
                 <div class="spec-title-box">Kidney Stone</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/BPH.jpeg', 'BPH')">
                 <div class="spec-img-box"><img src="img/BPH.jpeg" alt="BPH"></div>
                 <div class="spec-title-box">BPH (Prostate)</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/pcod.jpeg', 'PCOD')">
                 <div class="spec-img-box"><img src="img/pcod.jpeg" alt="PCOD"></div>
                 <div class="spec-title-box">PCOD</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Counselling%20service.jpeg', 'Counselling service' )">
                 <div class="spec-img-box"><img src="img/Counselling%20service.jpeg" alt="Counselling service"></div>
                 <div class="spec-title-box">Counselling Service</div>
             </div>
-
         </div>
     </section>
 
@@ -500,11 +432,11 @@
                 <div class="form-header-new">
                     <span style="color:var(--primary-color); font-weight:700; text-transform:uppercase; letter-spacing:1px; font-size:0.8rem;">Online Consultation</span>
                     <h3>Book Appointment</h3>
-                    <p>Fill the form below to start a WhatsApp chat with us for booking your appointment.</p>
+                    <p>Fill the form below to start a WhatsApp chat with us.</p>
                 </div>
                 
                 <form id="whatsappForm">
-                    <!-- Note: No 'required' attribute here. Validation is handled in JS below. -->
+                    <!-- Note: HTML validation (required) is removed. JS handles it. -->
                     <div class="modern-input-group">
                         <input type="text" id="pName" class="modern-input" placeholder="Patient Name (പേര്)">
                     </div>
@@ -680,7 +612,7 @@
         </div>
     </div>
 
-    <!-- Scripts (SweetAlert + Custom) -->
+    <!-- Scripts (SweetAlert + AOS + Logic) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
@@ -689,6 +621,7 @@
             // Remove Preloader
             setTimeout(() => { document.getElementById('preloader').style.opacity='0'; setTimeout(()=>document.getElementById('preloader').style.display='none',500); }, 500);
             
+            // Init Animations
             AOS.init({duration:1000, once:true});
             
             // Scroll & Chat Toggle
@@ -766,13 +699,14 @@
 
             // 5. Confirmation Alert & Success Flow
             Swal.fire({
-                title: 'Do you want to book an appointment?',
+                title: 'Confirm Booking?',
+                text: "This will open WhatsApp to send your details.",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#2E7D32',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'No'
+                confirmButtonText: 'Yes, Open WhatsApp',
+                cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Open WhatsApp
@@ -780,11 +714,11 @@
                     
                     // Show Success Alert
                     Swal.fire({
-                        title: 'Booked Successfully!',
-                        text: 'Please send the message in WhatsApp.',
+                        title: 'Done!',
+                        text: 'Please check your WhatsApp to send the message.',
                         icon: 'success',
                         confirmButtonColor: '#2E7D32',
-                        confirmButtonText: 'Done'
+                        confirmButtonText: 'OK'
                     });
                 }
             });
