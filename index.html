@@ -15,13 +15,16 @@
     <meta property="og:title" content="Daya Homeopathy | Real Health & Peace of Mind">
     <meta property="og:image" content="https://www.dayahomeopathy.com/img/logo.png">
 
+    <!-- ================= FAVICON ================= -->
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="img/logo.png">
+
     <!-- ================= FONTS & ICONS ================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="icon" href="img/logo.png">
 
     <style>
         /* ================= VARIABLES ================= */
@@ -33,12 +36,13 @@
             --text-gray: #607d8b;
             --bg-body: #FAFAFA;
             --bg-3d: #e0e5ec;
+            --gradient-chat: linear-gradient(135deg, #11998e, #38ef7d);
         }
 
         /* RESET & GLOBAL */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { overflow-x: hidden; width: 100%; scroll-behavior: smooth; }
-        body { font-family: 'Outfit', sans-serif; color: var(--text-dark); background-color: var(--bg-body); padding-top: 90px; }
+        body { font-family: 'Outfit', sans-serif; color: var(--text-dark); background-color: var(--bg-body); padding-top: 80px; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
         img { max-width: 100%; height: auto; display: block; }
         a { text-decoration: none; transition: 0.3s; color: inherit; }
@@ -48,26 +52,29 @@
         .loader-spinner { width: 60px; height: 60px; border: 5px solid #eee; border-top: 5px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* ================= NAV (FIXED) ================= */
+        /* ================= NAV ================= */
         nav {
-            position: fixed; top: 0; left: 0; width: 100%; height: 90px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
             background: #ffffff; 
             border-top: 4px solid var(--primary-color); 
             box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 0 5%; z-index: 9999;
         }
-        .nav-logo-img { height: 75px; padding: 5px 0; object-fit: contain; }
+
+        .nav-logo-img { height: 65px; padding: 5px 0; object-fit: contain; }
+        
         .nav-center { flex: 2; display: flex; justify-content: center; }
-        .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a.link-item { font-weight: 600; color: var(--text-dark); padding: 5px 0; position: relative; font-size: 1rem; }
         .nav-links a.link-item:hover { color: var(--primary-color); }
+        .nav-links a.link-item::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background: var(--primary-color); transition: 0.3s; }
+        .nav-links a.link-item:hover::after { width: 100%; }
         
         .nav-right { flex: 1; display: flex; justify-content: flex-end; gap: 8px; }
-        .social-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .social-circle { width: 35px; height: 35px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
         .social-circle:hover { transform: translateY(-3px); }
         
-        /* Icon Colors */
         .ph { background: linear-gradient(135deg, #00cdac, #02aab0); } 
         .wa { background: linear-gradient(135deg, #25D366, #128c7e); } 
         .fb { background: linear-gradient(135deg, #1877F2, #1659b1); } 
@@ -75,156 +82,162 @@
         .em { background: linear-gradient(135deg, #EA4335, #c5221f); }
         
         .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); }
-        .mobile-menu-content { display: none; } 
+        .mobile-socials { display: none; }
 
         /* ================= HERO ================= */
-        .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(-45deg, #e8f5e9, #ffffff, #c8e6c9); background-size: 400% 400%; animation: gradientBG 15s infinite; padding: 50px 20px; position: relative; overflow: hidden; }
-        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--primary-color); margin-bottom: 20px; text-shadow: 2px 2px 0px #fff; }
-        .hero h2 { font-size: clamp(1.2rem, 3vw, 2rem); color: var(--accent-color); margin-bottom: 25px; font-weight: 700; }
-        .welcome-badge { background: white; color: var(--primary-color); padding: 8px 20px; border-radius: 30px; border: 1px solid var(--primary-color); display: inline-block; margin-bottom: 20px; font-weight: 700; }
+        .hero { 
+            position: relative; 
+            min-height: 85vh; 
+            display: flex; align-items: center; justify-content: center; 
+            text-align: center; 
+            background: #f4f9f4; /* Very light tint */
+            overflow: hidden; 
+            padding: 40px 20px; 
+        }
+
+        .bubbles-3d { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; }
+        .bubble { position: absolute; border-radius: 50%; bottom: -150px; animation: bubbleFloat 15s infinite ease-in-out; opacity: 0.8; }
+        .b1 { left: 10%; width: 80px; height: 80px; background: linear-gradient(135deg, #a5d6a7, #2e7d32); animation-duration: 12s; } 
+        .b2 { left: 25%; width: 40px; height: 40px; background: linear-gradient(135deg, #fff59d, #fbc02d); animation-duration: 18s; animation-delay: 2s; }
+        .b3 { left: 40%; width: 100px; height: 100px; background: linear-gradient(135deg, #90caf9, #1976d2); animation-duration: 20s; animation-delay: 5s; opacity: 0.6; }
+        .b4 { left: 65%; width: 60px; height: 60px; background: linear-gradient(135deg, #ef9a9a, #c62828); animation-duration: 15s; animation-delay: 1s; }
+        .b5 { left: 85%; width: 90px; height: 90px; background: linear-gradient(135deg, #ce93d8, #7b1fa2); animation-duration: 22s; animation-delay: 3s; }
+        .b6 { left: 55%; width: 30px; height: 30px; background: linear-gradient(135deg, #80cbc4, #00695c); animation-duration: 10s; animation-delay: 6s; }
+        .b7 { left: 15%; width: 20px; height: 20px; background: linear-gradient(135deg, #ffe082, #ff6f00); animation-duration: 25s; animation-delay: 4s; }
+
+        @keyframes bubbleFloat { 0% { transform: translateY(0) scale(1); opacity: 0; } 20% { opacity: 0.8; } 50% { transform: translateY(-50vh) scale(1.1); } 100% { transform: translateY(-110vh) scale(1); opacity: 0; } }
+
+        .hero-text { position: relative; z-index: 2; }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); color: var(--primary-color); margin-bottom: 15px; text-shadow: 2px 2px 0px #fff; line-height: 1.2; }
+        .hero h2 { font-size: clamp(1.1rem, 3vw, 1.8rem); color: var(--accent-color); margin-bottom: 20px; font-weight: 700; }
+        .welcome-badge { background: white; color: var(--primary-color); padding: 6px 18px; border-radius: 30px; border: 1px solid var(--primary-color); display: inline-block; margin-bottom: 15px; font-weight: 700; font-size: 0.9rem; }
 
         /* ================= SECTIONS ================= */
-        .section { padding: 80px 8%; }
-        .section-header { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color); display: block; font-size: 0.9rem; }
-        .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--text-dark); margin-bottom: 25px; }
-        .text-content { font-size: 1rem; line-height: 1.8; color: var(--text-gray); text-align: justify; }
+        .section { padding: 50px 8%; }
+        .section-header { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color); display: block; font-size: 0.85rem; margin-bottom: 5px; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--text-dark); margin-bottom: 20px; }
+        .text-content { font-size: 1rem; line-height: 1.7; color: var(--text-gray); text-align: justify; }
 
         /* ================= ABOUT ================= */
-        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
         .about-img-wrapper img { width: 100%; border-radius: 20px; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
 
-        /* ================= SPECIALTIES GRID (NEW) ================= */
+        /* ================= SPECIALTIES GRID ================= */
         .spec-grid-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 Columns on Mobile */
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            padding: 10px 0;
+            padding: 5px 0;
         }
 
         .spec-card {
             background: #ffffff;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex; flex-direction: column; position: relative;
         }
 
-        .spec-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(46, 125, 50, 0.15);
-        }
+        .spec-card:nth-child(4n+1) { border-bottom: 3px solid #F9A825; } 
+        .spec-card:nth-child(4n+2) { border-bottom: 3px solid #03A9F4; } 
+        .spec-card:nth-child(4n+3) { border-bottom: 3px solid #E91E63; } 
+        .spec-card:nth-child(4n+4) { border-bottom: 3px solid #4CAF50; } 
 
-        .spec-img-box {
-            width: 100%;
-            height: 150px; /* Uniform Height */
-            overflow: hidden;
-            background: #f1f1f1;
-        }
-        
-        .spec-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .spec-card:hover .spec-img-box img {
-            transform: scale(1.1);
-        }
+        .spec-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .spec-card:nth-child(4n+1):hover .spec-title-box { background: #fffde7; color: #F57F17; }
+        .spec-card:nth-child(4n+2):hover .spec-title-box { background: #e1f5fe; color: #0288D1; }
+        .spec-card:nth-child(4n+3):hover .spec-title-box { background: #fce4ec; color: #C2185B; }
+        .spec-card:nth-child(4n+4):hover .spec-title-box { background: #e8f5e9; color: #388E3C; }
 
-        .spec-title-box {
-            padding: 15px 10px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-        }
+        .spec-img-box { width: 100%; height: 130px; overflow: hidden; background: #f1f1f1; }
+        .spec-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .spec-card:hover .spec-img-box img { transform: scale(1.1); }
+
+        .spec-title-box { padding: 12px 10px; text-align: center; font-weight: 600; color: var(--text-dark); font-size: 0.9rem; background: white; flex-grow: 1; display: flex; align-items: center; justify-content: center; transition: background 0.3s, color 0.3s; }
 
         @media (min-width: 768px) {
-            .spec-grid-container {
-                grid-template-columns: repeat(3, 1fr); /* 3 Columns on Tablet */
-                gap: 25px;
-            }
-            .spec-img-box { height: 180px; }
-            .spec-title-box { font-size: 1.1rem; padding: 20px; }
+            .spec-grid-container { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .spec-img-box { height: 160px; }
+            .spec-title-box { font-size: 1rem; padding: 15px; }
         }
-
         @media (min-width: 1024px) {
-            .spec-grid-container {
-                grid-template-columns: repeat(4, 1fr); /* 4 Columns on Desktop */
-            }
+            .spec-grid-container { grid-template-columns: repeat(4, 1fr); }
         }
 
         /* ================= DOCTORS ================= */
-        #doctors { background-color: var(--bg-3d); padding: 80px 5%; }
-        .doctors-wrapper { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
-        .doc-3d-card { width: 350px; max-width: 100%; background: var(--bg-3d); border-radius: 30px; padding: 25px; box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; transition: 0.4s; text-align: center; }
-        .doc-3d-card:hover { transform: translateY(-10px); }
-        .doc-3d-img-box { width: 100%; height: 350px; border-radius: 20px; box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff; padding: 10px; margin-bottom: 20px; }
-        .doc-3d-img-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; border: 2px solid var(--bg-3d); object-position: top; }
-        .doc-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 700; }
-        .doc-role { color: var(--primary-color); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
-        .doc-qual { background: var(--bg-3d); padding: 15px; border-radius: 15px; font-size: 0.9rem; color: var(--text-gray); box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff; }
+        #doctors { background-color: var(--bg-3d); padding: 50px 5%; }
+        .doctors-wrapper { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
+        .doc-3d-card { width: 320px; max-width: 100%; background: var(--bg-3d); border-radius: 25px; padding: 20px; box-shadow: 15px 15px 40px #bebebe, -15px -15px 40px #ffffff; transition: 0.4s; text-align: center; }
+        .doc-3d-card:hover { transform: translateY(-8px); }
+        .doc-3d-img-box { width: 100%; height: 320px; border-radius: 15px; box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff; padding: 8px; margin-bottom: 15px; }
+        .doc-3d-img-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border: 2px solid var(--bg-3d); object-position: top; }
+        .doc-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 700; }
+        .doc-role { color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
 
         /* ================= BOOKING ================= */
-        #booking { background: #f4f7f6; padding: 80px 5%; }
-        .booking-modern-container { max-width: 1200px; margin: 0 auto; background: #ffffff; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); display: flex; overflow: hidden; }
-        .booking-left-form { flex: 1.2; padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; }
-        .form-header-new h3 { font-size: 2.2rem; color: var(--text-dark); margin-bottom: 10px; }
-        .form-header-new p { color: var(--text-gray); margin-bottom: 30px; font-size: 1rem; }
-        .modern-input-group { position: relative; margin-bottom: 25px; }
-        .modern-input { width: 100%; padding: 15px 0; font-size: 1rem; color: var(--text-dark); border: none; border-bottom: 2px solid #e0e0e0; outline: none; background: transparent; transition: 0.3s; font-family: 'Outfit', sans-serif; }
+        #booking { background: #f4f7f6; padding: 50px 5%; }
+        .booking-modern-container { max-width: 1200px; margin: 0 auto; background: #ffffff; border-radius: 25px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); display: flex; overflow: hidden; flex-direction: row; }
+        .booking-left-form { flex: 1.2; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; }
+        .form-header-new h3 { font-size: 2rem; color: var(--text-dark); margin-bottom: 8px; }
+        .form-header-new p { color: var(--text-gray); margin-bottom: 25px; font-size: 0.95rem; }
+        
+        .modern-input-group { position: relative; margin-bottom: 20px; }
+        .modern-input { width: 100%; padding: 12px 0; font-size: 0.95rem; color: var(--text-dark); border: none; border-bottom: 2px solid #e0e0e0; outline: none; background: transparent; transition: 0.3s; font-family: 'Outfit', sans-serif; }
         .modern-input:focus { border-bottom-color: var(--primary-color); }
-        .select-modern { background: #f9f9f9; padding: 15px; border-radius: 10px; border: 1px solid #eee; width: 100%; color: var(--text-dark); outline: none; cursor: pointer; }
-        .btn-whatsapp-modern { width: 100%; padding: 18px; background: linear-gradient(135deg, #25D366, #128c7e); color: white; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
-        .btn-whatsapp-modern:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
-        .booking-right-map { flex: 1; position: relative; background: var(--primary-dark); min-height: 500px; }
-        .map-overlay-info { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 30px; border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
-        .info-grid-new { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .info-item-new h5 { font-size: 0.9rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 5px; }
-        .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 1rem; }
+        .select-modern { background: #f9f9f9; padding: 12px; border-radius: 8px; border: 1px solid #eee; width: 100%; color: var(--text-dark); outline: none; cursor: pointer; font-size: 0.95rem; }
+        
+        .btn-whatsapp-modern { width: 100%; padding: 15px; background: linear-gradient(135deg, #25D366, #128c7e); color: white; font-size: 1rem; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.3); transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 5px; }
+        .btn-whatsapp-modern:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); }
+
+        .booking-right-map { flex: 1; position: relative; background: var(--primary-dark); min-height: 450px; }
+        .map-overlay-info { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 25px; border-radius: 25px 25px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
+        .info-grid-new { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .info-item-new { margin-bottom: 8px; }
+        .info-item-new h5 { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 4px; font-weight: 700; letter-spacing: 1px; }
+        .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; line-height: 1.4; }
+
+        /* ================= PROMO BANNER SECTION ================= */
+        .promo-banner-section { padding: 50px 5%; background: #e8f5e9; text-align: center; }
+        .promo-animate-box { max-width: 100%; margin: 0 auto; display: flex; justify-content: center; }
+        .promo-animate-box img { max-width: 100%; width: auto; max-height: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        .promo-animate-box img:hover { transform: translateY(-5px); }
 
         /* ================= FOOTER ================= */
-        footer { background: #1a262b; color: #d1d1d1; padding: 60px 5% 30px; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1.5fr 1fr; gap: 40px; margin-bottom: 35px; }
-        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.2rem; font-family: 'Playfair Display', serif; position: relative; padding-bottom: 10px; }
+        footer { background: #1a262b; color: #d1d1d1; padding: 40px 5% 20px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 30px; margin-bottom: 25px; }
+        .footer-col h4 { color: white; margin-bottom: 15px; font-size: 1.1rem; font-family: 'Playfair Display', serif; position: relative; padding-bottom: 8px; }
         .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: var(--primary-color); }
-        .footer-col p { font-size: 0.95rem; line-height: 1.8; margin-bottom: 15px; color: #b0bec5; }
+        .footer-col p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; color: #b0bec5; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { color: #d1d1d1; font-size: 0.95rem; display: block; transition: 0.3s; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { color: #d1d1d1; font-size: 0.9rem; display: block; transition: 0.3s; }
         .footer-col ul li a:hover { color: var(--primary-color); padding-left: 5px; }
-        .footer-contact-item { display: flex; gap: 15px; margin-bottom: 15px; }
-        .footer-contact-item i { color: var(--primary-color); margin-top: 5px; }
-        .footer-social-row { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .footer-soc-btn { width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
+        .footer-social-row { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+        .footer-soc-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
         .footer-soc-btn:hover { background: var(--primary-color); transform: translateY(-3px); }
-        .footer-treatments-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .ft-item { font-size: 0.85rem; color: #cfd8dc; display: flex; align-items: center; gap: 8px; transition:0.3s; cursor: default; }
-        .ft-item:hover { color: white; }
-        .ft-item i { color: var(--primary-color); font-size: 0.7rem; }
-        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.7; }
-        .promo-banner-section { padding: 40px 5%; background: #e8f5e9; text-align: center; }
-        .promo-animate-box img { border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 100%; max-width: 600px; margin: 0 auto; }
+        .footer-contact-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.9rem; }
+        .footer-contact-item i { color: var(--primary-color); margin-top: 5px; font-size: 0.9rem; }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
 
-        /* ================= FLOATING ================= */
-        .scroll-to-top { position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 3px 8px rgba(0,0,0,0.25); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; cursor: pointer; }
+        /* ================= FLOATING UI & CHAT ================= */
+        .scroll-to-top { position: fixed; bottom: 25px; left: 25px; width: 45px; height: 45px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 3px 8px rgba(0,0,0,0.25); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; cursor: pointer; }
         .scroll-to-top.show { opacity: 1; visibility: visible; }
-        .chat-widget { position: fixed; bottom: 100px; right: 30px; width: 300px; background: #ffffff; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000; opacity: 0; visibility: hidden; transform: translateY(25px); transition: 0.3s; }
-        .chat-launcher { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; cursor: pointer; z-index: 2001; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .chat-widget.show { opacity: 1; visibility: visible; transform: translateY(0); }
-        .chat-widget-header { background: var(--primary-color); color: white; padding: 15px; border-radius: 15px 15px 0 0; display: flex; justify-content: space-between; align-items: center; }
+
+        .chat-launcher { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366, #128c7e); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; cursor: pointer; z-index: 2001; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        .chat-widget { position: fixed; bottom: 100px; right: 25px; width: 300px; background: #ffffff; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 2000; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.9); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
+        .chat-widget.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+        .chat-widget-header { background: var(--gradient-chat); color: white; padding: 18px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-widget-header h4 { font-size: 1rem; margin: 0; font-family: 'Outfit', sans-serif; font-weight: 600; }
+        .chat-close-btn { cursor: pointer; font-size: 1.4rem; opacity: 0.8; transition:0.3s; }
         .chat-widget-body { padding: 20px; text-align: center; }
+        .chat-avatar-3d { width: 60px; height: 60px; margin: 0 auto 12px; background: linear-gradient(145deg, #ffffff, #e6e6e6); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff; color: var(--primary-color); font-size: 1.8rem; }
+        .btn-chat { background: var(--gradient-chat); color: white; padding: 12px; border-radius: 40px; display: block; margin-top: 12px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(17, 153, 142, 0.3); transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-chat:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(17, 153, 142, 0.4); }
 
         /* ================= MODAL ================= */
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 20px; }
@@ -234,26 +247,42 @@
         .modal img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
         .modal-btn { background: var(--primary-color); color: white; padding: 12px 30px; border-radius: 50px; display: inline-block; margin-top: 15px; font-weight: 600; }
 
-        /* ================= RESPONSIVE FIX ================= */
+        /* ================= RESPONSIVE FIX (TOGGLE & LAYOUT) ================= */
         @media (max-width: 900px) {
             nav { height: 75px; } 
             .nav-logo-img { height: 50px; }
             .nav-right { display: none; } 
-            .mobile-toggle { display: block; margin-left: auto; }
-            .nav-center { display: none; position: fixed; top: 75px; left: 0; width: 100%; background: white; flex-direction: column; padding: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 2px solid var(--primary-color); }
-            .nav-center.active { display: flex; }
+            
+            .mobile-toggle { display: block; margin-left: auto; } 
+            
+            /* Mobile Menu Styles */
+            .nav-center { 
+                display: flex; flex-direction: column; 
+                position: fixed; top: 75px; left: 0; width: 100%; 
+                background: white; 
+                padding: 30px 0; 
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+                border-top: 2px solid var(--primary-color);
+                transform: translateY(-150%); 
+                transition: transform 0.4s ease-in-out;
+                z-index: 999;
+            }
+            .nav-center.active { transform: translateY(0); } 
+            
             .nav-links { flex-direction: column; gap: 15px; width: 100%; }
             .nav-links a.link-item { width: 100%; display: block; padding: 10px; text-align: center; font-size: 1.1rem; border-bottom: 1px solid #f5f5f5; }
+            
             .mobile-menu-content { display: block; margin-top: 25px; width: 100%; }
-            .mobile-socials { display: flex; gap: 15px; justify-content: center; }
+            .mobile-socials { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+            
             .about-container { grid-template-columns: 1fr; }
             .booking-modern-container { flex-direction: column; }
-            .booking-left-form { padding: 40px 25px; order: 1; }
+            .booking-left-form { padding: 30px 20px; order: 1; }
             .booking-right-map { order: 2; min-height: 400px; }
-            .map-overlay-info { position: relative; border-radius: 0; background: white; }
+            .map-overlay-info { position: relative; border-radius: 0; background: white; padding: 25px; }
             .info-grid-new { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .footer-treatments-grid { grid-template-columns: 1fr 1fr; }
+            .hero { padding: 30px 15px; }
         }
     </style>
 </head>
@@ -266,8 +295,10 @@
     <nav>
         <div class="nav-left"><a href="#home"><img src="img/dh%20logo.png" alt="Logo" class="nav-logo-img"></a></div>
         
+        <!-- Toggle Button -->
         <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
 
+        <!-- Menu Links -->
         <div class="nav-center" id="navMenu">
             <ul class="nav-links">
                 <li><a href="#home" class="link-item" onclick="toggleMenu()">Home</a></li>
@@ -276,26 +307,42 @@
                 <li><a href="#doctors" class="link-item" onclick="toggleMenu()">Doctors</a></li>
                 <li><a href="#booking" class="link-item" onclick="toggleMenu()">Appointment</a></li>
                 
+                <!-- Socials for Mobile Menu -->
                 <li class="mobile-menu-content">
                     <div class="mobile-socials">
                         <a href="tel:+919947576123" class="social-circle ph"><i class="fa-solid fa-phone"></i></a>
                         <a href="https://wa.me/919947576123" class="social-circle wa"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/people/Daya-Homeopathy-Pathappiriyam/100095537707367/" class="social-circle fb"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dayahomeopathypathappiriyam" class="social-circle ig"><i class="fa-brands fa-instagram"></i></a>
                         <a href="mailto:dayahomeopathyclinic@gmail.com" class="social-circle em"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </li>
             </ul>
         </div>
         
+        <!-- Desktop Right Socials -->
         <div class="nav-right">
             <a href="tel:+919947576123" class="social-circle ph"><i class="fa-solid fa-phone"></i></a>
             <a href="https://wa.me/919947576123" class="social-circle wa"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="https://www.facebook.com/people/Daya-Homeopathy-Pathappiriyam/100095537707367/" class="social-circle fb"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/dayahomeopathypathappiriyam" class="social-circle ig"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:dayahomeopathyclinic@gmail.com" class="social-circle em"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero" id="home">
+        <!-- 3D Colorful Bubbles -->
+        <div class="bubbles-3d">
+            <div class="bubble b1"></div>
+            <div class="bubble b2"></div>
+            <div class="bubble b3"></div>
+            <div class="bubble b4"></div>
+            <div class="bubble b5"></div>
+            <div class="bubble b6"></div>
+            <div class="bubble b7"></div>
+        </div>
+
         <div class="hero-text" data-aos="zoom-in">
             <span class="welcome-badge">Est. 1979</span>
             <h1>Welcome to <br> Daya Homeopathy</h1>
@@ -319,7 +366,7 @@
         </div>
     </section>
 
-    <!-- SPECIALTIES SECTION (UPDATED GRID) -->
+    <!-- SPECIALTIES SECTION -->
     <section class="section" id="specialties">
         <div style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
             <span class="section-header">Comprehensive Care</span>
@@ -329,111 +376,93 @@
 
         <div class="spec-grid-container" data-aos="fade-up">
             
-            <!-- 1. Allergy, Asthma -->
             <div class="spec-card" onclick="openModal('img/allerfy%20astma.jpeg', 'Allergy, Asthma')">
                 <div class="spec-img-box"><img src="img/allerfy%20astma.jpeg" alt="Allergy"></div>
                 <div class="spec-title-box">Allergy, Asthma</div>
             </div>
 
-            <!-- 2. Migraine -->
             <div class="spec-card" onclick="openModal('img/Migraine.jpeg', 'Migraine')">
                 <div class="spec-img-box"><img src="img/Migraine.jpeg" alt="Migraine"></div>
                 <div class="spec-title-box">Migraine</div>
             </div>
 
-            <!-- 3. Child Health -->
             <div class="spec-card" onclick="openModal('img/Child%20Health.jpeg', 'Child Health')">
                 <div class="spec-img-box"><img src="img/Child%20Health.jpeg" alt="Child Health"></div>
                 <div class="spec-title-box">Child Health</div>
             </div>
 
-            <!-- 4. Female Disorders -->
             <div class="spec-card" onclick="openModal('img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg', 'Female Disorders')">
                 <div class="spec-img-box"><img src="img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg" alt="Female Disorders"></div>
                 <div class="spec-title-box">Female Disorders</div>
             </div>
 
-            <!-- 5. Infertility -->
             <div class="spec-card" onclick="openModal('img/Infertility%20Male%20&%20Female.jpeg', 'Infertility')">
                 <div class="spec-img-box"><img src="img/Infertility%20Male%20&%20Female.jpeg" alt="Infertility"></div>
                 <div class="spec-title-box">Infertility (M&F)</div>
             </div>
 
-            <!-- 6. Eczema -->
             <div class="spec-card" onclick="openModal('img/Eczema.jpeg', 'Eczema')">
                 <div class="spec-img-box"><img src="img/Eczema.jpeg" alt="Eczema"></div>
                 <div class="spec-title-box">Eczema</div>
             </div>
 
-            <!-- 7. Depression -->
             <div class="spec-card" onclick="openModal('img/Depression.jpeg', 'Depression')">
                 <div class="spec-img-box"><img src="img/Depression.jpeg" alt="Depression"></div>
                 <div class="spec-title-box">Depression</div>
             </div>
 
-            <!-- 8. Acidity, Ulcer -->
             <div class="spec-card" onclick="openModal('img/Acidity,%20Ulcer.jpeg', 'Acidity, Ulcer')">
                 <div class="spec-img-box"><img src="img/Acidity,%20Ulcer.jpeg" alt="Acidity, Ulcer"></div>
                 <div class="spec-title-box">Acidity, Ulcer</div>
             </div>
 
-            <!-- 9. Arthritis -->
             <div class="spec-card" onclick="openModal('img/Arthritis.jpeg', 'Arthritis')">
                 <div class="spec-img-box"><img src="img/Arthritis.jpeg" alt="Arthritis"></div>
                 <div class="spec-title-box">Arthritis</div>
             </div>
 
-            <!-- 10. Cancer Support -->
             <div class="spec-card" onclick="openModal('img/Cancer%20Support.jpeg', 'Cancer Support')">
                 <div class="spec-img-box"><img src="img/Cancer%20Support.jpeg" alt="Cancer Support"></div>
                 <div class="spec-title-box">Cancer Support</div>
             </div>
 
-            <!-- 11. Old Age Problems -->
             <div class="spec-card" onclick="openModal('img/Old%20age%20Problems.jpeg', 'Old Age Problems')">
                 <div class="spec-img-box"><img src="img/Old%20age%20Problems.jpeg" alt="Old Age Problems"></div>
                 <div class="spec-title-box">Old Age Problems</div>
             </div>
 
-            <!-- 12. Hair Fall -->
             <div class="spec-card" onclick="openModal('img/Hair%20fall%20treatment.jpeg', 'Hair Fall Treatment')">
                 <div class="spec-img-box"><img src="img/Hair%20fall%20treatment.jpeg" alt="Hair Fall"></div>
                 <div class="spec-title-box">Hair Fall Treatment</div>
             </div>
 
-            <!-- 13. Epilepsy -->
             <div class="spec-card" onclick="openModal('img/Epilepsy.jpeg', 'Epilepsy')">
                 <div class="spec-img-box"><img src="img/Epilepsy.jpeg" alt="Epilepsy"></div>
                 <div class="spec-title-box">Epilepsy</div>
             </div>
 
-            <!-- 14. Piles & Fissures -->
             <div class="spec-card" onclick="openModal('img/Piles%20&%20Fissures.jpeg', 'Piles & Fissures')">
                 <div class="spec-img-box"><img src="img/Piles%20&%20Fissures.jpeg" alt="Piles & Fissures"></div>
                 <div class="spec-title-box">Piles & Fissures</div>
             </div>
 
-            <!-- 15. Kidney Stone -->
             <div class="spec-card" onclick="openModal('img/Kidney%20Stone.jpeg', 'Kidney Stone')">
                 <div class="spec-img-box"><img src="img/Kidney%20Stone.jpeg" alt="Kidney Stone"></div>
                 <div class="spec-title-box">Kidney Stone</div>
             </div>
 
-            <!-- 16. BPH (Prostate) -->
             <div class="spec-card" onclick="openModal('img/BPH.jpeg', 'BPH')">
                 <div class="spec-img-box"><img src="img/BPH.jpeg" alt="BPH"></div>
                 <div class="spec-title-box">BPH (Prostate)</div>
             </div>
 
-            <!-- 17. PCOD -->
             <div class="spec-card" onclick="openModal('img/pcod.jpeg', 'PCOD')">
                 <div class="spec-img-box"><img src="img/pcod.jpeg" alt="PCOD"></div>
                 <div class="spec-title-box">PCOD</div>
             </div>
 
-            <!-- 18. Counselling -->
-            <div class="spec-card" onclick="openModal('img/Counselling%20service.jpeg', 'Counselling')">
-                <div class="spec-img-box"><img src="img/Counselling%20service.jpeg" alt="Counselling"></div>
+            <div class="spec-card" onclick="openModal('img/Counselling%20service.jpeg', 'Counselling service' )">
+                <div class="spec-img-box"><img src="img/Counselling%20service.jpeg" alt="Counselling service"></div>
                 <div class="spec-title-box">Counselling Service</div>
             </div>
 
@@ -454,7 +483,7 @@
                 <div class="doc-qual"><strong>BSc, DHMS, BAc, PhD</strong><br>Expert Treatment Guidelines</div>
             </div>
             <div class="doc-3d-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="doc-3d-img-box"><img src="img/dr jaseela.jpg" alt="Dr VP Jaseela"></div>
+                <div class="doc-3d-img-box"><img src="img/dr jessy.jpg" alt="Dr VP Jaseela"></div>
                 <h3 class="doc-name">Dr VP Jaseela</h3>
                 <div class="doc-role">Consultant Physician</div>
                 <div class="doc-qual"><strong>BHMS, PGDPC</strong><br>Homeopath & Psychologist</div>
@@ -462,7 +491,7 @@
         </div>
     </section>
 
-    <!-- BOOKING SECTION -->
+    <!-- BOOKING -->
     <section id="booking">
         <div class="booking-modern-container" data-aos="zoom-in">
             <!-- Left: Form -->
@@ -478,14 +507,18 @@
                         <input type="text" id="pName" class="modern-input" placeholder="Patient Name (പേര്)" required>
                     </div>
 
-                    <div class="modern-input-group" style="display:flex; gap:15px;">
-                        <div style="flex:1;">
-                            <input type="text" id="pPlace" class="modern-input" placeholder="Place (സ്ഥലം)" required>
-                        </div>
+                    <div class="modern-input-group">
+                        <input type="text" id="pPlace" class="modern-input" placeholder="Place (സ്ഥലം)" required>
+                    </div>
+
+                    <!-- Date & Time Row -->
+                    <div class="modern-input-group" style="display:flex; gap:10px;">
+                        <input type="date" id="pDate" class="modern-input" style="flex:1; cursor:pointer;" required>
+                        <input type="time" id="pTime" class="modern-input" style="flex:1; cursor:pointer;" required>
                     </div>
 
                     <div class="modern-input-group" style="display:flex; gap:10px;">
-                        <select id="pCode" class="modern-input" style="width:80px; border-bottom:2px solid #e0e0e0;">
+                        <select id="pCode" class="modern-input" style="width:80px; border-bottom:2px solid #e0e0e0; background:transparent;">
                             <option value="+91">🇮🇳 +91</option>
                             <option value="+971">🇦🇪 +971</option>
                             <option value="+966">🇸🇦 +966</option>
@@ -505,9 +538,14 @@
                             <option value="Skin">Skin Diseases</option>
                             <option value="Child Health">Child Health</option>
                             <option value="Gastric">Gastric / Ulcer</option>
-                            <option value="Psychology">Psychology / Counselling</option>
+                            <option value="Piles">Piles</option>
+                            <option value="Psychology">Counselling Service</option>
                             <option value="Other">Other Problem</option>
                         </select>
+                    </div>
+                    
+                    <div class="modern-input-group">
+                        <textarea id="pExtra" class="modern-input" placeholder="Any additional notes (optional)" rows="3" style="resize:none; border-bottom:2px solid #e0e0e0;"></textarea>
                     </div>
 
                     <button type="submit" class="btn-whatsapp-modern">
@@ -537,7 +575,7 @@
                         </div>
                         <div class="info-item-new">
                             <h5>Email</h5>
-                            <p style="font-size:0.8rem; word-break:break-all;">dayahomeopathyclinic@gmail.com</p>
+                            <p style="font-size:0.9rem; word-break:break-all;">dayahomeopathyclinic@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -545,7 +583,7 @@
         </div>
     </section>
 
-    <!-- Promos -->
+    <!-- PROMO SECTION (ADDED BACK) -->
     <section class="promo-banner-section" data-aos="fade-up">
         <div class="promo-animate-box"><img src="img/poster%20daya.jpg" alt="Poster"></div>
     </section>
@@ -553,7 +591,6 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
-            <!-- Col 1: Brand & Socials -->
             <div class="footer-col">
                 <h4>Daya Homeopathy</h4>
                 <p>Since 1979, we have been providing trusted homeopathic care for chronic and acute diseases. Your health is our priority.</p>
@@ -565,8 +602,6 @@
                     <a href="mailto:dayahomeopathyclinic@gmail.com" class="footer-soc-btn"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-
-            <!-- Col 2: Quick Links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
@@ -574,36 +609,8 @@
                     <li><a href="#specialties"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Specialties</a></li>
                     <li><a href="#doctors"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Meet Doctors</a></li>
                     <li><a href="#booking"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Book Appointment</a></li>
-                    <li><a href="https://wa.me/919947576123"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> WhatsApp Chat</a></li>
                 </ul>
             </div>
-
-            <!-- Col 3: Specialties List -->
-            <div class="footer-col" style="min-width: 250px;">
-                <h4>Treatments</h4>
-                <div class="footer-treatments-grid">
-                    <div class="ft-item"><i class="fas fa-lungs"></i> Allergy, Asthma</div>
-                    <div class="ft-item"><i class="fas fa-bolt"></i> Migraine</div>
-                    <div class="ft-item"><i class="fas fa-baby"></i> Child Health</div>
-                    <div class="ft-item"><i class="fas fa-venus"></i> Female Disorders</div>
-                    <div class="ft-item"><i class="fas fa-venus-mars"></i> Infertility</div>
-                    <div class="ft-item"><i class="fas fa-hand-dots"></i> Eczema</div>
-                    <div class="ft-item"><i class="fas fa-brain"></i> Depression</div>
-                    <div class="ft-item"><i class="fas fa-fire-burner"></i> Acidity, Ulcer</div>
-                    <div class="ft-item"><i class="fas fa-bone"></i> Arthritis</div>
-                    <div class="ft-item"><i class="fas fa-ribbon"></i> Cancer Support</div>
-                    <div class="ft-item"><i class="fas fa-person-cane"></i> Old Age Problems</div>
-                    <div class="ft-item"><i class="fas fa-spa"></i> Hair Fall</div>
-                    <div class="ft-item"><i class="fas fa-cloud-bolt"></i> Epilepsy</div>
-                    <div class="ft-item"><i class="far fa-circle-dot"></i> Piles & Fissures</div>
-                    <div class="ft-item"><i class="fas fa-notes-medical"></i> Kidney Stone</div>
-                    <div class="ft-item"><i class="fas fa-mars-stroke"></i> BPH (Prostate)</div>
-                    <div class="ft-item"><i class="fas fa-person-dress"></i> PCOD</div>
-                    <div class="ft-item"><i class="far fa-comments"></i> Counselling</div>
-                </div>
-            </div>
-
-            <!-- Col 4: Contact -->
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <div class="footer-contact-item">
@@ -632,14 +639,15 @@
     <div class="chat-launcher" id="chat-launcher"><i class="fas fa-comment-dots"></i></div>
     <div class="chat-widget" id="chat-widget">
         <div class="chat-widget-header">
-            <h4>Chat with Us</h4><span id="chat-close-btn" style="cursor:pointer;">&times;</span>
+            <h4><i class="fas fa-headset"></i> Support</h4>
+            <span class="chat-close-btn" id="chat-close-btn">&times;</span>
         </div>
         <div class="chat-widget-body">
-            <div class="icon-box-chat" style="font-size:2.5rem;color:var(--primary-color);margin-bottom:10px;"><i class="fas fa-user-doctor"></i></div>
-            <h5 style="margin-bottom:5px;">Welcome to Daya Homeopathy!</h5>
-            <p style="font-size:0.9rem;color:#666;">Have a question? We're here to help.</p>
-            <a href="https://wa.me/919947576123?text=Hello%20Daya%20Homeopathy" class="btn-chat" style="background:#25D366;color:white;padding:10px;border-radius:5px;display:block;margin-top:10px;">
-                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            <div class="chat-avatar-3d"><i class="fa-solid fa-user-doctor"></i></div>
+            <h5 style="color:#333; margin-bottom:5px;">Hello! 👋</h5>
+            <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">How can we help you today with your health concerns?</p>
+            <a href="https://wa.me/919947576123?text=Hello%20Daya%20Homeopathy" class="btn-chat">
+                <i class="fab fa-whatsapp"></i> Chat Now
             </a>
         </div>
     </div>
@@ -655,27 +663,25 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts (SweetAlert + Custom) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Remove Preloader
             setTimeout(() => { document.getElementById('preloader').style.opacity='0'; setTimeout(()=>document.getElementById('preloader').style.display='none',500); }, 500);
             
-            // Initialize Animation
             AOS.init({duration:1000, once:true});
             
-            // Scroll to Top Logic
+            // Scroll & Chat Toggle
             const scrollBtn = document.querySelector('.scroll-to-top');
             window.addEventListener('scroll', () => { scrollBtn.classList.toggle('show', window.scrollY > 300); });
-
-            // Chat Widget Toggle
             const chatLauncher = document.getElementById('chat-launcher');
             const chatWidget = document.getElementById('chat-widget');
             const chatClose = document.getElementById('chat-close-btn');
-            
-            chatLauncher.addEventListener('click', () => chatWidget.classList.toggle('show'));
-            chatClose.addEventListener('click', () => chatWidget.classList.remove('show'));
+            chatLauncher.addEventListener('click', () => { chatWidget.classList.add('show'); chatLauncher.style.transform='scale(0)'; });
+            chatClose.addEventListener('click', () => { chatWidget.classList.remove('show'); chatLauncher.style.transform='scale(1)'; });
         });
 
         // Toggle Navbar (Mobile)
@@ -691,27 +697,61 @@
         function closeBtn() { modal.style.display = "none"; }
         function closeModal(e) { if(e.target == modal) modal.style.display = "none"; }
 
-        // WhatsApp Form Logic
+        // === WHATSAPP + SWEETALERT VALIDATION LOGIC ===
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            var name = document.getElementById('pName').value;
-            var place = document.getElementById('pPlace').value;
-            var code = document.getElementById('pCode').value;
-            var phone = document.getElementById('pPhone').value;
-            var symptom = document.getElementById('pSymptomDrop').value;
             
-            var fullPhone = code + " " + phone;
-            var finalMsg = (symptom ? "Symptom: " + symptom : "General Inquiry");
+            // 1. Get Values
+            const name = document.getElementById('pName').value.trim();
+            const place = document.getElementById('pPlace').value.trim();
+            const phone = document.getElementById('pPhone').value.trim();
+            const date = document.getElementById('pDate').value;
+            const time = document.getElementById('pTime').value;
+            const code = document.getElementById('pCode').value;
+            const symptom = document.getElementById('pSymptomDrop').value;
+            const extra = document.getElementById('pExtra').value;
+
+            // 2. Strict Validation with Warning Alert (OK Button)
+            if (!name || !place || !phone || !date || !time) {
+                Swal.fire({
+                    title: 'Incomplete Details',
+                    text: 'Please fill in all required fields.',
+                    icon: 'warning',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+
+            // 3. Format WhatsApp Message
+            const fullPhone = code + " " + phone;
+            let issueText = symptom ? "Selected Symptom: " + symptom : "General Inquiry";
             
-            var url = "https://wa.me/919947576123?text=" 
-            + "*Name:* " + name + "%0a"
-            + "*Place:* " + place + "%0a"
-            + "*Phone:* " + fullPhone + "%0a"
-            + "*Inquiry:* " + finalMsg;
-            
-            window.open(url, '_blank');
+            const waText = 
+                `Hello Daya Homeopathy, I would like to book an appointment.%0a` +
+                `Name: ${name}%0a` +
+                `Phone: ${fullPhone}%0a` +
+                `Place: ${place}%0a` +
+                `Issue: ${issueText}` + 
+                (extra ? `%0aNote: ${extra}` : ``);
+
+            const waUrl = `https://wa.me/919947576123?text=${waText}`;
+
+            // 4. Confirmation Alert (Yes/No)
+            Swal.fire({
+                title: 'Do you want to book an appointment?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#2E7D32',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open(waUrl, '_blank');
+                }
+            });
         });
     </script>
 </body>
 </html>
-
