@@ -23,7 +23,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-    <!-- Google Icons / FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -65,7 +64,6 @@
 
         .nav-logo-img { height: 65px; padding: 5px 0; object-fit: contain; }
         
-        /* Centered Links Logic */
         .nav-center { flex: 2; display: flex; justify-content: center; }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a.link-item { font-weight: 600; color: var(--text-dark); padding: 5px 0; position: relative; font-size: 1rem; }
@@ -90,9 +88,7 @@
         .hero { 
             position: relative; 
             min-height: 85vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; /* Ensures content is centered */
+            display: flex; align-items: center; justify-content: center; 
             text-align: center; 
             background: #f4f9f4; 
             overflow: hidden; 
@@ -307,7 +303,8 @@
         <div class="nav-center" id="navMenu">
             <ul class="nav-links">
                 <li><a href="#home" class="link-item" onclick="toggleMenu()">Home</a></li>
-                <li><a href="#about" class="link-item" onclick="toggleMenu()">About Us</a></li>
+                <!-- UPDATED: Text is "About" -->
+                <li><a href="#about" class="link-item" onclick="toggleMenu()">About</a></li>
                 <li><a href="#specialties" class="link-item" onclick="toggleMenu()">Specialties</a></li>
                 <li><a href="#doctors" class="link-item" onclick="toggleMenu()">Doctors</a></li>
                 <li><a href="#booking" class="link-item" onclick="toggleMenu()">Appointment</a></li>
@@ -466,7 +463,7 @@
                 <div class="spec-title-box">PCOD</div>
             </div>
 
-            <!-- FIXED HERE: Psychology text update -->
+            <!-- UPDATED: Counselling Service -->
             <div class="spec-card" onclick="openModal('img/Counselling%20service.jpeg', 'Counselling service' )">
                 <div class="spec-img-box"><img src="img/Counselling%20service.jpeg" alt="Counselling service"></div>
                 <div class="spec-title-box">Counselling Service</div>
@@ -509,18 +506,18 @@
                 </div>
                 
                 <form id="whatsappForm">
+                    <!-- Removed 'required' attribute from all inputs to allow SweetAlert validation -->
                     <div class="modern-input-group">
-                        <input type="text" id="pName" class="modern-input" placeholder="Patient Name (പേര്)" required>
+                        <input type="text" id="pName" class="modern-input" placeholder="Patient Name (പേര്)">
                     </div>
 
                     <div class="modern-input-group">
-                        <input type="text" id="pPlace" class="modern-input" placeholder="Place (സ്ഥലം)" required>
+                        <input type="text" id="pPlace" class="modern-input" placeholder="Place (സ്ഥലം)">
                     </div>
 
                     <!-- Date & Time Row -->
-                    <!-- FIXED HERE: Time input removed required attribute -->
                     <div class="modern-input-group" style="display:flex; gap:10px;">
-                        <input type="date" id="pDate" class="modern-input" style="flex:1; cursor:pointer;" required>
+                        <input type="date" id="pDate" class="modern-input" style="flex:1; cursor:pointer;">
                         <input type="time" id="pTime" class="modern-input" style="flex:1; cursor:pointer;"> 
                     </div>
 
@@ -532,7 +529,7 @@
                             <option value="+974">🇶🇦 +974</option>
                             <option value="+965">🇰🇼 +965</option>
                         </select>
-                        <input type="tel" id="pPhone" class="modern-input" placeholder="Phone Number" style="flex:1;" required>
+                        <input type="tel" id="pPhone" class="modern-input" placeholder="Phone Number" style="flex:1;">
                     </div>
 
                     <div class="modern-input-group">
@@ -546,7 +543,7 @@
                             <option value="Child Health">Child Health</option>
                             <option value="Gastric">Gastric / Ulcer</option>
                             <option value="Piles">Piles</option>
-                            <!-- FIXED HERE: Changed value from Psychology to Counselling Service -->
+                            <!-- UPDATED: Counselling Service -->
                             <option value="Counselling Service">Counselling Service</option>
                             <option value="Other">Other Problem</option>
                         </select>
@@ -616,7 +613,8 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#about"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> About Us</a></li>
+                    <!-- UPDATED: Text is "About" -->
+                    <li><a href="#about"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> About</a></li>
                     <li><a href="#specialties"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Specialties</a></li>
                     <li><a href="#doctors"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Meet Doctors</a></li>
                     <li><a href="#booking"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Book Appointment</a></li>
@@ -717,7 +715,7 @@
             const place = document.getElementById('pPlace').value.trim();
             const phone = document.getElementById('pPhone').value.trim();
             const date = document.getElementById('pDate').value;
-            // FIXED HERE: Time is optional, handle empty
+            // Time is optional
             const timeInput = document.getElementById('pTime').value;
             const time = timeInput ? timeInput : "Not Specified";
             
@@ -725,11 +723,12 @@
             const symptom = document.getElementById('pSymptomDrop').value;
             const extra = document.getElementById('pExtra').value;
 
-            // 2. Strict Validation (Removed Time from required check)
+            // 2. Strict Validation with UPDATED Generic Message
+            // I removed the 'required' attribute from HTML so this JS alert shows up first
             if (!name || !place || !phone || !date) {
                 Swal.fire({
-                    title: 'Incomplete Details',
-                    text: 'Please fill in Name, Place, Phone and Date.',
+                    title: 'Missing Details',
+                    text: 'Please enter all required details.', // Generic warning
                     icon: 'warning',
                     confirmButtonColor: '#d33',
                     confirmButtonText: 'OK'
@@ -738,7 +737,6 @@
             }
 
             // 3. Format WhatsApp Message
-            // Now 'symptom' variable holds "Counselling Service" if selected
             const fullPhone = code + " " + phone;
             let issueText = symptom ? "Selected Symptom: " + symptom : "General Inquiry";
             
@@ -754,7 +752,7 @@
 
             const waUrl = `https://wa.me/919947576123?text=${waText}`;
 
-            // 4. Confirmation Alert (Yes/No)
+            // 4. Confirmation Alert & Success Flow
             Swal.fire({
                 title: 'Do you want to book an appointment?',
                 icon: 'question',
@@ -765,7 +763,17 @@
                 cancelButtonText: 'No'
             }).then((result) => {
                 if (result.isConfirmed) {
+                    // Open WhatsApp
                     window.open(waUrl, '_blank');
+                    
+                    // Show Success Alert immediately after confirming
+                    Swal.fire({
+                        title: 'Booked Successfully!',
+                        text: 'Please send the message in WhatsApp.',
+                        icon: 'success',
+                        confirmButtonColor: '#2E7D32',
+                        confirmButtonText: 'Done'
+                    });
                 }
             });
         });
