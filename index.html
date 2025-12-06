@@ -212,7 +212,7 @@
         .info-item-new h5 { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
         .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; line-height: 1.4; padding-left: 2px; }
 
-        /* HOLIDAY TEXT STYLE (GREEN) */
+        /* HOLIDAY TEXT STYLE (GREEN - IN BOOKING SECTION) */
         .holiday-green { color: var(--primary-color); font-weight: 700; display: flex; align-items: center; gap: 6px; margin-top: 5px; }
 
         /* ================= PROMO SECTION 3D ================= */
@@ -247,25 +247,12 @@
         .footer-soc-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
         .footer-soc-btn:hover { background: var(--primary-color); transform: translateY(-3px); }
         
-        .footer-contact-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 0.9rem; align-items: flex-start; }
-        .footer-contact-item i { color: var(--primary-color); margin-top: 5px; font-size: 0.9rem; flex-shrink: 0; }
+        /* IMPROVED FOOTER ALIGNMENT */
+        .footer-contact-item { display: flex; gap: 12px; margin-bottom: 15px; font-size: 0.95rem; align-items: flex-start; color: #b0bec5; }
+        .footer-contact-item i { color: var(--primary-color); margin-top: 5px; font-size: 1rem; flex-shrink: 0; width: 20px; text-align: center; }
+        .footer-contact-item span { line-height: 1.6; }
         
         .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
-
-        /* Footer Holiday Centered Box */
-        .footer-holiday-box {
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px; 
-            margin-top: 10px; 
-            font-weight: 600; 
-            background: rgba(255,255,255,0.08); 
-            padding: 8px 15px; 
-            border-radius: 8px;
-            color: #ffffff;
-            width: fit-content;
-        }
 
         /* ================= FLOATING UI ================= */
         .scroll-to-top { position: fixed; bottom: 25px; left: 25px; width: 45px; height: 45px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 3px 8px rgba(0,0,0,0.25); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; cursor: pointer; }
@@ -336,9 +323,6 @@
             .info-grid-new { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero { padding: 30px 15px; }
-            
-            /* Center the holiday box on mobile too */
-            .footer-holiday-box { margin: 10px auto 0; }
         }
     </style>
 </head>
@@ -362,7 +346,7 @@
                 <li><a href="#specialties" class="link-item" onclick="toggleMenu()">Specialties</a></li>
                 <li><a href="#doctors" class="link-item" onclick="toggleMenu()">Doctors</a></li>
                 <li><a href="#booking" class="link-item" onclick="toggleMenu()">Book Appointment</a></li>
-                <!-- Added Contact Link -->
+                <!-- Contact Link -->
                 <li><a href="#contact" class="link-item" onclick="toggleMenu()">Contact</a></li>
                 
                 <!-- Socials for Mobile Menu -->
@@ -624,7 +608,7 @@
                         <div class="info-item-new">
                             <h5><i class="fa-regular fa-clock"></i> Timing</h5>
                             <p>Mon-Sat: 09:30 AM - 02:00 PM</p>
-                            <!-- SUNDAY HOLIDAY WITH GREEN CLOSE ICON -->
+                            <!-- SUNDAY HOLIDAY WITH GREEN CLOSE ICON (KEPT HERE ONLY) -->
                             <p class="holiday-green">
                                 <i class="fa-solid fa-circle-xmark"></i> Sunday: Holiday
                             </p>
@@ -649,7 +633,7 @@
         <div class="promo-animate-box"><img src="img/online.jpg" alt="Poster"></div>
     </section>
 
-    <!-- FOOTER WITH CENTERED HOLIDAY -->
+    <!-- FOOTER: WITH "SUNDAY HOLIDAY" ADDED BACK & ALIGNED -->
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-col">
@@ -671,31 +655,35 @@
                     <li><a href="#specialties"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Specialties</a></li>
                     <li><a href="#doctors"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Doctors</a></li>
                     <li><a href="#booking"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Book Appointment</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right" style="font-size:0.7rem;"></i> Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
+                <!-- ADDRESS -->
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-location-dot"></i>
                     <span>Pathappiriyam, Edavanna<br>Malappuram, Kerala</span>
                 </div>
+                <!-- PHONE -->
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-phone"></i>
                     <span>+91 99475 76123</span>
                 </div>
+                <!-- EMAIL -->
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-envelope"></i>
                     <span style="font-size:0.85rem; word-break:break-all;">dayahomeopathyclinic@gmail.com</span>
                 </div>
-                <div class="footer-contact-item" style="flex-direction: column; align-items: flex-start;">
-                    <div style="display:flex; gap:12px;">
-                        <i class="fa-regular fa-clock"></i>
-                        <span>Mon-Sat: 09:30 AM - 02:00 PM</span>
-                    </div>
-                    <!-- CENTERED HOLIDAY NOTIFICATION -->
-                    <div class="footer-holiday-box">
-                        <i class="fa-solid fa-circle-xmark" style="color: var(--primary-color);"></i> Sunday: Holiday
-                    </div>
+                <!-- TIMING -->
+                <div class="footer-contact-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Mon-Sat: 09:30 AM - 02:00 PM</span>
+                </div>
+                <!-- SUNDAY HOLIDAY (ADDED BACK) -->
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-circle-xmark" style="color: var(--primary-color);"></i>
+                    <span style="font-weight: 700; color: #ffffff;">Sunday: Holiday</span>
                 </div>
             </div>
         </div>
