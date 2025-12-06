@@ -9,10 +9,7 @@
     <meta name="description" content="Daya Homeopathy (Est. 1979) - Best Homeopathic Clinic in Malappuram, Kerala. Experts in Allergy, Infertility, PCOD & Migraine.">
     <meta name="theme-color" content="#2E7D32">
     <link rel="icon" href="img/logo.png" type="image/png">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Daya Homeopathy | Real Health & Peace of Mind">
-
+    
     <!-- ================= FONTS & ICONS ================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,7 +129,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: 1px solid rgba(0,0,0,0.03);
-            display: flex; flex-direction: column; position: relative;
+            display: flex; flex-direction: column;
         }
 
         .spec-card:nth-child(4n+1) { border-bottom: 3px solid #F9A825; } 
@@ -141,16 +138,12 @@
         .spec-card:nth-child(4n+4) { border-bottom: 3px solid #4CAF50; } 
 
         .spec-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .spec-card:nth-child(4n+1):hover .spec-title-box { background: #fffde7; color: #F57F17; }
-        .spec-card:nth-child(4n+2):hover .spec-title-box { background: #e1f5fe; color: #0288D1; }
-        .spec-card:nth-child(4n+3):hover .spec-title-box { background: #fce4ec; color: #C2185B; }
-        .spec-card:nth-child(4n+4):hover .spec-title-box { background: #e8f5e9; color: #388E3C; }
-
+        
         .spec-img-box { width: 100%; height: 130px; overflow: hidden; background: #f1f1f1; }
         .spec-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .spec-card:hover .spec-img-box img { transform: scale(1.1); }
 
-        .spec-title-box { padding: 12px 10px; text-align: center; font-weight: 600; color: var(--text-dark); font-size: 0.9rem; background: white; flex-grow: 1; display: flex; align-items: center; justify-content: center; transition: background 0.3s, color 0.3s; }
+        .spec-title-box { padding: 12px 10px; text-align: center; font-weight: 600; color: var(--text-dark); font-size: 0.9rem; background: white; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
 
         @media (min-width: 768px) {
             .spec-grid-container { grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -171,9 +164,10 @@
         .doc-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 700; }
         .doc-role { color: var(--primary-color); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
 
-        /* ================= BOOKING ================= */
+        /* ================= BOOKING (RESPONSIVE) ================= */
         #booking { background: #f4f7f6; padding: 50px 5%; }
         .booking-modern-container { max-width: 1200px; margin: 0 auto; background: #ffffff; border-radius: 25px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); display: flex; overflow: hidden; flex-direction: row; }
+        
         .booking-left-form { flex: 1.2; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; }
         .form-header-new h3 { font-size: 2rem; color: var(--text-dark); margin-bottom: 8px; }
         .form-header-new p { color: var(--text-gray); margin-bottom: 25px; font-size: 0.95rem; }
@@ -186,12 +180,12 @@
         .btn-whatsapp-modern { width: 100%; padding: 15px; background: linear-gradient(135deg, #25D366, #128c7e); color: white; font-size: 1rem; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.3); transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 5px; }
         .btn-whatsapp-modern:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); }
 
+        /* Map & Overlay */
         .booking-right-map { flex: 1; position: relative; background: var(--primary-dark); min-height: 450px; }
         
-        /* Map Overlay */
         .map-overlay-info { 
             position: absolute; bottom: 0; left: 0; width: 100%; 
-            background: rgba(255, 255, 255, 0.95); /* White Background */
+            background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(10px); 
             padding: 25px; 
             border-radius: 25px 25px 0 0; 
@@ -200,18 +194,29 @@
         
         .info-grid-new { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .info-item-new { margin-bottom: 8px; }
-        
-        /* Label Color (Gray) */
         .info-item-new h5 { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
-        
-        /* Value Color (Dark) */
         .info-item-new p { font-weight: 600; color: var(--text-dark); font-size: 0.9rem; line-height: 1.4; padding-left: 2px; }
 
-        /* ================= PROMO BANNER SECTION ================= */
-        .promo-banner-section { padding: 50px 5%; background: #e8f5e9; text-align: center; }
-        .promo-animate-box { max-width: 100%; margin: 0 auto; display: flex; justify-content: center; }
-        .promo-animate-box img { max-width: 100%; width: auto; max-height: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-        .promo-animate-box img:hover { transform: translateY(-5px); }
+        /* HOLIDAY TEXT STYLE (GREEN) */
+        .holiday-green { color: var(--primary-color); font-weight: 700; display: flex; align-items: center; gap: 6px; margin-top: 5px; }
+
+        /* ================= PROMO SECTION 3D ================= */
+        .promo-banner-section { padding: 50px 5%; background: #e8f5e9; text-align: center; perspective: 1000px; }
+        .promo-animate-box { 
+            max-width: 100%; margin: 0 auto; display: flex; justify-content: center;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+        .promo-animate-box img { 
+            max-width: 100%; width: auto; max-height: 500px; border-radius: 20px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        /* 3D Hover Effect */
+        .promo-animate-box:hover img {
+            transform: translateY(-10px) rotateX(2deg) scale(1.02);
+            box-shadow: 0 30px 60px rgba(46, 125, 50, 0.3);
+        }
 
         /* ================= FOOTER ================= */
         footer { background: #1a262b; color: #d1d1d1; padding: 40px 5% 20px; }
@@ -232,7 +237,7 @@
         
         .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
 
-        /* ================= FLOATING UI & CHAT ================= */
+        /* ================= FLOATING UI ================= */
         .scroll-to-top { position: fixed; bottom: 25px; left: 25px; width: 45px; height: 45px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 3px 8px rgba(0,0,0,0.25); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; cursor: pointer; }
         .scroll-to-top.show { opacity: 1; visibility: visible; }
 
@@ -247,7 +252,6 @@
         .chat-widget-body { padding: 20px; text-align: center; }
         .chat-avatar-3d { width: 60px; height: 60px; margin: 0 auto 12px; background: linear-gradient(145deg, #ffffff, #e6e6e6); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff; color: var(--primary-color); font-size: 1.8rem; }
         .btn-chat { background: var(--gradient-chat); color: white; padding: 12px; border-radius: 40px; display: block; margin-top: 12px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(17, 153, 142, 0.3); transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-chat:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(17, 153, 142, 0.4); }
 
         /* ================= MODAL ================= */
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 20px; }
@@ -257,16 +261,14 @@
         .modal img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
         .modal-btn { background: var(--primary-color); color: white; padding: 12px 30px; border-radius: 50px; display: inline-block; margin-top: 15px; font-weight: 600; }
 
-        /* ================= RESPONSIVE FIX (TOGGLE & LAYOUT) ================= */
+        /* ================= MOBILE MEDIA QUERIES ================= */
         @media (max-width: 900px) {
             nav { height: 75px; } 
             .nav-logo-img { height: 50px; }
             .nav-right { display: none; } 
-            
-            /* Toggle aligned right */
             .mobile-toggle { display: block; margin-left: auto; } 
             
-            /* Mobile Menu Styles */
+            /* Mobile Menu */
             .nav-center { 
                 display: flex; flex-direction: column; 
                 position: fixed; top: 75px; left: 0; width: 100%; 
@@ -293,11 +295,11 @@
             .booking-left-form { padding: 30px 20px; order: 1; }
             .booking-right-map { order: 2; min-height: 400px; }
             
-            /* Fix for Map Overlay on Mobile (Stack it below map instead of absolute) */
+            /* Responsive Map Overlay */
             .map-overlay-info { 
                 position: relative; 
                 border-radius: 0; 
-                background: white; /* White bg for mobile too */
+                background: white; 
                 padding: 30px; 
             }
             
@@ -395,97 +397,79 @@
         </div>
 
         <div class="spec-grid-container" data-aos="fade-up">
-            
+            <!-- (All Specialty Cards retained) -->
             <div class="spec-card" onclick="openModal('img/allerfy%20astma.jpeg', 'Allergy, Asthma')">
                 <div class="spec-img-box"><img src="img/allerfy%20astma.jpeg" alt="Allergy"></div>
                 <div class="spec-title-box">Allergy, Asthma</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Migraine.jpeg', 'Migraine')">
                 <div class="spec-img-box"><img src="img/Migraine.jpeg" alt="Migraine"></div>
                 <div class="spec-title-box">Migraine</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Child%20Health.jpeg', 'Child Health')">
                 <div class="spec-img-box"><img src="img/Child%20Health.jpeg" alt="Child Health"></div>
                 <div class="spec-title-box">Child Health</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg', 'Female Disorders')">
                 <div class="spec-img-box"><img src="img/WhatsApp%20Image%202025-11-23%20at%2016.53.33_d898cf4d.jpg" alt="Female Disorders"></div>
                 <div class="spec-title-box">Female Disorders</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Infertility%20Male%20&%20Female.jpeg', 'Infertility')">
                 <div class="spec-img-box"><img src="img/Infertility%20Male%20&%20Female.jpeg" alt="Infertility"></div>
                 <div class="spec-title-box">Infertility (M&F)</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Eczema.jpeg', 'Eczema')">
                 <div class="spec-img-box"><img src="img/Eczema.jpeg" alt="Eczema"></div>
                 <div class="spec-title-box">Eczema</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Depression.jpeg', 'Depression')">
                 <div class="spec-img-box"><img src="img/Depression.jpeg" alt="Depression"></div>
                 <div class="spec-title-box">Depression</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Acidity,%20Ulcer.jpeg', 'Acidity, Ulcer')">
                 <div class="spec-img-box"><img src="img/Acidity,%20Ulcer.jpeg" alt="Acidity, Ulcer"></div>
                 <div class="spec-title-box">Acidity, Ulcer</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Arthritis.jpeg', 'Arthritis')">
                 <div class="spec-img-box"><img src="img/Arthritis.jpeg" alt="Arthritis"></div>
                 <div class="spec-title-box">Arthritis</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Cancer%20Support.jpeg', 'Cancer Support')">
                 <div class="spec-img-box"><img src="img/Cancer%20Support.jpeg" alt="Cancer Support"></div>
                 <div class="spec-title-box">Cancer Support</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Old%20age%20Problems.jpeg', 'Old Age Problems')">
                 <div class="spec-img-box"><img src="img/Old%20age%20Problems.jpeg" alt="Old Age Problems"></div>
                 <div class="spec-title-box">Old Age Problems</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Hair%20fall%20treatment.jpeg', 'Hair Fall Treatment')">
                 <div class="spec-img-box"><img src="img/Hair%20fall%20treatment.jpeg" alt="Hair Fall"></div>
                 <div class="spec-title-box">Hair Fall Treatment</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Epilepsy.jpeg', 'Epilepsy')">
                 <div class="spec-img-box"><img src="img/Epilepsy.jpeg" alt="Epilepsy"></div>
                 <div class="spec-title-box">Epilepsy</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Piles%20&%20Fissures.jpeg', 'Piles & Fissures')">
                 <div class="spec-img-box"><img src="img/Piles%20&%20Fissures.jpeg" alt="Piles & Fissures"></div>
                 <div class="spec-title-box">Piles & Fissures</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Kidney%20Stone.jpeg', 'Kidney Stone')">
                 <div class="spec-img-box"><img src="img/Kidney%20Stone.jpeg" alt="Kidney Stone"></div>
                 <div class="spec-title-box">Kidney Stone</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/BPH.jpeg', 'BPH')">
                 <div class="spec-img-box"><img src="img/BPH.jpeg" alt="BPH"></div>
                 <div class="spec-title-box">BPH (Prostate)</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/pcod.jpeg', 'PCOD')">
                 <div class="spec-img-box"><img src="img/pcod.jpeg" alt="PCOD"></div>
                 <div class="spec-title-box">PCOD</div>
             </div>
-
             <div class="spec-card" onclick="openModal('img/Counselling%20service.jpeg', 'Counselling service' )">
                 <div class="spec-img-box"><img src="img/Counselling%20service.jpeg" alt="Counselling service"></div>
                 <div class="spec-title-box">Counselling Service</div>
             </div>
-
         </div>
     </section>
 
@@ -511,7 +495,7 @@
         </div>
     </section>
 
-    <!-- BOOKING -->
+    <!-- BOOKING SECTION -->
     <section id="booking">
         <div class="booking-modern-container" data-aos="zoom-in">
             <!-- Left: Form -->
@@ -523,7 +507,6 @@
                 </div>
                 
                 <form id="whatsappForm">
-                    <!-- NO REQUIRED ATTRIBUTES HERE (Handled by JS for better UX) -->
                     <div class="modern-input-group">
                         <input type="text" id="pName" class="modern-input" placeholder="Patient Name (പേര്)">
                     </div>
@@ -605,8 +588,9 @@
                         <div class="info-item-new">
                             <h5><i class="fa-regular fa-clock"></i> Timing</h5>
                             <p>Mon-Sat: 09:30 AM - 02:00 PM</p>
-                            <p style="color:#000000; margin-top:5px; font-weight:700; display:flex; align-items:center; gap:5px;">
-                                <i class="fa-solid fa-circle-xmark" style="color: #d32f2f;"></i> Sunday: Holiday
+                            <!-- UPDATED: SUNDAY HOLIDAY WITH GREEN CLOSE ICON -->
+                            <p class="holiday-green">
+                                <i class="fa-solid fa-circle-xmark"></i> Sunday: Holiday
                             </p>
                         </div>
                         <div class="info-item-new">
@@ -619,11 +603,13 @@
         </div>
     </section>
 
-    <!-- PROMO SECTION -->
-    <section class="promo-banner-section" data-aos="fade-up">
+    <!-- PROMO SECTION 1 (3D ADDED) -->
+    <section class="promo-banner-section" id="promo1" data-aos="fade-up">
         <div class="promo-animate-box"><img src="img/poster%20daya.jpg" alt="Poster"></div>
     </section>
-    <section class="promo-banner-section" data-aos="fade-up">
+    
+    <!-- PROMO SECTION 2 (3D ADDED) -->
+    <section class="promo-banner-section" id="promo2" data-aos="fade-up">
         <div class="promo-animate-box"><img src="img/online.jpg" alt="Poster"></div>
     </section>
 
@@ -655,7 +641,7 @@
                 <h4>Contact Us</h4>
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-location-dot"></i>
-                    <span>Pathappiriyam, Edavanna<br>Malappuram, Kerala 676123</span>
+                    <span>Pathappiriyam, Edavanna<br>Malappuram, Kerala</span>
                 </div>
                 <div class="footer-contact-item">
                     <i class="fa-solid fa-phone"></i>
@@ -668,10 +654,11 @@
                 <div class="footer-contact-item">
                     <i class="fa-regular fa-clock"></i>
                     <div>
-                        <span>Mon-Sat: 09:30 - 02:00</span><br>
-                        <span style="color: #ffffff; display:flex; align-items:center; gap:5px; margin-top:2px;">
-                            <i class="fa-solid fa-circle-xmark" style="color: #d32f2f;"></i> Sunday: Holiday
-                        </span>
+                        <span>Mon-Sat: 09:30 AM - 02:00 PM</span>
+                        <!-- UPDATED: FOOTER SUNDAY HOLIDAY WITH GREEN CLOSE ICON -->
+                        <div style="color: #ffffff; display:flex; align-items:center; gap:8px; margin-top:5px; font-weight:600;">
+                            <i class="fa-solid fa-circle-xmark" style="color: var(--primary-color);"></i> Sunday: Holiday
+                        </div>
                     </div>
                 </div>
             </div>
@@ -820,3 +807,4 @@
     </script>
 </body>
 </html>
+
