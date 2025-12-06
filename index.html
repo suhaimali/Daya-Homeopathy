@@ -10,6 +10,21 @@
     <meta name="theme-color" content="#2E7D32">
     <link rel="icon" href="img/logo.png" type="image/png">
     
+    <!-- ================= PWA & MOBILE SUPPORT ================= -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Daya Homeopathy">
+
+    <script>
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("/service-worker.js")
+          .then(() => console.log("Service Worker Registered"))
+          .catch(err => console.log("SW Error:", err));
+        }
+    </script>
+
     <!-- ================= FONTS & ICONS ================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -588,7 +603,7 @@
                         <div class="info-item-new">
                             <h5><i class="fa-regular fa-clock"></i> Timing</h5>
                             <p>Mon-Sat: 09:30 AM - 02:00 PM</p>
-                            <!-- UPDATED: SUNDAY HOLIDAY WITH GREEN CLOSE ICON -->
+                            <!-- SUNDAY HOLIDAY WITH GREEN CLOSE ICON -->
                             <p class="holiday-green">
                                 <i class="fa-solid fa-circle-xmark"></i> Sunday: Holiday
                             </p>
@@ -603,12 +618,12 @@
         </div>
     </section>
 
-    <!-- PROMO SECTION 1 (3D ADDED) -->
+    <!-- PROMO SECTION 1 (3D EFFECT) -->
     <section class="promo-banner-section" id="promo1" data-aos="fade-up">
         <div class="promo-animate-box"><img src="img/poster%20daya.jpg" alt="Poster"></div>
     </section>
     
-    <!-- PROMO SECTION 2 (3D ADDED) -->
+    <!-- PROMO SECTION 2 (3D EFFECT) -->
     <section class="promo-banner-section" id="promo2" data-aos="fade-up">
         <div class="promo-animate-box"><img src="img/online.jpg" alt="Poster"></div>
     </section>
@@ -655,7 +670,7 @@
                     <i class="fa-regular fa-clock"></i>
                     <div>
                         <span>Mon-Sat: 09:30 AM - 02:00 PM</span>
-                        <!-- UPDATED: FOOTER SUNDAY HOLIDAY WITH GREEN CLOSE ICON -->
+                        <!-- FOOTER SUNDAY HOLIDAY WITH GREEN CLOSE ICON -->
                         <div style="color: #ffffff; display:flex; align-items:center; gap:8px; margin-top:5px; font-weight:600;">
                             <i class="fa-solid fa-circle-xmark" style="color: var(--primary-color);"></i> Sunday: Holiday
                         </div>
@@ -807,4 +822,3 @@
     </script>
 </body>
 </html>
-
