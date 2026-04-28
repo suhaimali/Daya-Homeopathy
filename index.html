@@ -47,12 +47,12 @@
 
     <!-- JSON-LD Structured Data (external schema.json) -->
     <script>
-    fetch('schema/schema.json').then(r=>r.json()).then(data=>{
-        const s=document.createElement('script');
-        s.type='application/ld+json';
-        s.text=JSON.stringify(data);
-        document.head.appendChild(s);
-    }).catch(()=>{});
+        fetch('schema/schema.json').then(r => r.json()).then(data => {
+            const s = document.createElement('script');
+            s.type = 'application/ld+json';
+            s.text = JSON.stringify(data);
+            document.head.appendChild(s);
+        }).catch(() => { });
     </script>
 
 
@@ -658,26 +658,31 @@
                 width: 180px;
                 height: 180px;
             }
-            
+
             .float-element {
                 padding: 10px 15px;
                 gap: 10px;
             }
-            
-            .float-element h4 { font-size: 13px; }
-            .float-element p { font-size: 10px; }
+
+            .float-element h4 {
+                font-size: 13px;
+            }
+
+            .float-element p {
+                font-size: 10px;
+            }
         }
 
         @media (max-width: 768px) {
             .hero {
                 padding-top: 30px;
             }
-            
+
             .medical-ui-container {
                 height: 350px;
                 transform: scale(0.9);
             }
-            
+
             .hero-btns {
                 flex-direction: column;
                 width: 100%;
@@ -686,17 +691,26 @@
         }
 
         @media (max-width: 480px) {
-            .hero-content h1:first-of-type { font-size: 24px !important; }
-            .hero-content h1:last-of-type { font-size: 40px !important; }
-            .hero-content h2 { font-size: 18px !important; }
-            
+            .hero-content h1:first-of-type {
+                font-size: 24px !important;
+            }
+
+            .hero-content h1:last-of-type {
+                font-size: 40px !important;
+            }
+
+            .hero-content h2 {
+                font-size: 18px !important;
+            }
+
             .medical-ui-container {
                 height: 300px;
                 transform: scale(0.8);
             }
-            
+
             .float-element {
-                display: none; /* Hide float elements on very small screens to avoid clutter */
+                display: none;
+                /* Hide float elements on very small screens to avoid clutter */
             }
         }
 
@@ -873,8 +887,13 @@
         }
 
         @keyframes fa-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(359deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(359deg);
+            }
         }
 
 
@@ -1205,9 +1224,9 @@
             border-radius: 40px;
             position: relative;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -1321,7 +1340,9 @@
                 flex-direction: column;
                 gap: 15px;
             }
-            .hero-btn-primary, .hero-btn-secondary {
+
+            .hero-btn-primary,
+            .hero-btn-secondary {
                 width: 100%;
             }
         }
@@ -1702,22 +1723,25 @@
             </li>
             <!-- Mobile Sidebar Socials -->
             <li class="mobile-socials">
-                <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" rel="noopener noreferrer" class="ns-fb"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" rel="noopener noreferrer" class="ns-ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" rel="noopener noreferrer"
+                    class="ns-fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank"
+                    rel="noopener noreferrer" class="ns-ig"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://wa.me/919947576123" target="_blank" rel="noopener noreferrer" class="ns-wa"><i
                         class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:www.dayahomeoppm@gmail.com" class="ns-mail"><i
-                        class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:www.dayahomeoppm@gmail.com" class="ns-mail"><i class="fa-solid fa-envelope"></i></a>
                 <a href="tel:+919947576123" class="ns-call"><i class="fa-solid fa-phone"></i></a>
             </li>
         </ul>
 
         <!-- Desktop Navbar Socials -->
         <div class="nav-socials">
-            <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" rel="noopener noreferrer" class="nav-social-icon ns-fb"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" rel="noopener noreferrer" class="nav-social-icon ns-ig"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/919947576123" target="_blank" rel="noopener noreferrer" class="nav-social-icon ns-wa"><i
-                    class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" rel="noopener noreferrer"
+                class="nav-social-icon ns-fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" rel="noopener noreferrer"
+                class="nav-social-icon ns-ig"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/919947576123" target="_blank" rel="noopener noreferrer"
+                class="nav-social-icon ns-wa"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="mailto:www.dayahomeoppm@gmail.com" class="nav-social-icon ns-mail" title="Email Us"><i
                     class="fa-solid fa-envelope"></i></a>
             <a href="tel:+919947576123" class="nav-social-icon ns-call"><i class="fa-solid fa-phone"></i></a>
@@ -1786,7 +1810,8 @@
                 <div class="float-element el-1">
                     <div
                         style="width:40px; height:40px; background:var(--med-green); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
-                        <i class="fa-solid fa-shield-halved"></i></div>
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
                     <div>
                         <h4 style="font-size:14px;">100% Safe</h4>
                         <p style="font-size:11px;">Natural Healing</p>
@@ -1795,7 +1820,8 @@
                 <div class="float-element el-2">
                     <div
                         style="width:40px; height:40px; background:var(--med-blue); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
-                        <i class="fa-solid fa-user-doctor"></i></div>
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
                     <div>
                         <h4 style="font-size:14px;">Expert Care</h4>
                         <p style="font-size:11px;">Legacy Team</p>
@@ -1804,7 +1830,8 @@
                 <div class="float-element el-3">
                     <div
                         style="width:40px; height:40px; background:var(--med-pink); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
-                        <i class="fa-solid fa-kit-medical"></i></div>
+                        <i class="fa-solid fa-kit-medical"></i>
+                    </div>
                     <div>
                         <h4 style="font-size:14px;">Holistic</h4>
                         <p style="font-size:11px;">Root Cause</p>
@@ -1813,7 +1840,8 @@
                 <div class="float-element el-4">
                     <div
                         style="width:40px; height:40px; background:#f1c40f; border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
-                        <i class="fa-solid fa-star"></i></div>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
                     <div>
                         <h4 style="font-size:14px;">Top Rated</h4>
                         <p style="font-size:11px;">Kerala</p>
@@ -2533,7 +2561,7 @@
                 <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i> Fill the form below to
                 start a WhatsApp chat with us for booking your appointment. We'll get back to you as soon as possible.
             </p>
-            </div>
+        </div>
 
         <div style="max-width: 700px; margin: 0 auto;">
             <!-- Booking Form -->
@@ -2593,7 +2621,7 @@
                             <option value="Kidney Stone">Kidney Stone</option>
                             <option value="BPH (Prostate)">BPH (Prostate)</option>
                             <option value="PCOD">PCOD</option>
-                            <option value="Counselling Service">Counselling Service</option>
+                            <option value="Counselling">Counselling</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
@@ -2610,7 +2638,7 @@
                             <i class="fa-solid fa-circle-notch fa-spin"></i> Processing...
                         </div>
                     </button>
-                    
+
 
                 </form>
             </div>
@@ -2749,7 +2777,8 @@
                         <div><span class="loc-label">Holiday</span><span class="loc-value">Sunday</span></div>
                     </div>
                 </div>
-                <a href="https://maps.google.com/?q=Daya+Homeopathy+Pathappiriyam" target="_blank" rel="noopener noreferrer" class="loc-btn">
+                <a href="https://maps.google.com/?q=Daya+Homeopathy+Pathappiriyam" target="_blank"
+                    rel="noopener noreferrer" class="loc-btn">
                     <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
                 </a>
             </div>
@@ -3000,8 +3029,10 @@
             <p><i class="fa-solid fa-share-nodes" style="margin-right:6px;"></i>Get connected with us on social networks
             </p>
             <div class="mdb-ft-topbar-socials">
-                <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" class="sc-fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" class="sc-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" class="sc-fb" title="Facebook"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" class="sc-ig"
+                    title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://wa.me/919947576123" target="_blank" class="sc-wa" title="WhatsApp"><i
                         class="fa-brands fa-whatsapp"></i></a>
                 <a href="mailto:www.dayahomeoppm@gmail.com" class="sc-mail" title="Email Us"><i
@@ -3048,7 +3079,8 @@
                     <h6 class="mdb-ft-title">Contact</h6>
                     <div class="mdb-ft-contact-item">
                         <div class="mdb-ft-ci-icon bg1"><i class="fa-solid fa-location-dot"></i></div>
-                        <a href="https://maps.app.goo.gl/pL2f7QG8z3L2" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+                        <a href="https://maps.app.goo.gl/pL2f7QG8z3L2" target="_blank" rel="noopener noreferrer"
+                            style="color: inherit; text-decoration: none;">
                             <span>Pathappiriyam, Edavanna<br>Malappuram, Kerala</span>
                         </a>
                     </div>
@@ -3070,7 +3102,8 @@
 
         <!-- Copyright -->
         <div class="mdb-ft-copyright">
-            &copy; 2025 <a href="#home">Daya Homeopathy</a>. All rights reserved. Designed by <a href="https://suhaimsoft.netlify.app/" target="_blank" rel="noopener noreferrer">Suhaim Soft</a>.
+            &copy; 2025 <a href="#home">Daya Homeopathy</a>. All rights reserved. Designed by <a
+                href="https://suhaimsoft.netlify.app/" target="_blank" rel="noopener noreferrer">Suhaim Soft</a>.
         </div>
     </footer>
 
@@ -3134,7 +3167,7 @@
 
         document.getElementById('whatsappForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('name').value;
             const place = document.getElementById('place').value;
             const date = document.getElementById('date').value;
@@ -3178,7 +3211,7 @@
             setTimeout(() => {
                 // Show Success Modal
                 document.getElementById('successModal').classList.add('active');
-                
+
                 // Reset form state
                 setTimeout(() => {
                     btn.style.pointerEvents = 'all';
