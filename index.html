@@ -404,14 +404,14 @@
             }
         }
 
-        /* --- RESPONSIVE MEDICAL HERO STYLES --- */
+        /* --- HERO SECTION STYLES --- */
         .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: calc(100vh - 80px);
             display: flex;
             align-items: center;
-            padding: 120px 8% 80px;
-            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            padding: 0 8%;
+            background: linear-gradient(135deg, #f0f3f7 0%, #e6e9f0 100%);
             overflow: hidden;
         }
 
@@ -432,20 +432,12 @@
             font-weight: 700;
             font-size: 14px;
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(0, 184, 148, 0.1);
         }
 
-        .hero-title-large {
-            font-size: clamp(40px, 8vw, 80px);
-            line-height: 1.1;
-            margin-bottom: 25px;
-            font-weight: 800;
-            color: #1a1a1a;
-        }
-
-        .hero-title-large span {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        .hero-title span {
+            background: var(--hero-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -456,7 +448,29 @@
             color: #57606f;
             margin-bottom: 40px;
             line-height: 1.8;
-            font-weight: 500;
+        }
+
+        .btn-custom {
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-med-primary {
+            background: var(--hero-gradient);
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 184, 148, 0.2);
+        }
+
+        .btn-med-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 184, 148, 0.3);
         }
 
         .medical-ui-container {
@@ -476,9 +490,20 @@
             border-radius: 50%;
             position: relative;
             animation: rotate 20s linear infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
         .med-pulse-container {
             position: absolute;
@@ -495,9 +520,20 @@
         }
 
         @keyframes pulse-ring {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 184, 148, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(0, 184, 148, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 184, 148, 0); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 184, 148, 0.4);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(0, 184, 148, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 184, 148, 0);
+            }
         }
 
         .med-icon-center {
@@ -506,7 +542,17 @@
             animation: beat 1.5s ease-in-out infinite;
         }
 
-        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
 
         .float-element {
             position: absolute;
@@ -521,18 +567,44 @@
             z-index: 10;
         }
 
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes float {
 
-        .el-1 { top: 10%; left: 0%; }
-        .el-2 { top: 20%; right: -5%; }
-        .el-3 { bottom: 15%; left: 10%; }
-        .el-4 { bottom: 10%; right: 5%; }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .el-1 {
+            top: 10%;
+            left: 0%;
+        }
+
+        .el-2 {
+            top: 20%;
+            right: -5%;
+        }
+
+        .el-3 {
+            bottom: 15%;
+            left: 10%;
+        }
+
+        .el-4 {
+            bottom: 10%;
+            right: 5%;
+        }
 
         .svg-container {
             position: absolute;
             width: 100%;
             height: 100%;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             pointer-events: none;
             opacity: 0.3;
         }
@@ -546,30 +618,120 @@
             animation: draw 5s linear infinite;
         }
 
-        @keyframes draw { to { stroke-dashoffset: 0; } }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 40px;
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
         }
 
-        .stat-item h3 { font-size: 28px; font-weight: 800; color: #1a1a1a; }
-        .stat-item p { font-size: 14px; color: #64748b; font-weight: 600; text-transform: uppercase; }
-
         @media (max-width: 1200px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 140px; }
-            .hero-content { display: flex; flex-direction: column; align-items: center; margin-bottom: 50px; }
-            .medical-ui-container { height: 450px; width: 100%; }
-            .med-circle-main { width: 350px; height: 350px; }
-            .med-pulse-container { width: 200px; height: 200px; }
-            .hero-stats { justify-content: center; }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 50px;
+            }
+
+            .est-badge {
+                margin: 0 auto 20px;
+            }
+
+            .medical-ui-container {
+                height: 400px;
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            .med-circle-main {
+                width: 300px;
+                height: 300px;
+            }
+
+            .med-pulse-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .float-element {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+
+            .float-element h4 {
+                font-size: 13px;
+            }
+
+            .float-element p {
+                font-size: 10px;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero-stats { gap: 20px; flex-wrap: wrap; }
-            .medical-ui-container { height: 350px; transform: scale(0.9); }
-            .float-element { display: none; }
+            .hero {
+                padding-top: 30px;
+            }
+
+            .medical-ui-container {
+                height: 350px;
+                transform: scale(0.9);
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1:first-of-type {
+                font-size: 24px !important;
+            }
+
+            .hero-content h1:last-of-type {
+                font-size: 40px !important;
+            }
+
+            .hero-content h2 {
+                font-size: 18px !important;
+            }
+
+            .medical-ui-container {
+                height: 300px;
+                transform: scale(0.8);
+            }
+
+            .float-element {
+                display: flex !important;
+                padding: 8px 12px !important;
+                gap: 8px !important;
+                min-width: 120px;
+            }
+            
+            .float-element i {
+                font-size: 14px !important;
+            }
+
+            .float-element h4 {
+                font-size: 12px !important;
+                margin-bottom: 0 !important;
+            }
+
+            .float-element p {
+                font-size: 10px !important;
+            }
+
+            .el-1 { top: 0% !important; left: -10% !important; }
+            .el-2 { top: 15% !important; right: -15% !important; }
+            .el-3 { bottom: 10% !important; left: -5% !important; }
+            .el-4 { bottom: 0% !important; right: -10% !important; }
         }
 
         /* --- CONTACT & BOOKING STYLES --- */
@@ -890,133 +1052,66 @@
                 gap: 30px !important;
             }
 
-            .wa-popup {
-                width: 90% !important;
-                right: 5% !important;
-                bottom: 100px !important;
-            }
         }
 
-        /* ========== MDB BOOTSTRAP FOOTER ========== */
+        /* ========== MDB BOOTSTRAP FOOTER (DARK THEME) ========== */
         .mdb-footer {
-            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-        }
-
-        /* Slim Social Bar */
-        .mdb-ft-topbar {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
-            padding: 15px 8%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            gap: 12px;
-        }
-
-        .mdb-ft-topbar p {
-            color: #fff;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 0;
-            letter-spacing: 0.5px;
-        }
-
-        .mdb-ft-topbar-socials {
-            display: flex;
-            gap: 8px;
-        }
-
-        .mdb-ft-topbar-socials a {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 13px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .mdb-ft-topbar-socials a:hover {
-            background: #fff;
-            color: #00b894;
-            transform: translateY(-2px);
-        }
-
-        .mdb-ft-topbar-socials a.sc-mail:hover {
-            color: #ea4335 !important;
-        }
-
-        /* Main Footer Body */
-        .mdb-ft-body {
-            background: #1a1a2e;
+            background: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 184, 148, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(9, 132, 227, 0.15) 0px, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            font-family: 'Inter', sans-serif;
             color: #cbd5e1;
-            padding: 60px 8% 40px;
+            padding: 80px 8% 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mdb-ft-body {
+            padding-bottom: 40px;
         }
 
         .mdb-ft-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1.5fr 1fr 1.5fr;
             gap: 40px;
-            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Column Title */
-        .mdb-ft-title {
-            color: #fff;
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 22px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #00b894;
-            display: inline-block;
-        }
-
-        /* About Column */
         .mdb-ft-about p {
             font-size: 14px;
             line-height: 1.8;
-            color: #94a3b8;
-            margin: 0;
-        }
-
-        .mdb-ft-logo {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
+            margin-top: 15px;
         }
 
         .mdb-ft-logo img {
             height: 50px;
-            width: auto;
             filter: brightness(0) invert(1);
-            animation: ftLogoGlow 3s ease-in-out infinite;
-            transition: transform 0.3s ease;
         }
 
-        .mdb-ft-logo img:hover {
-            transform: scale(1.08);
+        .mdb-ft-title {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-family: 'Outfit', sans-serif;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        @keyframes ftLogoGlow {
-
-            0%,
-            100% {
-                filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(0, 184, 148, 0.3));
-            }
-
-            50% {
-                filter: brightness(0) invert(1) drop-shadow(0 0 18px rgba(0, 206, 201, 0.6));
-            }
+        .mdb-ft-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: #00b894;
         }
 
-        /* Links Column */
         .mdb-ft-links {
             list-style: none;
             padding: 0;
@@ -1024,61 +1119,138 @@
         }
 
         .mdb-ft-links li {
-            margin-bottom: 11px;
+            margin-bottom: 12px;
         }
 
         .mdb-ft-links a {
-            color: #94a3b8;
+            color: #cbd5e1;
             text-decoration: none;
             font-size: 14px;
-            transition: all 0.25s ease;
-            display: inline-block;
+            transition: all 0.3s ease;
         }
 
         .mdb-ft-links a:hover {
-            color: #00cec9;
-            padding-left: 6px;
+            color: #00b894;
+            padding-left: 8px;
         }
 
-        /* Contact Column */
         .mdb-ft-contact-item {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 16px;
+            gap: 15px;
+            margin-bottom: 20px;
             font-size: 14px;
-            color: #94a3b8;
             line-height: 1.6;
         }
 
         .mdb-ft-ci-icon {
-            width: 32px;
-            height: 32px;
-            min-width: 32px;
-            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 13px;
-            color: #fff;
+            font-size: 16px;
             flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.05);
+            color: #00b894;
+            transition: all 0.3s ease;
         }
 
-        .mdb-ft-ci-icon.bg1 {
+        .mdb-ft-contact-item:hover .mdb-ft-ci-icon {
             background: #00b894;
+            color: white;
+            transform: translateY(-3px);
         }
 
-        .mdb-ft-ci-icon.bg2 {
-            background: #6c5ce7;
+        /* 3D Social Icons Animation */
+        .mdb-ft-socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
         }
 
-        .mdb-ft-ci-icon.bg3 {
-            background: #e17055;
+        .social-3d-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .mdb-ft-ci-icon.bg4 {
-            background: #0984e3;
+        .social-3d-icon:hover {
+            transform: translateY(-10px) rotateY(15deg) rotateX(10deg);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            background: var(--hero-gradient);
+            border-color: transparent;
+        }
+
+        .social-3d-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            z-index: -1;
+            transition: 0.4s;
+            opacity: 0.5;
+        }
+
+        .social-3d-icon:hover::before {
+            transform: translate(5px, 5px);
+        }
+
+        .mdb-ft-copyright-bar {
+            padding: 40px 8% 50px;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .mdb-ft-bottom-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mdb-ft-bottom-links li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mdb-ft-bottom-links li:not(:last-child)::after {
+            content: '|';
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mdb-ft-bottom-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .mdb-ft-bottom-links a:hover {
+            color: #00b894;
         }
 
         /* Specialty Pop Cards Styling */
@@ -1094,6 +1266,13 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+        }
+
+        @media (max-width: 480px) {
+            .pop-card {
+                padding: 30px 20px;
+                border-radius: 30px;
+            }
         }
 
         .pop-card:hover {
@@ -1263,62 +1442,37 @@
         }
 
         /* Copyright Bottom */
-        .mdb-ft-copyright {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
-            padding: 14px 8%;
-            text-align: center;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .mdb-ft-copyright a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-        }
+        /* Removed old copyright styles */
 
         /* MDB Footer Responsive */
-        @media (max-width: 992px) {
-            .mdb-ft-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .mdb-ft-topbar {
-                padding: 20px 5%;
-            }
-
-            .mdb-ft-topbar-socials {
-                justify-content: center;
-            }
-
-            .mdb-ft-body {
-                padding: 40px 5% 30px;
-            }
-
+        @media (max-width: 768px) {
             .mdb-ft-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: left;
+            }
+
+            .mdb-ft-logo {
+                text-align: left;
+            }
+
+            .mdb-ft-copyright-bar {
+                flex-direction: column;
                 text-align: center;
-                gap: 30px;
+                gap: 15px;
+                padding-bottom: 100px;
             }
 
-            .mdb-ft-title {
-                border-bottom-color: #00b894;
-            }
-
-            .mdb-ft-leaf {
+            .mdb-ft-bottom-links {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
-            .mdb-ft-contact-item {
-                justify-content: center;
-            }
-
-            .mdb-ft-copyright {
-                padding: 15px 5%;
+            .mdb-ft-bottom-links li::after {
+                display: none;
             }
         }
+
 
         /* Scroll to Top Button */
         .scroll-top {
@@ -1550,8 +1704,10 @@
 
         @media (max-width: 480px) {
             .support-popup {
-                width: 280px;
-                right: -10px;
+                width: 300px;
+                right: 0;
+                bottom: 80px;
+                max-width: calc(100vw - 40px);
             }
 
             .support-widget {
@@ -1591,7 +1747,7 @@
                     rel="noopener noreferrer" class="ns-ig"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://wa.me/919947576123" target="_blank" rel="noopener noreferrer" class="ns-wa"><i
                         class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:www.dayahomeoppm@gmail.com" class="ns-mail"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:dayahomeoppm@gmail.com" class="ns-mail"><i class="fa-solid fa-envelope"></i></a>
                 <a href="tel:+919947576123" class="ns-call"><i class="fa-solid fa-phone"></i></a>
             </li>
         </ul>
@@ -1615,7 +1771,7 @@
         </div>
     </nav>
 
-    <!-- RESTORED RESPONSIVE MEDICAL HERO -->
+    <!-- HERO SECTION -->
     <main id="home">
         <section class="hero">
             <div class="hero-content animate__animated animate__fadeInLeft">
@@ -1624,41 +1780,36 @@
                     Est. 1979
                 </div>
 
-                <h1 class="hero-title-large">
-                    Welcome to<br>
-                    <span>Daya Homeopathy</span>
+                <h1
+                    style="font-family: 'Poppins', sans-serif; font-size: clamp(30px, 4vw, 40px); margin-bottom: 10px; color: var(--text-dark); opacity: 0.8; font-weight: 600;">
+                    Welcome to
+                </h1>
+                <h1
+                    style="font-family: 'Poppins', sans-serif; font-size: clamp(45px, 7vw, 85px); line-height: 1; margin-bottom: 25px; font-weight: 800; color: #1a1a1a;">
+                    <span
+                        style="background: var(--hero-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Daya
+                        Homeopathy</span>
                 </h1>
 
-                <h2 style="font-size: clamp(20px, 3vw, 32px); color: var(--med-blue); margin-bottom: 25px; font-weight: 700; text-transform: uppercase;">
-                    Real Health, Happiness & Peace
+                <h2
+                    style="font-size: clamp(20px, 2.5vw, 30px); color: var(--med-blue); margin-bottom: 25px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                    Real Health, Happiness & Peace of Mind
                 </h2>
 
-                <p class="hero-description">
-                    One of the best homeopathic clinics in Kerala situated at Pathappiriyam, Malappuram. Experience natural healing with a legacy of 45+ years.
+                <p class="hero-description" style="font-weight: 500; color: #444;">
+                    One of the best homeopathic clinics in Kerala situated at Pathappiriyam, Malappuram.
                 </p>
 
-                <div class="hero-content-extra" style="margin-top: 30px; display: grid; grid-template-columns: 1fr; gap: 25px;">
-                    <div class="content-block" style="background: rgba(0, 184, 148, 0.03); padding: 25px; border-radius: 20px; border-left: 5px solid #00b894;">
-                        <h4 style="font-size: 18px; color: #1a1a1a; margin-bottom: 10px; font-weight: 700;">Our Healing Philosophy</h4>
-                        <p style="font-size: 15px; color: #64748b; line-height: 1.6; margin: 0;">
-                            We believe in treating the person, not just the disease. Our holistic approach focuses on stimulating the body's natural healing processes to achieve lasting health and peace of mind.
-                        </p>
-                    </div>
-                    
-                    <div style="display: flex; gap: 30px; flex-wrap: wrap; margin-top: 10px;">
-                        <div style="display: flex; align-items: center; gap: 12px;">
-                            <div style="width: 40px; height: 40px; background: #e0f2f1; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #00b894;">
-                                <i class="fa-solid fa-leaf"></i>
-                            </div>
-                            <span style="font-weight: 600; color: #475569;">100% Natural Remedies</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 12px;">
-                            <div style="width: 40px; height: 40px; background: #e3f2fd; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #0984e3;">
-                                <i class="fa-solid fa-clock-rotate-left"></i>
-                            </div>
-                            <span style="font-weight: 600; color: #475569;">45+ Years Legacy</span>
-                        </div>
-                    </div>
+                <!-- NEW HERO BUTTONS -->
+                <div class="hero-btns" style="display: flex; gap: 20px; margin-top: 40px; flex-wrap: wrap;">
+                    <a href="#book" class="hero-btn-primary">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        Book Appointment
+                    </a>
+                    <a href="#about" class="hero-btn-secondary">
+                        Learn More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
 
@@ -1666,7 +1817,8 @@
             <div class="medical-ui-container">
                 <div class="svg-container">
                     <svg viewBox="0 0 800 600" width="100%" height="100%">
-                        <path class="ecg-line" d="M0,300 L100,300 L120,250 L140,350 L160,300 L300,300 L320,100 L340,500 L360,300 L500,300 L520,280 L540,320 L560,300 L800,300" />
+                        <path class="ecg-line"
+                            d="M0,300 L100,300 L120,250 L140,350 L160,300 L300,300 L320,100 L340,500 L360,300 L500,300 L520,280 L540,320 L560,300 L800,300" />
                     </svg>
                 </div>
                 <div class="med-circle-main"></div>
@@ -1674,7 +1826,8 @@
                     <i class="fa-solid fa-heart-pulse med-icon-center"></i>
                 </div>
                 <div class="float-element el-1">
-                    <div style="width:40px; height:40px; background:var(--med-green); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
+                    <div
+                        style="width:40px; height:40px; background:var(--med-green); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <div>
@@ -1683,12 +1836,33 @@
                     </div>
                 </div>
                 <div class="float-element el-2">
-                    <div style="width:40px; height:40px; background:var(--med-blue); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
+                    <div
+                        style="width:40px; height:40px; background:var(--med-blue); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
                         <i class="fa-solid fa-user-doctor"></i>
                     </div>
                     <div>
                         <h4 style="font-size:14px;">Expert Care</h4>
                         <p style="font-size:11px;">Legacy Team</p>
+                    </div>
+                </div>
+                <div class="float-element el-3">
+                    <div
+                        style="width:40px; height:40px; background:var(--med-pink); border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
+                        <i class="fa-solid fa-kit-medical"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size:14px;">Holistic</h4>
+                        <p style="font-size:11px;">Root Cause</p>
+                    </div>
+                </div>
+                <div class="float-element el-4">
+                    <div
+                        style="width:40px; height:40px; background:#f1c40f; border-radius:10px; display:flex; justify-content:center; align-items:center; color:white;">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size:14px;">Top Rated</h4>
+                        <p style="font-size:11px;">Kerala</p>
                     </div>
                 </div>
             </div>
@@ -1785,7 +1959,7 @@
             </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
             <!-- Card 1: Allergy & Asthma -->
             <div class="pop-card">
                 <div class="card-glow"
@@ -2339,7 +2513,7 @@
             <div class="doctor-card"
                 style="background: white; width: 100%; max-width: 450px; padding: 40px; border-radius: 40px; border: 1px solid #f0f0f0; box-shadow: 0 20px 40px rgba(0,0,0,0.05); transition: all 0.4s ease; text-align: center;">
                 <div
-                    style="width: 280px; height: 350px; margin: 0 auto 30px; border-radius: 30px; overflow: hidden; border: 8px solid rgba(0, 184, 148, 0.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    style="width: 100%; max-width: 280px; height: 350px; margin: 0 auto 30px; border-radius: 30px; overflow: hidden; border: 8px solid rgba(0, 184, 148, 0.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
                     <img src="images/dr ashraf.jpg" alt="Dr. VPM Ashraf"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
@@ -2361,7 +2535,7 @@
             <div class="doctor-card"
                 style="background: white; width: 100%; max-width: 450px; padding: 40px; border-radius: 40px; border: 1px solid #f0f0f0; box-shadow: 0 20px 40px rgba(0,0,0,0.05); transition: all 0.4s ease; text-align: center;">
                 <div
-                    style="width: 280px; height: 350px; margin: 0 auto 30px; border-radius: 30px; overflow: hidden; border: 8px solid rgba(255, 118, 117, 0.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    style="width: 100%; max-width: 280px; height: 350px; margin: 0 auto 30px; border-radius: 30px; overflow: hidden; border: 8px solid rgba(255, 118, 117, 0.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
                     <img src="images/dr jesyy m.jpeg" alt="Dr. VP Jaseela"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
@@ -2866,92 +3040,75 @@
         </style>
     </section>
 
-    <!-- ========== REDESIGNED PREMIUM FOOTER ========== -->
     <footer class="mdb-footer">
-        <!-- Social Connect Bar -->
-        <div class="mdb-ft-topbar" id="social-connect">
-            <p><i class="fa-solid fa-globe" style="margin-right:8px;"></i>Connect with Kerala's Most Trusted Homeopathy Legacy</p>
-            <div class="mdb-ft-topbar-socials">
-                <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" class="sc-fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" class="sc-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.me/919947576123" target="_blank" class="sc-wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:dayahomeoppm@gmail.com" class="sc-mail" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-        </div>
-
-        <!-- Main Footer Content -->
+        <!-- Main Footer Body -->
         <div class="mdb-ft-body">
             <div class="mdb-ft-grid">
-                <!-- Branding & About -->
+                <!-- About -->
                 <div class="mdb-ft-about">
-                    <div class="mdb-ft-logo" style="margin-bottom: 25px;">
-                        <a href="#home"><img src="images/dh_logo.png" alt="Daya Homeopathy" style="height: 65px;"></a>
+                    <div class="mdb-ft-logo">
+                        <a href="#home"><img src="images/dh_logo.png" alt="Daya Homeopathy"></a>
                     </div>
-                    <p style="font-size: 15px; color: #94a3b8; line-height: 1.8; max-width: 320px; margin: 0 auto;">
-                        Restoring health naturally since 1979. We provide specialized homeopathic care for chronic conditions with a commitment to harmless and effective healing.
-                    </p>
-                    <div style="margin-top: 25px; display: flex; justify-content: center; gap: 10px;">
-                        <span style="background: rgba(0, 184, 148, 0.1); color: #00b894; padding: 5px 12px; border-radius: 50px; font-size: 12px; font-weight: 700;">Trusted Legacy</span>
-                        <span style="background: rgba(9, 132, 227, 0.1); color: #0984e3; padding: 5px 12px; border-radius: 50px; font-size: 12px; font-weight: 700;">Expert Care</span>
+                    <p>Since 1979, we have been providing trusted homeopathic care for chronic and acute diseases. Your health is our priority.</p>
+                    <div class="mdb-ft-socials">
+                        <a href="https://www.facebook.com/share/1Ct9yp5Ezb/" target="_blank" class="social-3d-icon sc-fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" class="social-3d-icon sc-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/919947576123" target="_blank" class="social-3d-icon sc-wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="mailto:dayahomeoppm@gmail.com" class="social-3d-icon sc-mail" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
 
-                <!-- Specialties Column -->
-                <div>
-                    <h6 class="mdb-ft-title">Specialties</h6>
-                    <ul class="mdb-ft-links">
-                        <li><a href="#specialties">Allergy & Asthma</a></li>
-                        <li><a href="#specialties">Skin Disorders</a></li>
-                        <li><a href="#specialties">Infertility Care</a></li>
-                        <li><a href="#specialties">Child Health</a></li>
-                        <li><a href="#specialties">Migraine Treatment</a></li>
-                    </ul>
-                </div>
-
-                <!-- Quick Navigation -->
+                <!-- Quick Links -->
                 <div>
                     <h6 class="mdb-ft-title">Quick Links</h6>
                     <ul class="mdb-ft-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#doctors">Our Doctors</a></li>
-                        <li><a href="#book">Book Visit</a></li>
-                        <li><a href="javascript:void(0)" onclick="openInfoModal('privacy')">Privacy Policy</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#specialties">Specialties</a></li>
+                        <li><a href="#doctors">Doctors</a></li>
+                        <li><a href="#book">Book Appointment</a></li>
+                        <li><a href="#social-connect">Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Office Contact -->
-                <div>
-                    <h6 class="mdb-ft-title">Get In Touch</h6>
+                <!-- Contact Info -->
+                <div id="social-connect">
+                    <h6 class="mdb-ft-title">Contact Us</h6>
                     <div class="mdb-ft-contact-item">
-                        <div class="mdb-ft-ci-icon bg1"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <div class="mdb-ft-ci-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <span>Pathappiriyam, Edavanna<br>Malappuram, Kerala</span>
                     </div>
                     <div class="mdb-ft-contact-item">
-                        <div class="mdb-ft-ci-icon bg2"><i class="fa-solid fa-phone-volume"></i></div>
+                        <div class="mdb-ft-ci-icon"><i class="fa-solid fa-phone"></i></div>
                         <span>+91 99475 76123</span>
                     </div>
                     <div class="mdb-ft-contact-item">
-                        <div class="mdb-ft-ci-icon bg4"><i class="fa-solid fa-envelope-open-text"></i></div>
+                        <div class="mdb-ft-ci-icon"><i class="fa-solid fa-envelope"></i></div>
                         <span>dayahomeoppm@gmail.com</span>
+                    </div>
+                    <div class="mdb-ft-contact-item">
+                        <div class="mdb-ft-ci-icon"><i class="fa-solid fa-clock"></i></div>
+                        <span>Mon-Sat: 09:30 AM - 02:00 PM<br>Sunday: Holiday</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Final Bottom Bar -->
-        <div class="mdb-ft-copyright">
-            <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-                <span>&copy; 2025 <strong>Daya Homeopathy</strong>. All rights reserved.</span>
-                <div style="width: 1px; height: 15px; background: rgba(255,255,255,0.2);" class="h-sep"></div>
-                <span>Crafted with <i class="fa-solid fa-heart" style="color: #ff4d6d; margin: 0 4px;"></i> by <a href="https://suhaimsoft.netlify.app/" target="_blank">Suhaim Soft</a></span>
+        <!-- Bottom Copyright Bar -->
+        <div class="mdb-ft-copyright-bar">
+            <div>
+                &copy; 2026 Daya Homeopathy. All rights reserved. Designed by Suhaim Soft
             </div>
+            <ul class="mdb-ft-bottom-links">
+                <li><a href="javascript:void(0)" onclick="openInfoModal('terms')">Terms & Conditions</a></li>
+                <li><a href="javascript:void(0)" onclick="openInfoModal('privacy')">Privacy Policy</a></li>
+            </ul>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop">
-        <i class="fa-solid fa-arrow-up-long"></i>
+        <i class="fa-solid fa-arrow-up"></i>
     </div>
 
     <!-- ===== SUPPORT FLOATING WIDGET ===== -->
@@ -3081,9 +3238,18 @@
         // WhatsApp Widget Logic
         const waButton = document.getElementById('waButton');
         const waPopup = document.getElementById('waPopup');
+        const waWidget = document.querySelector('.support-widget');
 
-        waButton.addEventListener('click', () => {
+        waButton.addEventListener('click', (e) => {
+            e.stopPropagation();
             waPopup.classList.toggle('active');
+        });
+
+        // Close WhatsApp popup when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!waWidget.contains(e.target) && waPopup.classList.contains('active')) {
+                waPopup.classList.remove('active');
+            }
         });
 
         // Info Modal Logic
