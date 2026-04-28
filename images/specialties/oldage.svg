@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <!-- Smiling Face -->
+    <circle cx="32" cy="32" r="30" fill="white" opacity="0.9"/>
+    <circle cx="22" cy="25" r="3" fill="#34495e"/>
+    <circle cx="42" cy="25" r="3" fill="#34495e"/>
+    <path d="M20 40c4 6 20 6 24 0" stroke="#34495e" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Gentle Wrinkles/Age Details -->
+    <path d="M15 20c2-2 5-2 7 0M42 20c2-2 5-2 7 0" stroke="#34495e" stroke-width="1.5" fill="none" opacity="0.6"/>
+</svg>

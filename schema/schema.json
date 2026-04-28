@@ -1,0 +1,46 @@
+{
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Daya Homeopathy",
+    "alternateName": "Daya Homeopathy Pathappiriyam",
+    "description": "Trusted homeopathic clinic established in 1979, providing holistic treatment for chronic and acute diseases.",
+    "url": "https://dayahomeopathy.com",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://dayahomeopathy.com/images/dh_logo.png",
+        "width": 300,
+        "height": 100
+    },
+    "image": "https://dayahomeopathy.com/images/dh_logo.png",
+    "telephone": "+91-9947576123",
+    "email": "dayahomeopathyclinic@gmail.com",
+    "foundingDate": "1979",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pathappiriyam, Edavanna",
+        "addressLocality": "Malappuram",
+        "addressRegion": "KL",
+        "postalCode": "676541",
+        "addressCountry": "IN"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 11.196349,
+        "longitude": 76.197720
+    },
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:30",
+            "closes": "14:00"
+        }
+    ],
+    "medicalSpecialty": "Homeopathy",
+    "hasMap": "https://maps.google.com/?q=Daya+Homeopathy+Pathappiriyam",
+    "priceRange": "₹₹",
+    "sameAs": [
+        "https://www.facebook.com/dayahomeopathy",
+        "https://www.instagram.com/dayahomeopathy"
+    ]
+}
