@@ -1646,61 +1646,49 @@
                     </a>
                 </div>
 
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>45+</h3>
-                        <p>Years</p>
+                <div class="hero-features" style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="feature-item" style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: #00b894;"></i>
+                        <span style="font-weight: 600; color: #475569;">Personalized Treatment</span>
                     </div>
-                    <div class="stat-item">
-                        <h3>100k+</h3>
-                        <p>Patients</p>
+                    <div class="feature-item" style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: #00b894;"></i>
+                        <span style="font-weight: 600; color: #475569;">No Side Effects</span>
                     </div>
-                    <div class="stat-item">
-                        <h3>100%</h3>
-                        <p>Natural</p>
+                    <div class="feature-item" style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: #00b894;"></i>
+                        <span style="font-weight: 600; color: #475569;">Expert Consultation</span>
+                    </div>
+                    <div class="feature-item" style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-circle-check" style="color: #00b894;"></i>
+                        <span style="font-weight: 600; color: #475569;">Global Standards</span>
                     </div>
                 </div>
             </div>
 
-            <!-- ANIMATED MEDICAL VISUAL -->
+            <!-- ANIMATED 2D VISUAL -->
             <div class="medical-visual-new animate__animated animate__fadeInRight">
-                <div class="circle-gradient-bg"></div>
-                <div class="med-pulse-container" style="width: 300px; height: 300px;">
-                    <i class="fa-solid fa-heart-pulse med-icon-center" style="font-size: 100px;"></i>
-                </div>
-
-                <!-- Floating UI Cards -->
-                <div class="floating-card-ui card-ui-1">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 45px; height: 45px; background: #00b894; border-radius: 12px; display: flex; justify-content: center; align-items: center; color: white;">
-                            <i class="fa-solid fa-user-doctor"></i>
-                        </div>
-                        <div>
-                            <h4 style="font-size: 15px; color: #1e293b;">Expert Doctors</h4>
-                            <p style="font-size: 12px; color: #64748b;">Specialized Care</p>
-                        </div>
+                <div class="illustration-wrap" style="position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="medical_2d_illustration_1777371464974.png" alt="Medical Illustration" style="max-width: 90%; height: auto; border-radius: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); animation: bounce2D 4s ease-in-out infinite;">
+                    
+                    <!-- 2D Floating Elements -->
+                    <div class="floating-2d-el" style="position: absolute; top: 10%; left: 5%; background: white; padding: 12px 20px; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 10px; animation: slide2D 5s ease-in-out infinite;">
+                        <i class="fa-solid fa-heart-pulse" style="color: #ff4d6d;"></i>
+                        <span style="font-size: 14px; font-weight: 700;">Holistic Care</span>
                     </div>
-                </div>
-
-                <div class="floating-card-ui card-ui-2">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 45px; height: 45px; background: #0984e3; border-radius: 12px; display: flex; justify-content: center; align-items: center; color: white;">
-                            <i class="fa-solid fa-shield-virus"></i>
-                        </div>
-                        <div>
-                            <h4 style="font-size: 15px; color: #1e293b;">Safe Healing</h4>
-                            <p style="font-size: 12px; color: #64748b;">No Side Effects</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SVG ECG Background -->
-                <div class="svg-container" style="opacity: 0.15;">
-                    <svg viewBox="0 0 800 600" width="100%" height="100%">
-                        <path class="ecg-line" d="M0,300 L100,300 L120,250 L140,350 L160,300 L300,300 L320,100 L340,500 L360,300 L500,300 L520,280 L540,320 L560,300 L800,300" />
-                    </svg>
                 </div>
             </div>
+
+            <style>
+                @keyframes bounce2D {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-15px); }
+                }
+                @keyframes slide2D {
+                    0%, 100% { transform: translateX(0); }
+                    50% { transform: translateX(10px); }
+                }
+            </style>
         </section>
     </main>
 
