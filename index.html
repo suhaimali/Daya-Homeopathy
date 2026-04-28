@@ -1047,19 +1047,21 @@
         /* Slim Social Bar */
         .mdb-ft-topbar {
             background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
-            padding: 12px 8%;
+            padding: 15px 8%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            text-align: center;
+            gap: 12px;
         }
 
         .mdb-ft-topbar p {
             color: #fff;
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             margin: 0;
+            letter-spacing: 0.5px;
         }
 
         .mdb-ft-topbar-socials {
@@ -1100,8 +1102,9 @@
 
         .mdb-ft-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
+            text-align: center;
         }
 
         /* Column Title */
@@ -1127,6 +1130,8 @@
 
         .mdb-ft-logo {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .mdb-ft-logo img {
@@ -1180,7 +1185,8 @@
         /* Contact Column */
         .mdb-ft-contact-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
             gap: 12px;
             margin-bottom: 16px;
             font-size: 14px;
@@ -1422,9 +1428,7 @@
 
         @media (max-width: 600px) {
             .mdb-ft-topbar {
-                flex-direction: column;
-                text-align: center;
-                padding: 18px 5%;
+                padding: 20px 5%;
             }
 
             .mdb-ft-topbar-socials {
@@ -1782,17 +1786,7 @@
                     One of the best homeopathic clinics in Kerala situated at Pathappiriyam, Malappuram.
                 </p>
 
-                <!-- NEW HERO BUTTONS -->
-                <div class="hero-btns" style="display: flex; gap: 20px; margin-top: 40px; flex-wrap: wrap;">
-                    <a href="#book" class="hero-btn-primary">
-                        <i class="fa-solid fa-calendar-check"></i>
-                        Book Appointment
-                    </a>
-                    <a href="#about" class="hero-btn-secondary">
-                        Learn More
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
+
             </div>
 
             <!-- ANIMATED MEDICAL UI -->
