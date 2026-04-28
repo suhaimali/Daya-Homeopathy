@@ -1,0 +1,11 @@
+# robots.txt for https://www.dayahomeopathy.com
+# Allow all search engines and all browsers
+
+User-agent: *
+Allow: /
+
+# Block system folders (optional & safe)
+Disallow: /cgi-bin/
+
+# Sitemap location
+Sitemap: https://www.dayahomeopathy.com/sitemap.xml
