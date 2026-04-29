@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     <meta name="theme-color" content="#00b894">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Daya Homeopathy">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -19,7 +20,7 @@
         if (window.location.protocol.startsWith('http')) {
             const manifest = document.createElement('link');
             manifest.rel = 'manifest';
-            manifest.href = 'pwa/manifest.json';
+            manifest.href = 'manifest.json';
             document.head.appendChild(manifest);
 
             const canonical = document.createElement('link');
@@ -3348,7 +3349,7 @@
         // Register Service Worker for PWA (Only on HTTP/HTTPS to avoid CORS errors on local file://)
         if ('serviceWorker' in navigator && (window.location.protocol === 'http:' || window.location.protocol === 'https:')) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('pwa/sw.js', { scope: '/' })
+                navigator.serviceWorker.register('sw.js', { scope: '/' })
                     .then(reg => console.log('SW registered:', reg.scope))
                     .catch(err => console.log('SW failed:', err));
             });

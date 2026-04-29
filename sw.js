@@ -3,7 +3,7 @@ const CACHE_NAME = 'daya-v4';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/pwa/manifest.json',
+  '/manifest.json',
   '/schema/schema.json',
 
   // Images
