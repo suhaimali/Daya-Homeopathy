@@ -1,4 +1,4 @@
-const CACHE_NAME = 'daya-v3';
+const CACHE_NAME = 'daya-v4';
 
 const STATIC_ASSETS = [
   '/',
@@ -12,8 +12,8 @@ const STATIC_ASSETS = [
   '/images/daya_about_medical_ui_1777310895553.png',
   '/images/online.jpg',
   '/images/poster daya.jpg',
-  '/images/dr ashraf.jpg',
-  '/images/dr jesyy m.jpeg',
+  '/images/doctor_male_flat.png',
+  '/images/doctor_female_flat.png',
 
   // Specialty icons
   '/images/specialties/lungs.svg',
