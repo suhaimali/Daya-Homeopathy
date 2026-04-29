@@ -4,14 +4,14 @@
     "name": "Daya Homeopathy",
     "alternateName": "Daya Homeopathy Pathappiriyam",
     "description": "Trusted homeopathic clinic established in 1979, providing holistic treatment for chronic and acute diseases.",
-    "url": "https://dayahomeopathy.com",
+    "url": "https://dayahome.com",
     "logo": {
         "@type": "ImageObject",
-        "url": "https://dayahomeopathy.com/images/dh_logo.png",
+        "url": "https://dayahome.com/images/dh_logo.png",
         "width": 300,
         "height": 100
     },
-    "image": "https://dayahomeopathy.com/images/dh_logo.png",
+    "image": "https://dayahome.com/images/dh_logo.png",
     "telephone": "+91-9947576123",
     "email": "dayahomeopathyclinic@gmail.com",
     "foundingDate": "1979",

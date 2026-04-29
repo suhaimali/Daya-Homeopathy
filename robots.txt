@@ -1,4 +1,4 @@
-# robots.txt for https://www.dayahomeopathy.com
+# robots.txt for https://www.dayahome.com
 # Allow all search engines and all browsers
 
 User-agent: *
@@ -8,4 +8,4 @@ Allow: /
 Disallow: /cgi-bin/
 
 # Sitemap location
-Sitemap: https://www.dayahomeopathy.com/sitemap.xml
+Sitemap: https://www.dayahome.com/sitemap.xml
