@@ -482,7 +482,7 @@
 
         /* Static Hero Image Container */
         .hero-image-container {
-            flex: 1;
+            flex: 1.2;
             position: relative;
             display: flex;
             justify-content: center;
@@ -492,32 +492,13 @@
 
         .hero-main-img {
             width: 100%;
-            max-width: 550px;
+            max-width: 650px;
             height: auto;
             border-radius: 40px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-            border: 8px solid white;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
+            border: 10px solid white;
             z-index: 10;
         }
-
-        /* Static Labels */
-        .static-badge {
-            position: absolute;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 20;
-            border: 1px solid rgba(0, 184, 148, 0.1);
-        }
-
-        .sb-1 { top: 10%; left: -20px; }
-        .sb-2 { top: 25%; right: -20px; }
-        .sb-3 { bottom: 20%; left: -10px; }
-        .sb-4 { bottom: 10%; right: 10px; }
 
         @media (max-width: 1200px) {
             .hero {
@@ -531,22 +512,13 @@
             }
             .hero-image-container {
                 width: 100%;
-                max-width: 600px;
+                max-width: 800px;
                 margin: 0 auto;
             }
             .hero-main-img { 
                 max-width: 100%; 
                 border-radius: 30px;
             }
-            /* Adjust badges for tablet instead of hiding */
-            .static-badge {
-                padding: 10px 18px;
-                font-size: 13px;
-            }
-            .sb-1 { left: 0; top: 0; }
-            .sb-2 { right: 0; top: 10%; }
-            .sb-3 { left: 0; bottom: 5%; }
-            .sb-4 { right: 0; bottom: 0; }
         }
 
         @media (max-width: 768px) {
@@ -557,20 +529,10 @@
                 font-size: clamp(32px, 8vw, 48px);
             }
             .hero-main-img { 
-                border-width: 4px;
+                border-width: 6px;
                 border-radius: 20px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
             }
-            /* Show badges on mobile with optimized layout */
-            .static-badge {
-                padding: 8px 12px;
-                font-size: 11px;
-                gap: 6px;
-                border-radius: 12px;
-            }
-            .sb-1 { left: 5px; top: -10px; }
-            .sb-2 { right: 5px; top: 10px; }
-            .sb-3 { left: 5px; bottom: 15px; }
-            .sb-4 { right: 5px; bottom: -5px; }
         }
 
         .hero-badge-container {
@@ -1884,25 +1846,7 @@
 
             <!-- STATIC MEDICAL IMAGE UI -->
             <div class="hero-image-container">
-                <img src="images/daya_dr_patient_full_face_view.png" alt="Compassionate Homeopathic Care" class="hero-main-img">
-                
-                <!-- Static Badges -->
-                <div class="static-badge sb-1">
-                    <i class="fa-solid fa-heart-pulse" style="color: #ff7675;"></i>
-                    <span style="font-weight: 700; font-size: 14px;">Heart Care</span>
-                </div>
-                <div class="static-badge sb-2">
-                    <i class="fa-solid fa-leaf" style="color: #00b894;"></i>
-                    <span style="font-weight: 700; font-size: 14px;">Pure Nature</span>
-                </div>
-                <div class="static-badge sb-3">
-                    <i class="fa-solid fa-dna" style="color: #0984e3;"></i>
-                    <span style="font-weight: 700; font-size: 14px;">Root Analysis</span>
-                </div>
-                <div class="static-badge sb-4">
-                    <i class="fa-solid fa-hand-holding-medical" style="color: #6c5ce7;"></i>
-                    <span style="font-weight: 700; font-size: 14px;">Gentle Cure</span>
-                </div>
+                <img src="images/weleome.jpeg" alt="Compassionate Homeopathic Care" class="hero-main-img">
             </div>
         </section>
     </main>
