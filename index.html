@@ -518,21 +518,22 @@
             }
         }
 
-        .med-icon-center {
-            font-size: 80px;
-            color: var(--med-green);
-            animation: beat 1.5s ease-in-out infinite;
+        .med-logo-center {
+            width: 140px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0, 184, 148, 0.2));
+            animation: logo-pulse 3s ease-in-out infinite;
+            z-index: 3;
         }
 
-        @keyframes beat {
-
-            0%,
-            100% {
-                transform: scale(1);
+        @keyframes logo-pulse {
+            0%, 100% {
+                transform: scale(1) translateY(0);
+                filter: drop-shadow(0 10px 20px rgba(0, 184, 148, 0.2));
             }
-
             50% {
-                transform: scale(1.15);
+                transform: scale(1.1) translateY(-10px);
+                filter: drop-shadow(0 20px 40px rgba(0, 184, 148, 0.4));
             }
         }
 
@@ -641,6 +642,10 @@
                 height: 180px;
             }
 
+            .med-logo-center {
+                width: 100px;
+            }
+
             .float-element {
                 padding: 10px 15px;
                 gap: 10px;
@@ -688,6 +693,10 @@
             .medical-ui-container {
                 height: 300px;
                 transform: scale(0.8);
+            }
+
+            .med-logo-center {
+                width: 80px;
             }
 
             .float-element {
@@ -1786,7 +1795,7 @@
                 </div>
 
                 <div class="med-pulse-container">
-                    <i class="fa-solid fa-heart-pulse med-icon-center"></i>
+                    <img src="images/dh_logo.png" class="med-logo-center" alt="Daya Homeopathy Logo">
                 </div>
                 <div class="float-element el-1">
                     <div
