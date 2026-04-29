@@ -712,6 +712,25 @@
         .lab-3 { bottom: 20%; left: 20px; animation-delay: 2s; }
         .lab-4 { bottom: 15%; right: 0; animation-delay: 3s; }
 
+        /* --- DOCTOR CONSULTATION UI --- */
+        .dr-consultation-ui {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .dr-consultation-ui img {
+            animation: drFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes drFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
         /* --- ADVANCED MEDICAL ANIMATIONS --- */
         .medical-tech-layer {
             position: absolute;
@@ -2001,10 +2020,6 @@
                         <i class="fa-solid fa-calendar-check"></i>
                         Trusted Since 1979
                     </div>
-                    <div class="hero-badge badge-rated">
-                        <i class="fa-solid fa-star"></i>
-                        Top Rated Kerala
-                    </div>
                 </div>
 
                 <div class="hero-title">
@@ -2019,7 +2034,7 @@
                 </h2>
 
                 <p class="hero-description">
-                    One of the best homeopathic clinics in Kerala situated at Pathappiriyam, Malappuram. Dedicated to your holistic well-being for over 4 decades.
+                    Unlike conventional treatments that often focus solely on suppressing symptoms, our approach addresses the root cause of your health issues. One of the best homeopathic clinics in Kerala situated at Pathappiriyam, Malappuram.
                 </p>
 
                 <!-- HERO BUTTONS -->
@@ -2072,47 +2087,18 @@
                     <i class="fa-solid fa-kit-medical particle" style="left: 90%; animation-delay: 5s;"></i>
                 </div>
 
-                <div class="lotus-pulse-center">
-                    <div class="pulse-circle"></div>
-                    <div class="pulse-circle"></div>
-                    <div class="pulse-circle"></div>
-
-                    <!-- Scanning Ring -->
-                    <div class="scanning-ring"></div>
+                <div class="dr-consultation-ui animate__animated animate__zoomIn">
+                    <!-- Premium Doctor Consulting Patient Illustration -->
+                    <img src="dr_consulting_patient_illustration_1777470445347.png" alt="Doctor Consulting Patient" style="width: 100%; max-width: 550px; height: auto; filter: drop-shadow(0 20px 40px rgba(0, 184, 148, 0.15));">
                     
-                    <!-- Premium Lotus SVG Illustration -->
-                    <svg class="central-lotus" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="lotusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#00b894;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#00cec9;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path fill="url(#lotusGrad)" d="M50 90C50 90 30 70 30 50C30 30 50 10 50 10C50 10 70 30 70 50C70 70 50 90 50 90Z" opacity="0.8"/>
-                        <path fill="url(#lotusGrad)" d="M50 90C50 90 10 80 10 50C10 20 50 10 50 10C50 10 90 20 90 50C90 80 50 90 50 90Z" opacity="0.4"/>
-                        <path fill="url(#lotusGrad)" d="M50 90C50 90 20 85 20 60C20 35 50 30 50 30C50 30 80 35 80 60C80 85 50 90 50 90Z" opacity="0.6"/>
-                        <circle cx="50" cy="50" r="8" fill="white" opacity="0.9"/>
-                    </svg>
-
-                    <!-- Heartbeat icon in center -->
-                    <i class="fa-solid fa-heart-pulse lotus-heart"></i>
-
-                    <!-- Floating Labels -->
+                    <!-- Floating Care Labels -->
                     <div class="floating-label lab-1">
-                        <i class="fa-solid fa-heart-pulse" style="color: #ff7675;"></i>
-                        <span style="font-weight: 700; font-size: 14px;">Heart Care</span>
+                        <i class="fa-solid fa-user-doctor" style="color: #00b894;"></i>
+                        <span style="font-weight: 700; font-size: 14px;">Expert Consultation</span>
                     </div>
                     <div class="floating-label lab-2">
-                        <i class="fa-solid fa-leaf" style="color: #00b894;"></i>
-                        <span style="font-weight: 700; font-size: 14px;">Pure Nature</span>
-                    </div>
-                    <div class="floating-label lab-3">
-                        <i class="fa-solid fa-dna" style="color: #0984e3;"></i>
-                        <span style="font-weight: 700; font-size: 14px;">Root Analysis</span>
-                    </div>
-                    <div class="floating-label lab-4">
-                        <i class="fa-solid fa-hand-holding-medical" style="color: #6c5ce7;"></i>
-                        <span style="font-weight: 700; font-size: 14px;">Gentle Cure</span>
+                        <i class="fa-solid fa-comments" style="color: #0984e3;"></i>
+                        <span style="font-weight: 700; font-size: 14px;">Patient Care</span>
                     </div>
                 </div>
             </div>
