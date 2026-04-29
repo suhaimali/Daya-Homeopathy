@@ -722,7 +722,25 @@
             z-index: 10;
         }
 
+        .dr-pulse-glow {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(0, 184, 148, 0.15) 0%, transparent 70%);
+            animation: drGlow 4s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes drGlow {
+            0% { transform: scale(0.9); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
         .dr-consultation-ui img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
             animation: drFloat 6s ease-in-out infinite;
         }
 
@@ -2088,8 +2106,9 @@
                 </div>
 
                 <div class="dr-consultation-ui animate__animated animate__zoomIn">
-                    <!-- Premium Doctor Consulting Patient Illustration -->
-                    <img src="dr_consulting_patient_illustration_1777470445347.png" alt="Doctor Consulting Patient" style="width: 100%; max-width: 550px; height: auto; filter: drop-shadow(0 20px 40px rgba(0, 184, 148, 0.15));">
+                    <div class="dr-pulse-glow"></div>
+                    <!-- Premium 3D Doctor Consulting Patient Illustration -->
+                    <img src="premium_dr_consultation_photo_style_1777470601459.png" alt="Doctor Consulting Patient">
                     
                     <!-- Floating Care Labels -->
                     <div class="floating-label lab-1">
