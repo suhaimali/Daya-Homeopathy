@@ -1976,15 +1976,23 @@
                 </div>
             </div>
 
-            <!-- Medical Animation Content -->
-            <div style="flex: 1; min-width: 320px;" class="animate__animated animate__fadeInRight">
+            <!-- Image & Animation Content -->
+            <div style="flex: 1; min-width: 320px; position: relative;" class="animate__animated animate__fadeInRight">
                 <div class="med-anim-wrap">
-                    <!-- Central Pulsing Heart -->
-                    <div class="med-anim-center">
-                        <i class="fa-solid fa-heart-pulse"></i>
+                    <!-- Base Image -->
+                    <div style="position: absolute; inset: 0; padding: 20px; z-index: 2;">
+                        <div style="width: 100%; height: 100%; border-radius: 40px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12); border: 8px solid white;">
+                            <img src="images/daya_about_medical_ui_1777310895553.png" alt="Daya Healing Legacy"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+
+                    <!-- Central Pulsing Heart (Smaller & Positioned) -->
+                    <div class="med-anim-center" style="width: 100px; height: 100px; border-radius: 25px; z-index: 10;">
+                        <i class="fa-solid fa-heart-pulse" style="font-size: 50px;"></i>
                     </div>
                     
-                    <!-- Orbiting Medical Icons -->
+                    <!-- Orbiting Medical Icons (Widened Orbit) -->
                     <div class="med-orbit-icon oi-1"><i class="fa-solid fa-stethoscope"></i></div>
                     <div class="med-orbit-icon oi-2"><i class="fa-solid fa-dna"></i></div>
                     <div class="med-orbit-icon oi-3"><i class="fa-solid fa-leaf"></i></div>
@@ -1992,6 +2000,110 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose-us" style="padding: 100px 8%; background: #f8fafc;">
+        <div style="text-align: center; margin-bottom: 70px;" class="animate__animated animate__fadeInUp">
+            <div style="display: inline-block; background: rgba(0, 184, 148, 0.1); color: var(--med-green); padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 14px; margin-bottom: 20px; letter-spacing: 1px;">
+                OUR CORE STRENGTHS
+            </div>
+            <h1 style="font-size: clamp(35px, 5vw, 55px); color: #1a1a1a; font-weight: 800; line-height: 1.2;">
+                Why Choose <span style="background: var(--hero-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Daya</span>?
+            </h1>
+        </div>
+
+        <div class="why-grid">
+            <!-- Feature 1: Qualified Doctors -->
+            <div class="why-card animate__animated animate__fadeInUp">
+                <div class="why-icon-box" style="background: linear-gradient(135deg, #0984e3, #74b9ff);"><i class="fa-solid fa-user-doctor"></i></div>
+                <h4>Expert Doctors</h4>
+                <p>Highly qualified and experienced doctors dedicated to your complete recovery and well-being.</p>
+            </div>
+
+            <!-- Feature 2: Legacy & Success -->
+            <div class="why-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                <div class="why-icon-box" style="background: linear-gradient(135deg, #00b894, #00cec9);"><i class="fa-solid fa-award"></i></div>
+                <h4>Healing Since 1979</h4>
+                <p>Providing best health care in Homeopathy for over 4 decades with a high success rate.</p>
+            </div>
+
+            <!-- Feature 3: Accurate Diagnosis -->
+            <div class="why-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="why-icon-box" style="background: linear-gradient(135deg, #6c5ce7, #a29bfe);"><i class="fa-solid fa-stethoscope"></i></div>
+                <h4>Accurate Diagnosis</h4>
+                <p>Treatment based on accurate diagnosis to ensure the most effective and safe healing path.</p>
+            </div>
+
+            <!-- Feature 4: Online Consultation -->
+            <div class="why-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <div class="why-icon-box" style="background: linear-gradient(135deg, #e17055, #fab1a0);"><i class="fa-solid fa-laptop-medical"></i></div>
+                <h4>Global Access</h4>
+                <p>Telephone and Online consultations available to bring our care to you, anywhere in the world.</p>
+            </div>
+
+            <!-- Feature 5: Medicine Delivery -->
+            <div class="why-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="why-icon-box" style="background: linear-gradient(135deg, #25D366, #128C7E);"><i class="fa-solid fa-truck-fast"></i></div>
+                <h4>Door Delivery</h4>
+                <p>Door Delivery of Medicines available across India and international locations for your convenience.</p>
+            </div>
+        </div>
+
+        <style>
+            .why-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                margin-top: 50px;
+            }
+            .why-card {
+                background: white;
+                padding: 40px 25px;
+                border-radius: 25px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+                border: 1px solid rgba(0,0,0,0.04);
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .why-card:hover {
+                transform: translateY(-12px);
+                box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+                border-color: var(--med-green);
+            }
+            .why-icon-box {
+                width: 65px;
+                height: 65px;
+                border-radius: 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 25px;
+                font-size: 28px;
+                color: white;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .why-card h4 {
+                font-size: 19px;
+                color: #1a1a1a;
+                font-weight: 800;
+                margin-bottom: 15px;
+            }
+            .why-card p {
+                font-size: 15px;
+                color: #555;
+                line-height: 1.6;
+                margin: 0;
+            }
+            @media (max-width: 768px) {
+                .why-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
     </section>
 
     <!-- SPECIALTIES SECTION -->
