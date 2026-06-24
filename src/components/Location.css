@@ -1,5 +1,5 @@
-.location-section {
-  padding: 100px 20px;
+.location-canvas-section {
+  padding: 100px 0 0 0;
   background-color: #ffffff;
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -7,12 +7,13 @@
 .location-container {
   max-width: 1240px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .location-header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto 50px auto;
 }
 
 .location-subtitle {
@@ -43,36 +44,58 @@
   line-height: 1.8;
 }
 
-/* ===== GRID SYSTEM ===== */
-.location-grid-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 40px;
-  align-items: stretch;
-}
-
-/* ===== INFO CARD (CLEAN & MINIMAL) ===== */
-.loc-info-card {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 24px;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* ===== CANVAS SYSTEM ===== */
+.location-canvas-container {
   position: relative;
+  width: 100%;
+  height: 600px;
+  margin-top: 50px;
+  overflow: hidden;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-.loc-info-card::before {
-  content: '';
+.map-canvas-background {
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
+  width: 100%;
   height: 100%;
-  background: var(--primary-green);
-  border-radius: 24px 0 0 24px;
+  z-index: 1;
+}
+
+.location-overlay-wrapper {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* ===== FLOATING GLASS CARD ===== */
+.loc-floating-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+  width: 100%;
+  max-width: 440px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .info-brand-title {
@@ -85,7 +108,7 @@
 .info-brand-desc {
   font-size: 14px;
   color: var(--text-body);
-  margin: 0 0 32px 0;
+  margin: 0;
   line-height: 1.5;
 }
 
@@ -93,7 +116,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 32px;
 }
 
 .info-item {
@@ -103,7 +125,7 @@
 }
 
 .info-icon-box {
-  background: #f0fdfa;
+  background: #ffffff;
   color: var(--primary-green);
   width: 44px;
   height: 44px;
@@ -112,12 +134,16 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
   transition: all 0.3s ease;
+  border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
 .info-item:hover .info-icon-box {
-  background: #ccfbf1;
+  background: #f0fdfa;
+  color: var(--primary-green-hover);
   transform: scale(1.05);
+  border-color: rgba(12, 183, 143, 0.2);
 }
 
 .info-text-box {
@@ -155,10 +181,10 @@
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: auto;
   box-shadow: 0 8px 20px rgba(12, 183, 143, 0.25);
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 
 .get-directions-btn:hover {
@@ -167,43 +193,51 @@
   box-shadow: 0 12px 28px rgba(12, 183, 143, 0.35);
 }
 
-/* ===== MAP FRAME ===== */
-.map-frame-wrapper {
-  width: 100%;
-  height: 100%;
-  min-height: 480px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
-  .location-grid-wrapper {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  
-  .loc-info-card {
-    padding: 36px 30px;
+  .location-canvas-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    border-top: none;
   }
 
-  .loc-info-card::before {
+  .location-overlay-wrapper {
+    position: relative;
     width: 100%;
-    height: 4px;
-    border-radius: 24px 24px 0 0;
+    max-width: 100%;
+    padding: 0 16px 32px 16px;
+    height: auto;
+    display: block;
+    order: -1; /* Puts info card above map in flex/static layout */
+  }
+
+  .loc-floating-card {
+    max-width: 100%;
+    background: #ffffff;
+    backdrop-filter: none;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    padding: 32px 24px;
+  }
+
+  .info-icon-box {
+    background: #f8fafc;
   }
   
-  .map-frame-wrapper {
+  .map-canvas-background {
+    position: relative;
     height: 400px;
     min-height: 400px;
+    width: 100%;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
   }
 }
 
 @media (max-width: 768px) {
-  .location-section {
-    padding: 60px 16px;
+  .location-canvas-section {
+    padding: 60px 0 0 0;
   }
   
   .location-header {
@@ -212,24 +246,21 @@
 }
 
 @media (max-width: 480px) {
-  .location-section {
-    padding: 50px 14px;
+  .location-canvas-section {
+    padding: 50px 0 0 0;
   }
   
-  .loc-info-card {
-    padding: 28px 20px;
+  .loc-floating-card {
+    padding: 24px 18px;
+    gap: 20px;
   }
   
   .info-list {
     gap: 16px;
   }
   
-  .info-brand-desc {
-    margin-bottom: 24px;
-  }
-  
-  .map-frame-wrapper {
-    height: 320px;
-    min-height: 320px;
+  .map-canvas-background {
+    height: 300px;
+    min-height: 300px;
   }
 }

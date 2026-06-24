@@ -4,7 +4,7 @@ import './Location.css';
 
 const Location = () => {
   return (
-    <section className="location-section" id="location">
+    <section className="location-canvas-section" id="location">
       <div className="location-container">
         
         <div className="location-header">
@@ -15,9 +15,26 @@ const Location = () => {
           </p>
         </div>
 
-        <div className="location-grid-wrapper">
-          
-          <div className="loc-info-card">
+      </div>
+
+      <div className="location-canvas-container">
+        {/* Full-width Map Canvas Background */}
+        <div className="map-canvas-background">
+          <iframe 
+            src="https://maps.google.com/maps?q=Pathappiriyam,+Edavanna,+Malappuram,+Kerala&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Daya Homeopathic Clinic Location"
+          ></iframe>
+        </div>
+
+        {/* Floating Card Centering Context */}
+        <div className="location-overlay-wrapper">
+          <div className="loc-floating-card">
             <div className="loc-card-header">
               <h3 className="info-brand-title">Daya Homeopathy</h3>
               <p className="info-brand-desc">
@@ -68,22 +85,6 @@ const Location = () => {
               <Navigation size={18} /> Get Directions
             </a>
           </div>
-
-          <div className="map-frame-wrapper">
-            <iframe 
-              src="https://maps.google.com/maps?q=Pathappiriyam,+Edavanna,+Malappuram,+Kerala&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Daya Homeopathic Clinic Location"
-            ></iframe>
-          </div>
-
-        </div>
-
       </div>
     </section>
   );
