@@ -254,6 +254,7 @@
     height: auto;
     display: block;
     order: -1; /* Puts info card above map in flex/static layout */
+    pointer-events: auto;
   }
 
   .loc-floating-card {
