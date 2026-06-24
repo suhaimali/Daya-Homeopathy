@@ -72,12 +72,17 @@
   pointer-events: none;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0 20px;
 }
 
 /* ===== FLOATING GLASS CARD ===== */
 .loc-floating-card {
-  background: rgba(255, 255, 255, 0.82);
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.45);
@@ -90,6 +95,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  z-index: 10;
   animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
@@ -258,6 +264,10 @@
   }
 
   .loc-floating-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     max-width: 100%;
     background: #ffffff;
     backdrop-filter: none;
