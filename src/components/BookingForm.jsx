@@ -14,7 +14,7 @@ const BookingForm = () => {
 
   const [showToast, setShowToast] = useState(false);
 
-  const WHATSAPP_NUMBER = "919947576123"; // Real clinic number
+  const WHATSAPP_NUMBER = "919947576123"; 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,23 +24,18 @@ const BookingForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Format the message for WhatsApp
     const conditionText = formData.condition ? `%0A*Condition:* ${formData.condition}` : '';
     const text = `*New Booking Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}${conditionText}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*Message:* ${formData.message}`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-    // Show toast
     setShowToast(true);
     
-    // Hide toast after 4 seconds
     setTimeout(() => {
       setShowToast(false);
     }, 4000);
 
-    // Open WhatsApp in new tab
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
-      // Reset form
       setFormData({ name: '', phone: '', condition: '', date: '', time: '', message: '' });
     }, 800);
   };
@@ -49,66 +44,19 @@ const BookingForm = () => {
     <section className="booking-section" id="booking">
       <div className="booking-container">
         
-        <div className="booking-grid">
-          {/* Left Column - Info & Trust Elements */}
-          <div className="booking-info-sidebar">
-            <div className="booking-header-inline">
-              <span className="booking-subtitle">GET IN TOUCH</span>
-              <h2 className="booking-title">Online Consultation & Booking</h2>
-              <p className="booking-desc">
-                Fill out our quick form to start a direct WhatsApp consultation. We will analyze your symptoms and match you with our expert homeopaths.
-              </p>
-            </div>
+        <div className="booking-header">
+          <span className="booking-subtitle">GET IN TOUCH</span>
+          <h2 className="booking-title">Online Consultation & Booking</h2>
+          <p className="booking-desc">
+            Fill out the form below to start a direct WhatsApp consultation with our expert homeopaths.
+          </p>
+        </div>
 
-            {/* Benefit Items */}
-            <div className="booking-benefits">
-              <div className="benefit-item">
-                <div className="benefit-icon-wrapper">
-                  <CheckCircle size={18} />
-                </div>
-                <div className="benefit-text">
-                  <h4>Constitutional Diagnosis</h4>
-                  <p>In-depth constitutional analysis targeting the root cause of your chronic issues.</p>
-                </div>
-              </div>
-
-              <div className="benefit-item">
-                <div className="benefit-icon-wrapper">
-                  <CheckCircle size={18} />
-                </div>
-                <div className="benefit-text">
-                  <h4>Direct WhatsApp Chat</h4>
-                  <p>Skip the waiting queues and chat directly with our medical consultants.</p>
-                </div>
-              </div>
-
-              <div className="benefit-item">
-                <div className="benefit-icon-wrapper">
-                  <CheckCircle size={18} />
-                </div>
-                <div className="benefit-text">
-                  <h4>100% Safe & Natural</h4>
-                  <p>Gentle and side-effect-free homeopathic remedies customized for you.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Contact Card */}
-            <div className="booking-contact-card">
-              <div className="contact-card-icon">
-                <MessageCircle size={24} />
-              </div>
-              <div className="contact-card-info">
-                <h5>Need Instant Help?</h5>
-                <p>Chat directly: <strong>+91 99475 76123</strong></p>
-                <span>Mon - Sat: 9:00 AM - 8:00 PM</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Redesigned Form */}
-          <div className="booking-form-wrapper">
-            <form className="booking-form" onSubmit={handleSubmit}>
+        <div className="booking-form-card">
+          <form className="booking-form" onSubmit={handleSubmit}>
+            
+            {/* Row 1: Name & Phone */}
+            <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <div className="input-with-icon">
@@ -142,13 +90,16 @@ const BookingForm = () => {
                   />
                 </div>
               </div>
+            </div>
 
+            {/* Row 2: Condition & Date & Time */}
+            <div className="form-row triple">
               <div className="form-group">
-                <label htmlFor="condition">Select Condition</label>
+                <label htmlFor="condition">Condition</label>
                 <div className="input-with-icon">
                   <Activity className="input-icon" size={20} />
-                  <select id="condition" name="condition" value={formData.condition} onChange={handleChange}>
-                    <option value="">-- Select Condition --</option>
+                  <select id="condition" name="condition" value={formData.condition} onChange={handleChange} required>
+                    <option value="">-- Select --</option>
                     <option value="Allergy & Asthma">Allergy & Asthma</option>
                     <option value="Migraine">Migraine</option>
                     <option value="Female Disorders">Female Disorders</option>
@@ -178,59 +129,60 @@ const BookingForm = () => {
                 </div>
               </div>
 
-              <div className="form-row">
-                <div className="form-group half-width">
-                  <label htmlFor="date">Preferred Date</label>
-                  <div className="input-with-icon">
-                    <Calendar className="input-icon" size={20} />
-                    <input 
-                      type="date" 
-                      id="date" 
-                      name="date" 
-                      value={formData.date}
-                      onChange={handleChange}
-                      required 
-                    />
-                  </div>
-                </div>
-                <div className="form-group half-width">
-                  <label htmlFor="time">Preferred Time</label>
-                  <div className="input-with-icon">
-                    <Clock className="input-icon" size={20} />
-                    <input 
-                      type="time" 
-                      id="time" 
-                      name="time" 
-                      value={formData.time}
-                      onChange={handleChange}
-                      required 
-                    />
-                  </div>
+              <div className="form-group">
+                <label htmlFor="date">Preferred Date</label>
+                <div className="input-with-icon">
+                  <Calendar className="input-icon" size={20} />
+                  <input 
+                    type="date" 
+                    id="date" 
+                    name="date" 
+                    value={formData.date}
+                    onChange={handleChange}
+                    required 
+                  />
                 </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message / Symptoms</label>
-                <div className="input-with-icon textarea-icon-wrapper">
-                  <FileText className="input-icon" size={20} />
-                  <textarea 
-                    id="message" 
-                    name="message" 
-                    rows="4" 
-                    value={formData.message}
+                <label htmlFor="time">Preferred Time</label>
+                <div className="input-with-icon">
+                  <Clock className="input-icon" size={20} />
+                  <input 
+                    type="time" 
+                    id="time" 
+                    name="time" 
+                    value={formData.time}
                     onChange={handleChange}
-                    placeholder="Briefly describe your condition..."
-                    required
-                  ></textarea>
+                    required 
+                  />
                 </div>
               </div>
+            </div>
 
-              <button type="submit" className="wa-submit-btn">
-                <MessageCircle size={20} />
-                <span>Book via WhatsApp</span>
-              </button>
-            </form>
-          </div>
+            {/* Row 3: Message */}
+            <div className="form-group">
+              <label htmlFor="message">Symptoms / Notes</label>
+              <div className="input-with-icon textarea-icon-wrapper">
+                <FileText className="input-icon" size={20} />
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="3" 
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Describe symptoms briefly..."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            {/* Submit */}
+            <button type="submit" className="wa-submit-btn">
+              <MessageCircle size={20} />
+              <span>Book Appointment via WhatsApp</span>
+            </button>
+          </form>
         </div>
 
       </div>
@@ -240,7 +192,7 @@ const BookingForm = () => {
         <CheckCircle size={24} color="#0cb78f" />
         <div className="toast-content">
           <h4>Success!</h4>
-          <p>Redirecting you to WhatsApp...</p>
+          <p>Redirecting to WhatsApp...</p>
         </div>
       </div>
     </section>

@@ -10,9 +10,8 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Why Choose Us', href: '#why-choose-us' },
-    { name: 'Expertise', href: '#expertise' },
-    { name: 'Doctors', href: '#doctors' },
-    { name: 'Location', href: '#location' }
+    { name: 'Specialties', href: '#specialties' },
+    { name: 'Doctors' , href: '#doctors' }
   ];
 
   const socialLinks = [
