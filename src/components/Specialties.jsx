@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wind, Activity, Baby, Pill, Bone, Droplets } from 'lucide-react';
+import { Wind, Activity, Baby, Pill, Bone, Droplets, ArrowRight } from 'lucide-react';
 import './Specialties.css';
 
 const Specialties = () => {
@@ -49,24 +49,37 @@ const Specialties = () => {
   ];
 
   return (
-    <section className="specialties-section" id="specialties">
-      <div className="specialties-container">
+    <section className="spec-adv" id="specialties">
+      {/* Medical Background Animation */}
+      <div className="spec-adv-grid"></div>
 
+      <div className="spec-adv-wrap">
+        
+        {/* ── Section Header ── */}
+        <div className="spec-adv-header">
+          <span className="spec-adv-subtitle">OUR EXPERTISE</span>
+          <h2 className="spec-adv-title">What We Treat</h2>
+          <p className="spec-adv-desc">
+            We provide holistic, side-effect-free homeopathic treatments tailored specifically to your individual health needs.
+          </p>
+        </div>
 
-        <div className="specialties-grid">
+        {/* ── Glassmorphic Cards Grid ── */}
+        <div className="spec-adv-cards">
           {specialtiesList.map((item) => (
-            <div className="spec-card" key={item.id}>
-              <div className="spec-icon-wrapper" style={{ background: item.gradient }}>
+            <div className="spec-adv-card" key={item.id}>
+              <div className="spec-adv-icon-wrapper" style={{ background: item.gradient }}>
                 {item.icon}
               </div>
-              <div className="spec-content">
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <button className="spec-learn-more">Learn More →</button>
-              </div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+              <button className="spec-adv-btn">
+                Learn More <ArrowRight size={16} />
+              </button>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

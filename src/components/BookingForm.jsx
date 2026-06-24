@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
-import { MessageCircle, CheckCircle, User, Phone, Activity, Calendar, Clock, FileText } from 'lucide-react';
+import { FaWhatsapp, FaUserAlt, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaStethoscope, FaNotesMedical, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import './BookingForm.css';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    condition: '',
-    date: '',
-    time: '',
-    message: ''
+    name: '', phone: '', place: '', date: '', time: '', condition: '', notes: ''
   });
-
+  const [submitted, setSubmitted] = useState(false);
   const [showToast, setShowToast] = useState(false);
-
-  const WHATSAPP_NUMBER = "919947576123"; 
+  const WHATSAPP_NUMBER = "919947576123";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,177 +17,132 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const conditionText = formData.condition ? `%0A*Condition:* ${formData.condition}` : '';
-    const text = `*New Booking Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}${conditionText}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*Message:* ${formData.message}`;
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-
+    const placeText = formData.place ? `%0A*Place:* ${formData.place}` : '';
+    const condText = formData.condition ? `%0A*Condition:* ${formData.condition}` : '';
+    const notesText = formData.notes ? `%0A*Notes:* ${formData.notes}` : '';
+    const text = `*New Booking — Daya Homeopathy*%0A%0A*Name:* ${formData.name}${placeText}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*WhatsApp:* ${formData.phone}${condText}${notesText}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    setSubmitted(true);
     setShowToast(true);
-    
-    setTimeout(() => {
-      setShowToast(false);
-    }, 4000);
+    setTimeout(() => setShowToast(false), 5000);
+    setTimeout(() => window.open(url, '_blank'), 900);
+  };
 
-    setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
-      setFormData({ name: '', phone: '', condition: '', date: '', time: '', message: '' });
-    }, 800);
+  const resetForm = () => {
+    setSubmitted(false);
+    setFormData({ name: '', phone: '', place: '', date: '', time: '', condition: '', notes: '' });
   };
 
   return (
-    <section className="booking-section" id="booking">
-      <div className="booking-container">
+    <section className="bk-adv" id="booking">
+      {/* Medical Background Animation */}
+      <div className="bk-adv-grid"></div>
+
+      <div className="bk-adv-container">
         
-        <div className="booking-header">
-          <span className="booking-subtitle">GET IN TOUCH</span>
-          <h2 className="booking-title">Online Consultation & Booking</h2>
-          <p className="booking-desc">
-            Fill out the form below to start a direct WhatsApp consultation with our expert homeopaths.
+        <div className="bk-adv-header">
+          <span className="bk-adv-subtitle">PREMIUM CARE</span>
+          <h2 className="bk-adv-title">Book Your Appointment</h2>
+          <p className="bk-adv-desc">
+            Experience world-class homeopathy. Fill out this simple form to start a direct WhatsApp consultation with our expert doctors.
           </p>
         </div>
 
-        <div className="booking-form-card">
-          <form className="booking-form" onSubmit={handleSubmit}>
-            
-            {/* Row 1: Name & Phone */}
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="name">Full Name</label>
-                <div className="input-with-icon">
-                  <User className="input-icon" size={20} />
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="e.g. John Doe"
-                    autoComplete="name"
-                    required 
-                  />
+        <div className="bk-adv-card">
+          <div className="bk-adv-card-glass">
+            {!submitted ? (
+              <form className="bk-adv-form" onSubmit={handleSubmit}>
+                
+                <div className="bk-adv-row">
+                  <div className="bk-adv-field">
+                    <label htmlFor="name"><FaUserAlt className="icon-blue" /> Full Name</label>
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Doe" required />
+                  </div>
+                  <div className="bk-adv-field">
+                    <label htmlFor="phone"><FaWhatsapp className="icon-green" /> WhatsApp Number</label>
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 99999 99999" required />
+                  </div>
                 </div>
-              </div>
 
-              <div className="form-group">
-                <label htmlFor="phone">Phone Number</label>
-                <div className="input-with-icon">
-                  <Phone className="input-icon" size={20} />
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="e.g. +91 98765 43210"
-                    autoComplete="tel"
-                    required 
-                  />
+                <div className="bk-adv-row triple">
+                  <div className="bk-adv-field">
+                    <label htmlFor="place"><FaMapMarkerAlt className="icon-red" /> Place / City</label>
+                    <input type="text" id="place" name="place" value={formData.place} onChange={handleChange} placeholder="City name" />
+                  </div>
+                  <div className="bk-adv-field">
+                    <label htmlFor="date"><FaCalendarAlt className="icon-purple" /> Preferred Date</label>
+                    <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
+                  </div>
+                  <div className="bk-adv-field">
+                    <label htmlFor="time"><FaClock className="icon-orange" /> Preferred Time</label>
+                    <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} required />
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Row 2: Condition & Date & Time */}
-            <div className="form-row triple">
-              <div className="form-group">
-                <label htmlFor="condition">Condition</label>
-                <div className="input-with-icon">
-                  <Activity className="input-icon" size={20} />
-                  <select id="condition" name="condition" value={formData.condition} onChange={handleChange} required>
-                    <option value="">-- Select --</option>
-                    <option value="Allergy & Asthma">Allergy & Asthma</option>
-                    <option value="Migraine">Migraine</option>
-                    <option value="Female Disorders">Female Disorders</option>
-                    <option value="Infertility (M&F)">Infertility (M&F)</option>
-                    <option value="Eczema">Eczema</option>
-                    <option value="Depression">Depression</option>
-                    <option value="Acidity & Ulcer">Acidity & Ulcer</option>
-                    <option value="Arthritis">Arthritis</option>
-                    <option value="Cancer Support">Cancer Support</option>
-                    <option value="Old Age Problems">Old Age Problems</option>
-                    <option value="Hair Fall Treatment">Hair Fall Treatment</option>
-                    <option value="Epilepsy">Epilepsy</option>
-                    <option value="Piles & Fissures">Piles & Fissures</option>
-                    <option value="Kidney Stone">Kidney Stone</option>
-                    <option value="BPH (Prostate)">BPH (Prostate)</option>
-                    <option value="PCOD">PCOD</option>
-                    <option value="Child Health">Child Health</option>
-                    <option value="Counselling Service">Counselling Service</option>
-                    <option value="Thyroid Disorders">Thyroid Disorders</option>
-                    <option value="Weight Management">Weight Management</option>
-                    <option value="Insomnia">Insomnia</option>
-                    <option value="Blood Pressure">Blood Pressure</option>
-                    <option value="Diabetes Management">Diabetes Management</option>
-                    <option value="Immunity Boost">Immunity Boost</option>
-                    <option value="Other">Other</option>
+                <div className="bk-adv-field">
+                  <label htmlFor="condition"><FaStethoscope className="icon-teal" /> Condition</label>
+                  <select id="condition" name="condition" value={formData.condition} onChange={handleChange}>
+                    <option value="">Select your main concern</option>
+                    <option>Allergy & Asthma</option>
+                    <option>Migraine</option>
+                    <option>Female Disorders</option>
+                    <option>Infertility (M&F)</option>
+                    <option>Eczema</option>
+                    <option>Depression</option>
+                    <option>Acidity & Ulcer</option>
+                    <option>Arthritis</option>
+                    <option>Cancer Support</option>
+                    <option>Old Age Problems</option>
+                    <option>Hair Fall Treatment</option>
+                    <option>Psoriasis</option>
+                    <option>Epilepsy</option>
+                    <option>Piles & Fissures</option>
+                    <option>Kidney Stone</option>
+                    <option>BPH (Prostate)</option>
+                    <option>PCOD</option>
+                    <option>Child Health</option>
+                    <option>Counselling Service</option>
+                    <option>Thyroid Disorders</option>
+                    <option>Weight Management</option>
+                    <option>Insomnia</option>
+                    <option>Blood Pressure</option>
+                    <option>Diabetes Management</option>
+                    <option>Immunity Boost</option>
+                    <option>Other</option>
                   </select>
                 </div>
-              </div>
 
-              <div className="form-group">
-                <label htmlFor="date">Preferred Date</label>
-                <div className="input-with-icon">
-                  <Calendar className="input-icon" size={20} />
-                  <input 
-                    type="date" 
-                    id="date" 
-                    name="date" 
-                    value={formData.date}
-                    onChange={handleChange}
-                    required 
-                  />
+                <div className="bk-adv-field">
+                  <label htmlFor="notes"><FaNotesMedical className="icon-indigo" /> Symptoms / Notes</label>
+                  <textarea id="notes" name="notes" rows="3" value={formData.notes} onChange={handleChange} placeholder="Briefly describe your symptoms..."></textarea>
                 </div>
-              </div>
 
-              <div className="form-group">
-                <label htmlFor="time">Preferred Time</label>
-                <div className="input-with-icon">
-                  <Clock className="input-icon" size={20} />
-                  <input 
-                    type="time" 
-                    id="time" 
-                    name="time" 
-                    value={formData.time}
-                    onChange={handleChange}
-                    required 
-                  />
+                <button type="submit" className="bk-adv-submit">
+                  <span className="submit-content">
+                    <FaWhatsapp size={22} />
+                    <span>Book via WhatsApp</span>
+                  </span>
+                  <div className="submit-hover-effect"></div>
+                </button>
+
+              </form>
+            ) : (
+              <div className="bk-adv-success">
+                <div className="success-icon-wrapper">
+                  <FaCheckCircle size={60} color="#10b981" />
                 </div>
+                <h3>Booking Initiated!</h3>
+                <p>We are opening WhatsApp with your details. Our team will assist you shortly.</p>
+                <button className="bk-adv-reset" onClick={resetForm}>Book Another Appointment</button>
               </div>
-            </div>
-
-            {/* Row 3: Message */}
-            <div className="form-group">
-              <label htmlFor="message">Symptoms / Notes</label>
-              <div className="input-with-icon textarea-icon-wrapper">
-                <FileText className="input-icon" size={20} />
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  rows="3" 
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Describe symptoms briefly..."
-                  required
-                ></textarea>
-              </div>
-            </div>
-
-            {/* Submit */}
-            <button type="submit" className="wa-submit-btn">
-              <MessageCircle size={20} />
-              <span>Book Appointment via WhatsApp</span>
-            </button>
-          </form>
+            )}
+          </div>
         </div>
-
       </div>
 
-      {/* Custom Toast Notification */}
-      <div className={`toast-notification ${showToast ? 'show' : ''}`}>
-        <CheckCircle size={24} color="#0cb78f" />
-        <div className="toast-content">
-          <h4>Success!</h4>
-          <p>Redirecting to WhatsApp...</p>
-        </div>
+      <div className={`bk-adv-toast ${showToast ? 'show' : ''}`}>
+        <FaCheckCircle color="#10b981" />
+        <span>Redirecting to WhatsApp...</span>
       </div>
     </section>
   );

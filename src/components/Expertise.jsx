@@ -106,7 +106,18 @@ const Expertise = () => {
             <h3 className="adv-modal-title">{selectedTreatment.title}</h3>
             <span className="adv-modal-category">{selectedTreatment.category}</span>
             <p className="adv-modal-desc">{selectedTreatment.desc}</p>
-            <button className="adv-modal-book-btn">Book Appointment Now</button>
+            <button 
+              className="adv-modal-book-btn"
+              onClick={() => {
+                setSelectedTreatment(null);
+                const bookingSection = document.getElementById('booking');
+                if (bookingSection) {
+                  bookingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Book Appointment Now
+            </button>
           </div>
         </div>
       )}

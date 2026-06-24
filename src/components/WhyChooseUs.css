@@ -1,6 +1,6 @@
 .why-choose-section {
   padding: 100px 20px;
-  background-color: #ffffff; /* Simple medical white background */
+  background-color: var(--bg-main);
   position: relative;
   overflow: hidden;
 }
