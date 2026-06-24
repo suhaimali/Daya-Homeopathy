@@ -49,15 +49,65 @@ const BookingForm = () => {
     <section className="booking-section" id="booking">
       <div className="booking-container">
         
-        <div className="booking-header">
-          <p className="booking-subtitle">GET IN TOUCH</p>
-          <h2 className="booking-title">Online Consultation & Booking</h2>
-          <p className="booking-desc">
-            Fill the form below to start a WhatsApp chat with us for booking your appointment. We'll get back to you as soon as possible.
-          </p>
-        </div>
+        <div className="booking-grid">
+          {/* Left Column - Info & Trust Elements */}
+          <div className="booking-info-sidebar">
+            <div className="booking-header-inline">
+              <span className="booking-subtitle">GET IN TOUCH</span>
+              <h2 className="booking-title">Online Consultation & Booking</h2>
+              <p className="booking-desc">
+                Fill out our quick form to start a direct WhatsApp consultation. We will analyze your symptoms and match you with our expert homeopaths.
+              </p>
+            </div>
 
-        <div className="booking-form-wrapper">
+            {/* Benefit Items */}
+            <div className="booking-benefits">
+              <div className="benefit-item">
+                <div className="benefit-icon-wrapper">
+                  <CheckCircle size={18} />
+                </div>
+                <div className="benefit-text">
+                  <h4>Constitutional Diagnosis</h4>
+                  <p>In-depth constitutional analysis targeting the root cause of your chronic issues.</p>
+                </div>
+              </div>
+
+              <div className="benefit-item">
+                <div className="benefit-icon-wrapper">
+                  <CheckCircle size={18} />
+                </div>
+                <div className="benefit-text">
+                  <h4>Direct WhatsApp Chat</h4>
+                  <p>Skip the waiting queues and chat directly with our medical consultants.</p>
+                </div>
+              </div>
+
+              <div className="benefit-item">
+                <div className="benefit-icon-wrapper">
+                  <CheckCircle size={18} />
+                </div>
+                <div className="benefit-text">
+                  <h4>100% Safe & Natural</h4>
+                  <p>Gentle and side-effect-free homeopathic remedies customized for you.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Contact Card */}
+            <div className="booking-contact-card">
+              <div className="contact-card-icon">
+                <MessageCircle size={24} />
+              </div>
+              <div className="contact-card-info">
+                <h5>Need Instant Help?</h5>
+                <p>Chat directly: <strong>+91 99475 76123</strong></p>
+                <span>Mon - Sat: 9:00 AM - 8:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Redesigned Form */}
+          <div className="booking-form-wrapper">
             <form className="booking-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
@@ -181,6 +231,7 @@ const BookingForm = () => {
               </button>
             </form>
           </div>
+        </div>
 
       </div>
 

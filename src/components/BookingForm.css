@@ -1,99 +1,161 @@
 .booking-section {
   padding: 100px 20px;
-  background-color: var(--bg-main);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
   position: relative;
   overflow: hidden;
 }
 
 .booking-container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-.booking-header {
+/* ===== GRID SYSTEM ===== */
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ===== SIDEBAR / LEFT COLUMN ===== */
+.booking-info-sidebar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 50px auto;
+  gap: 32px;
+}
+
+.booking-header-inline {
+  text-align: left;
 }
 
 .booking-subtitle {
   color: var(--primary-green);
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 12px;
 }
 
 .booking-title {
-  font-size: clamp(28px, 5vw, 42px);
+  font-size: clamp(28px, 4vw, 42px);
   font-weight: 800;
   color: var(--text-dark);
-  margin-bottom: 24px;
-  line-height: 1.2;
+  margin-bottom: 16px;
+  line-height: 1.25;
 }
 
 .booking-desc {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-body);
   line-height: 1.7;
-  margin-bottom: 40px;
+  margin: 0;
 }
 
-.whatsapp-card {
+/* ===== BENEFIT ITEMS ===== */
+.booking-benefits {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 20px;
-  background: #f0fdf4;
-  padding: 24px;
-  border-radius: 20px;
-  border: 1px solid #dcfce7;
-  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.05);
 }
 
-.wa-icon-wrapper {
-  background: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.benefit-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  background-color: #ecfdf5;
+  color: #10b981;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+  border: 1px solid #d1fae5;
 }
 
-.wa-card-text h3 {
-  color: #166534;
-  font-size: 18px;
+.benefit-text h4 {
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 4px;
+  color: var(--text-dark);
+  margin: 0 0 4px 0;
 }
 
-.wa-card-text p {
-  color: #15803d;
-  font-size: 15px;
+.benefit-text p {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* Form Styles */
+/* ===== QUICK CONTACT CARD ===== */
+.booking-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.contact-card-icon {
+  background: #f0fdfa;
+  color: var(--primary-green);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-card-info h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 2px 0;
+}
+
+.contact-card-info p {
+  font-size: 14px;
+  color: var(--text-body);
+  margin: 0 0 4px 0;
+}
+
+.contact-card-info strong {
+  color: var(--primary-green);
+}
+
+.contact-card-info span {
+  font-size: 12px;
+  color: #94a3b8;
+  display: block;
+}
+
+/* ===== FORM WRAPPER ===== */
 .booking-form-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
   background: #ffffff;
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-  border: 1px solid #f1f5f9;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .booking-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .form-group {
@@ -112,23 +174,24 @@
 }
 
 .form-group label {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--text-dark);
+  letter-spacing: 0.3px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 16px 20px;
-  border-radius: 16px;
+  padding: 14px 18px;
+  border-radius: 14px;
   border: 2px solid #e2e8f0;
   background-color: #f8fafc;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-dark);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-with-icon {
@@ -174,50 +237,60 @@
   outline: none;
   border-color: var(--primary-green);
   background-color: #ffffff;
-  box-shadow: 0 0 0 4px var(--primary-green-light);
+  box-shadow: 0 0 0 4px rgba(12, 183, 143, 0.1);
 }
 
+/* ===== SUBMIT BUTTON ===== */
 .wa-submit-btn {
-  background: #25D366;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: white;
   border: none;
-  padding: 20px;
-  border-radius: 16px;
-  font-size: 18px;
+  padding: 16px 24px;
+  border-radius: 14px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
   margin-top: 10px;
 }
 
 .wa-submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.3);
 }
 
-/* Custom Toast Notification */
+.wa-submit-btn svg {
+  animation: shake 2s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0); }
+  10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+  20%, 40%, 60%, 80% { transform: rotate(5deg); }
+}
+
+/* ===== TOAST NOTIFICATION ===== */
 .toast-notification {
   position: fixed;
   bottom: 40px;
   right: 40px;
   background: #ffffff;
-  padding: 20px 24px;
+  padding: 18px 24px;
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
   border: 1px solid #e2e8f0;
   z-index: 9999;
   transform: translateY(150px) scale(0.9);
   opacity: 0;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
@@ -228,64 +301,81 @@
 
 .toast-content h4 {
   color: var(--text-dark);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  margin-bottom: 2px;
+  margin: 0 0 2px 0;
 }
 
 .toast-content p {
   color: var(--text-body);
-  font-size: 14px;
+  font-size: 13px;
+  margin: 0;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .whatsapp-card {
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .booking-info-sidebar {
+    text-align: center;
+    align-items: center;
+  }
+
+  .booking-header-inline {
+    text-align: center;
+  }
+
+  .booking-benefits {
+    align-items: flex-start;
+    max-width: 600px;
     width: 100%;
-    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .booking-contact-card {
+    max-width: 600px;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .booking-section {
-    padding: 60px 15px;
-  }
-
-  .booking-title {
-    font-size: 32px;
+    padding: 60px 16px;
   }
 
   .booking-form-wrapper {
-    padding: 24px 20px;
+    padding: 28px 20px;
     border-radius: 20px;
   }
 
   .form-row {
     flex-direction: column;
-    gap: 24px;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 14px 16px; 
-  }
-  
-  .input-with-icon input,
-  .input-with-icon select,
-  .input-with-icon textarea {
-    padding-left: 44px; /* Maintain padding for icons on mobile */
-  }
-
-  .wa-submit-btn {
-    padding: 18px;
-    font-size: 16px;
+    gap: 20px;
   }
 
   .toast-notification {
     bottom: 20px;
     right: 20px;
-    left: 20px; /* Center on mobile */
+    left: 20px;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-section {
+    padding: 50px 14px;
+  }
+
+  .benefit-item {
+    gap: 12px;
+  }
+
+  .booking-contact-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
   }
 }
