@@ -1,5 +1,4 @@
-import React from 'react';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Users, Heart } from 'lucide-react';
 import heroImage from '../assets/hero.jpeg';
 import './Hero.css';
 
@@ -41,20 +40,35 @@ const Hero = () => {
             </button>
           </div>
           
-          <div className="hero-stats">
-            <div className="stat">
-              <span className="stat-value">100% Safe</span>
-              <span className="stat-label">Natural Healing</span>
+          <div className="hero-features-grid">
+            <div className="feature-card">
+              <div className="feature-icon-box">
+                <ShieldCheck size={20} />
+              </div>
+              <div className="feature-info">
+                <span className="feature-title">100% Safe</span>
+                <span className="feature-subtitle">Natural Healing</span>
+              </div>
             </div>
-            <div className="stat-divider"></div>
-            <div className="stat">
-              <span className="stat-value">Expert Care</span>
-              <span className="stat-label">Legacy Team</span>
+            
+            <div className="feature-card">
+              <div className="feature-icon-box">
+                <Users size={20} />
+              </div>
+              <div className="feature-info">
+                <span className="feature-title">Expert Care</span>
+                <span className="feature-subtitle">Legacy Team</span>
+              </div>
             </div>
-            <div className="stat-divider"></div>
-            <div className="stat">
-              <span className="stat-value">Holistic</span>
-              <span className="stat-label">Root Cause</span>
+            
+            <div className="feature-card">
+              <div className="feature-icon-box">
+                <Heart size={20} />
+              </div>
+              <div className="feature-info">
+                <span className="feature-title">Holistic</span>
+                <span className="feature-subtitle">Root Cause</span>
+              </div>
             </div>
           </div>
         </div>
