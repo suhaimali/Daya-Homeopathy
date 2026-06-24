@@ -1,0 +1,226 @@
+.why-choose-section {
+  padding: 100px 20px;
+  background-color: #ffffff; /* Simple medical white background */
+  position: relative;
+  overflow: hidden;
+}
+
+.wcu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.wcu-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.wcu-subtitle {
+  color: var(--primary-green);
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.wcu-title {
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.wcu-highlight {
+  color: var(--primary-green);
+  position: relative;
+  display: inline-block;
+}
+
+.wcu-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background-color: var(--primary-green-light);
+  z-index: -1;
+  transform: skewX(-15deg);
+}
+
+.wcu-desc {
+  font-size: 18px;
+  color: var(--text-body);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Borderless Flex Grid */
+.wcu-borderless-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px 40px; 
+}
+
+/* Feature Item (NO CARDS) */
+.wcu-feature-item {
+  flex: 1 1 300px;
+  max-width: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatUpIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  cursor: default;
+}
+
+@keyframes floatUpIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Colorful Animated Medical Icons */
+.wcu-icon-wrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  color: var(--item-color);
+  /* Uses a very light, faded version of the custom color as background */
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  z-index: 1;
+}
+
+/* Glowing ring animation on hover */
+.wcu-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px dashed var(--item-color);
+  opacity: 0;
+  transform: scale(0.8) rotate(0deg);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+/* Hover Effects */
+.wcu-feature-item:hover .wcu-icon-wrapper {
+  transform: translateY(-12px) scale(1.1);
+  background: var(--item-color);
+  color: #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.wcu-feature-item:hover .wcu-icon-wrapper::before {
+  opacity: 0.5;
+  transform: scale(1.2) rotate(45deg);
+}
+
+.wcu-feature-title {
+  font-size: clamp(20px, 4vw, 24px);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline on hover */
+.wcu-feature-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: var(--item-color);
+  transform: translateX(-50%);
+  transition: width 0.4s ease;
+  border-radius: 4px;
+}
+
+.wcu-feature-item:hover .wcu-feature-title {
+  color: var(--item-color);
+}
+
+.wcu-feature-item:hover .wcu-feature-title::after {
+  width: 40px;
+}
+
+.wcu-feature-desc {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .wcu-borderless-grid {
+    gap: 50px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-choose-section {
+    padding: 70px 20px;
+  }
+  
+  .wcu-title {
+    font-size: 36px;
+  }
+  
+  .wcu-borderless-grid {
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-choose-section {
+    padding: 50px 15px;
+  }
+  
+  .wcu-title {
+    font-size: 30px;
+  }
+  
+  .wcu-subtitle {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  
+  .wcu-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+
+  .wcu-feature-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  .wcu-feature-title {
+    font-size: 22px;
+  }
+  
+  .wcu-feature-desc {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+}

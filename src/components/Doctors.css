@@ -1,0 +1,154 @@
+.doctors-section {
+  padding: 120px 20px;
+  background-color: var(--bg-main);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+.doctors-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.doctors-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.doctors-subtitle {
+  color: var(--primary-green);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.doctors-heading {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.doctors-list-simple {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+.doctor-card-simple {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.doctor-card-simple:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.doc-image-wrapper-simple {
+  background-color: #ffffff;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.doc-img-simple {
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.doc-info-simple {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.doc-name-simple {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.doc-role-simple {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.doc-qual-simple {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.doc-quote-simple {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .doctors-section {
+    padding: 60px 20px;
+  }
+  .doctors-header {
+    margin-bottom: 50px;
+  }
+  .doctors-heading {
+    font-size: 32px;
+  }
+  .doctors-list-simple {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .doc-image-wrapper-simple {
+    height: 240px;
+  }
+  .doc-info-simple {
+    padding: 20px;
+  }
+  .doc-name-simple {
+    font-size: 20px;
+  }
+  .doc-role-simple {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctors-section {
+    padding: 50px 15px;
+  }
+  .doctors-heading {
+    font-size: 26px;
+  }
+  .doctors-subtitle {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .doc-image-wrapper-simple {
+    height: 200px;
+  }
+}
