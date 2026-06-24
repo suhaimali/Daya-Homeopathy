@@ -85,6 +85,7 @@ const Location = () => {
               <Navigation size={18} /> Get Directions
             </a>
           </div>
+        </div>
       </div>
     </section>
   );
