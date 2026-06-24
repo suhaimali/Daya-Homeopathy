@@ -36,6 +36,10 @@ const Location = () => {
         <div className="location-overlay-wrapper">
           <div className="loc-floating-card">
             <div className="loc-card-header">
+              <div className="loc-status-badge">
+                <span className="pulsing-dot"></span>
+                <span>Open Now</span>
+              </div>
               <h3 className="info-brand-title">Daya Homeopathy</h3>
               <p className="info-brand-desc">
                 Pathappiriyam, Edavanna &bull; Malappuram, Kerala
