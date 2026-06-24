@@ -15,13 +15,15 @@ const Location = () => {
           </p>
         </div>
 
-        <div className="location-wrapper">
+        <div className="location-grid-wrapper">
           
-          <div className="location-info-card">
-            <h3 className="info-brand-title">Daya Homeopathy</h3>
-            <p className="info-brand-desc">
-              Pathappiriyam, Edavanna &bull; Malappuram, Kerala
-            </p>
+          <div className="loc-info-card">
+            <div className="loc-card-header">
+              <h3 className="info-brand-title">Daya Homeopathy</h3>
+              <p className="info-brand-desc">
+                Pathappiriyam, Edavanna &bull; Malappuram, Kerala
+              </p>
+            </div>
 
             <div className="info-list">
               <div className="info-item">
@@ -67,7 +69,7 @@ const Location = () => {
             </a>
           </div>
 
-          <div className="map-container">
+          <div className="map-frame-wrapper">
             <iframe 
               src="https://maps.google.com/maps?q=Pathappiriyam,+Edavanna,+Malappuram,+Kerala&t=&z=14&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
