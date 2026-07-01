@@ -32,12 +32,12 @@ const Hero = () => {
           </p>
           
           <div className="hero-actions">
-            <button className="primary-btn">
+            <a href="#booking" className="primary-btn" style={{ textDecoration: 'none' }}>
               Consult Now <ArrowRight size={18} />
-            </button>
-            <button className="secondary-btn">
+            </a>
+            <a href="#about" className="secondary-btn" style={{ textDecoration: 'none' }}>
               Learn More
-            </button>
+            </a>
           </div>
           
         </div>

@@ -37,7 +37,7 @@ const Footer = () => {
             <h3 className="footer-heading">Quick Links</h3>
             <ul>
               <li><a href="#home"><ArrowRight size={14} /> Home</a></li>
-              <li><a href="#about"><ArrowRight size={14} /> About Us</a></li>
+              <li><a href="#about"><ArrowRight size={14} /> About</a></li>
               <li><a href="#expertise"><ArrowRight size={14} /> Specialties</a></li>
               <li><a href="#doctors"><ArrowRight size={14} /> Meet Our Doctors</a></li>
               <li><a href="#location"><ArrowRight size={14} /> Location</a></li>
