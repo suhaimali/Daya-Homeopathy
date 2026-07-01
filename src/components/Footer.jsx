@@ -38,7 +38,7 @@ const Footer = () => {
             <ul>
               <li><a href="#home"><ArrowRight size={14} /> Home</a></li>
               <li><a href="#about"><ArrowRight size={14} /> About Us</a></li>
-              <li><a href="#expertise"><ArrowRight size={14} /> Our Expertise</a></li>
+              <li><a href="#expertise"><ArrowRight size={14} /> Specialties</a></li>
               <li><a href="#doctors"><ArrowRight size={14} /> Meet Our Doctors</a></li>
               <li><a href="#location"><ArrowRight size={14} /> Location</a></li>
               <li><a href="#booking"><ArrowRight size={14} /> Book Appointment</a></li>
