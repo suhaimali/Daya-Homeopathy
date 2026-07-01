@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Daya Homeopathy. All rights reserved. Designed by Suhaim Soft</p>
+          <p>&copy; {new Date().getFullYear()} Daya Homeopathy. All rights reserved. Designed by <a href="https://suhaimsoft.com" target="_blank" rel="noopener noreferrer" className="designer-tag">Suhaim Soft</a></p>
         </div>
 
       </div>
