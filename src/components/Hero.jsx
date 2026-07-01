@@ -40,37 +40,6 @@ const Hero = () => {
             </button>
           </div>
           
-          <div className="hero-features-grid">
-            <div className="hero-feature-card">
-              <div className="hero-feature-icon-box">
-                <ShieldCheck size={22} />
-              </div>
-              <div className="hero-feature-info">
-                <span className="hero-feature-title">100% Safe</span>
-                <span className="hero-feature-subtitle">Natural Healing</span>
-              </div>
-            </div>
-            
-            <div className="hero-feature-card">
-              <div className="hero-feature-icon-box">
-                <Users size={22} />
-              </div>
-              <div className="hero-feature-info">
-                <span className="hero-feature-title">Expert Care</span>
-                <span className="hero-feature-subtitle">Legacy Team</span>
-              </div>
-            </div>
-            
-            <div className="hero-feature-card">
-              <div className="hero-feature-icon-box">
-                <Heart size={22} />
-              </div>
-              <div className="hero-feature-info">
-                <span className="hero-feature-title">Holistic</span>
-                <span className="hero-feature-subtitle">Root Cause</span>
-              </div>
-            </div>
-          </div>
         </div>
         
         <div className="hero-image-wrapper">
