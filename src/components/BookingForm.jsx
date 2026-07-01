@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaWhatsapp, FaUserAlt, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaStethoscope, FaNotesMedical, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 import './BookingForm.css';
 
 const BookingForm = () => {
@@ -7,7 +8,6 @@ const BookingForm = () => {
     name: '', phone: '', place: '', date: '', time: '', condition: '', notes: ''
   });
   const [submitted, setSubmitted] = useState(false);
-  const [showToast, setShowToast] = useState(false);
   const WHATSAPP_NUMBER = "919947576123";
 
   const handleChange = (e) => {
@@ -22,10 +22,23 @@ const BookingForm = () => {
     const notesText = formData.notes ? `%0A*Notes:* ${formData.notes}` : '';
     const text = `*New Booking — Daya Homeopathy*%0A%0A*Name:* ${formData.name}${placeText}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*WhatsApp:* ${formData.phone}${condText}${notesText}`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'success',
+      title: 'Redirecting to WhatsApp...',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+
     setSubmitted(true);
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 5000);
-    setTimeout(() => window.open(url, '_blank'), 900);
+    setTimeout(() => window.open(url, '_blank'), 1500);
   };
 
   const resetForm = () => {
@@ -140,10 +153,6 @@ const BookingForm = () => {
         </div>
       </div>
 
-      <div className={`bk-adv-toast ${showToast ? 'show' : ''}`}>
-        <FaCheckCircle color="#10b981" />
-        <span>Redirecting to WhatsApp...</span>
-      </div>
     </section>
   );
 };
