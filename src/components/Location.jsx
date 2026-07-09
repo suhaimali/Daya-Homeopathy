@@ -52,7 +52,7 @@ const Location = () => {
                 </div>
                 <div className="loc-detail-body">
                   <span>Phone</span>
-                  <strong>+91 99475 76123</strong>
+                  <strong>+91 95443 54655</strong>
                 </div>
               </div>
 

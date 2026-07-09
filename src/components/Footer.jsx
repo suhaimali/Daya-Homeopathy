@@ -21,13 +21,13 @@ const Footer = () => {
               <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram size={18} />
               </a>
-              <a href="https://wa.me/919947576123?text=Hello%20Daya%20Homeopathy" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a href="https://wa.me/919544354655?text=Hello%20Daya%20Homeopathy" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <FaWhatsapp size={18} />
               </a>
               <a href="mailto:dayahomeoppm@gmail.com" aria-label="Email">
                 <FaEnvelope size={18} />
               </a>
-              <a href="tel:+919947576123" aria-label="Phone">
+              <a href="tel:+919544354655" aria-label="Phone">
                 <Phone size={18} />
               </a>
             </div>
@@ -58,7 +58,7 @@ const Footer = () => {
               </li>
               <li>
                 <Phone size={18} className="contact-icon" />
-                <span><a href="tel:+919947576123" style={{ color: 'inherit', textDecoration: 'none' }}>+91 99475 76123</a></span>
+                <span><a href="tel:+919544354655" style={{ color: 'inherit', textDecoration: 'none' }}>+91 95443 54655</a></span>
               </li>
               <li>
                 <Mail size={18} className="contact-icon" />

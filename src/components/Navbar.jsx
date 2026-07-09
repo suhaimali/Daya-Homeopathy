@@ -17,9 +17,9 @@ const Navbar = () => {
   const socialLinks = [
     { icon: <FaFacebookF size={18} color="#1877F2" />, href: 'https://www.facebook.com/profile.php?id=100095537707367&rdid=gnC4ilNycH4087l9&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Ct9yp5Ezb%2F', bg: '#e8f1fd' },
     { icon: <FaInstagram size={18} color="#E1306C" />, href: 'https://www.instagram.com/dayahomeopathypathappiriyam', bg: '#fcecf1' },
-    { icon: <FaWhatsapp size={18} color="#25D366" />, href: 'https://wa.me/919947576123?text=Hello%20Daya%20Homeopathy', bg: '#ebf9f0' },
+    { icon: <FaWhatsapp size={18} color="#25D366" />, href: 'https://wa.me/919544354655?text=Hello%20Daya%20Homeopathy', bg: '#ebf9f0' },
     { icon: <Mail size={18} color="#EA4335" />, href: 'mailto:dayahomeoppm@gmail.com', bg: '#fdedec' },
-    { icon: <Phone size={18} color="#00C1A3" />, href: 'tel:+919947576123', bg: '#e6f9f6' },
+    { icon: <Phone size={18} color="#00C1A3" />, href: 'tel:+919544354655', bg: '#e6f9f6' },
   ];
 
   return (
