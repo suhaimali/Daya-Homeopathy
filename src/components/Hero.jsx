@@ -1,4 +1,4 @@
-import { ArrowRight, ShieldCheck, Users, Heart } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import heroImage from '../assets/hero.jpeg';
 import './Hero.css';
 

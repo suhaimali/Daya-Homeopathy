@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { X, ArrowRight } from 'lucide-react';
+import { X, ArrowRight, Search } from 'lucide-react';
 import './Expertise.css';
 
 const Expertise = () => {
   const [selectedTreatment, setSelectedTreatment] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [visibleItems, setVisibleItems] = useState([]);
 
   const treatments = [
     { title: "Allergy & Asthma", category: "General", desc: "Permanent relief for respiratory allergies and chronic asthma through personalized constitutional treatments.", image: "/images/Allergy_Asthma.jpeg" },
@@ -33,69 +31,149 @@ const Expertise = () => {
     { title: "Thyroid Disorders", category: "Women & Men", desc: "Effective regulation of Hypo and Hyperthyroidism using deep-acting remedies.", image: "/images/Thyroid Disorders.jpeg" },
     { title: "Weight Management", category: "General", desc: "Holistic approach to healthy weight loss and metabolic correction without crash diets.", image: "/images/Weight Management.jpeg" },
     { title: "Insomnia", category: "Mental & Neuro", desc: "Natural and non-addictive homeopathic treatment for sleep disorders.", image: "/images/insominia.jpeg" },
-
     { title: "Immunity Boost", category: "General", desc: "Strengthen the body's natural defense mechanism against recurrent infections.", image: "/images/Immunity Boost.jpeg" }
   ];
 
+  const categories = ['All', 'General', 'Mental & Neuro', 'Women & Men', 'Skin & Hair', 'Digestive'];
+
+  const filtered = treatments.filter(item => {
+    const matchCat = activeCategory === 'All' || item.category === activeCategory;
+    const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchCat && matchSearch;
+  });
+
+  useEffect(() => {
+    setVisibleItems([]);
+    const timers = filtered.map((_, i) =>
+      setTimeout(() => setVisibleItems(prev => [...prev, i]), i * 45)
+    );
+    return () => timers.forEach(clearTimeout);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeCategory, searchQuery]);
+
+  const badgeClass = (cat) => `ex-badge badge-${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+
   return (
-    <section className="expertise-slit-section" id="expertise">
-      <div className="expertise-slit-container">
-        
-        <div className="expertise-slit-header">
-          <p className="slit-subtitle">We provide holistic, root-cause solutions for a wide spectrum of health conditions.</p>
-          <h2 className="slit-main-title">Explore our comprehensive homeopathic treatments below.</h2>
+    <section className="ex-section" id="expertise">
+      <div className="ex-container">
+
+        {/* Header */}
+        <div className="ex-header">
+          <span className="ex-eyebrow">Our Treatments</span>
+          <h2 className="ex-title">
+            Holistic, Root-Cause Solutions
+            <span className="ex-title-accent"> for Every Condition</span>
+          </h2>
+          <p className="ex-subtitle">
+            We provide holistic, root-cause solutions for a wide spectrum of health conditions.
+            Explore our comprehensive homeopathic treatments below.
+          </p>
         </div>
 
-        <div className={`slit-list ${isVisible ? 'fade-in' : ''}`}>
-          {treatments.map((item, index) => (
-            <div key={index} className="slit-item" onClick={() => setSelectedTreatment(item)}>
-              <div className="slit-left">
-                <div className="slit-image-box">
+        {/* Search */}
+        <div className="ex-search-wrap">
+          <Search size={17} className="ex-search-icon" />
+          <input
+            type="text"
+            className="ex-search"
+            placeholder="Search treatments, conditions…"
+            value={searchQuery}
+            onChange={e => { setSearchQuery(e.target.value); setActiveCategory('All'); }}
+          />
+        </div>
+
+        {/* Category Tabs */}
+        <div className="ex-tabs">
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={`ex-tab ${activeCategory === cat ? 'active' : ''}`}
+              onClick={() => { setActiveCategory(cat); setSearchQuery(''); }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* List */}
+        <div className="ex-list">
+          {filtered.length === 0 ? (
+            <div className="ex-empty">
+              <span>🔍</span>
+              <p>No treatments found. Try a different keyword.</p>
+            </div>
+          ) : (
+            filtered.map((item, index) => (
+              <div
+                key={item.title}
+                className={`ex-row ${visibleItems.includes(index) ? 'ex-row--visible' : ''}`}
+                onClick={() => setSelectedTreatment(item)}
+              >
+                {/* Index number */}
+                <span className="ex-row-num">{String(index + 1).padStart(2, '0')}</span>
+
+                {/* Thumbnail */}
+                <div className="ex-thumb">
                   <img src={item.image} alt={item.title} loading="lazy" />
                 </div>
-                <div className="slit-content">
-                  <div className="slit-title-row">
-                    <h3>{item.title}</h3>
-                    <span className={`slit-badge badge-${item.category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
-                      {item.category}
-                    </span>
+
+                {/* Content */}
+                <div className="ex-row-content">
+                  <div className="ex-row-top">
+                    <h3 className="ex-row-title">{item.title}</h3>
+                    <span className={badgeClass(item.category)}>{item.category}</span>
                   </div>
-                  <p className="slit-desc">{item.desc}</p>
+                  <p className="ex-row-desc">{item.desc}</p>
+                </div>
+
+                {/* CTA */}
+                <div className="ex-row-cta">
+                  <span className="ex-row-cta-text">View Details</span>
+                  <div className="ex-row-arrow">
+                    <ArrowRight size={16} />
+                  </div>
                 </div>
               </div>
-              <div className="slit-right">
-                <span className="slit-action">
-                  View Details <ArrowRight size={18} />
-                </span>
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
 
-      {/* Details Modal */}
+      {/* Modal */}
       {selectedTreatment && (
-        <div className="slit-modal-overlay" onClick={() => setSelectedTreatment(null)}>
-          <div className="slit-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="slit-modal-close" onClick={() => setSelectedTreatment(null)}>
-              <X size={24} />
+        <div className="ex-modal-overlay" onClick={() => setSelectedTreatment(null)}>
+          <div className="ex-modal" onClick={e => e.stopPropagation()}>
+            <button className="ex-modal-close" onClick={() => setSelectedTreatment(null)}>
+              <X size={18} />
             </button>
-            <div className="slit-modal-hero">
-                <img src={selectedTreatment.image} alt={selectedTreatment.title} />
+            <div className="ex-modal-hero">
+              <img src={selectedTreatment.image} alt={selectedTreatment.title} />
+              <div className="ex-modal-hero-grad" />
+              <div className="ex-modal-hero-info">
+                <span className={badgeClass(selectedTreatment.category)}>
+                  {selectedTreatment.category}
+                </span>
+                <h2>{selectedTreatment.title}</h2>
+              </div>
             </div>
-            <div className="slit-modal-body">
-                <span className="modal-cat-tag">{selectedTreatment.category}</span>
-                <h2 className="modal-main-title">{selectedTreatment.title}</h2>
-                <p className="modal-main-desc">{selectedTreatment.desc}</p>
-                <button 
-                  className="modal-book-btn"
-                  onClick={() => {
-                    setSelectedTreatment(null);
-                    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Book Appointment Now
-                </button>
+            <div className="ex-modal-body">
+              <p className="ex-modal-desc">{selectedTreatment.desc}</p>
+              <ul className="ex-modal-perks">
+                <li>✅ Personalised protocol</li>
+                <li>✅ No side effects</li>
+                <li>✅ Root-cause approach</li>
+                <li>✅ Proven results</li>
+              </ul>
+              <button
+                className="ex-modal-btn"
+                onClick={() => {
+                  setSelectedTreatment(null);
+                  document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Book Appointment <ArrowRight size={17} />
+              </button>
             </div>
           </div>
         </div>
