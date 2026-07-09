@@ -118,8 +118,7 @@ const BookingForm = () => {
                     <option>Thyroid Disorders</option>
                     <option>Weight Management</option>
                     <option>Insomnia</option>
-                    <option>Blood Pressure</option>
-                    <option>Diabetes Management</option>
+
                     <option>Immunity Boost</option>
                     <option>Other</option>
                   </select>

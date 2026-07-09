@@ -33,8 +33,7 @@ const Expertise = () => {
     { title: "Thyroid Disorders", category: "Women & Men", desc: "Effective regulation of Hypo and Hyperthyroidism using deep-acting remedies.", image: "/images/Thyroid Disorders.jpeg" },
     { title: "Weight Management", category: "General", desc: "Holistic approach to healthy weight loss and metabolic correction without crash diets.", image: "/images/Weight Management.jpeg" },
     { title: "Insomnia", category: "Mental & Neuro", desc: "Natural and non-addictive homeopathic treatment for sleep disorders.", image: "/images/insominia.jpeg" },
-    { title: "Blood Pressure", category: "General", desc: "Safe management of hypertension and cardiovascular health through natural remedies.", image: "https://images.unsplash.com/photo-1613967193490-1d17b930c1ad?q=80&w=500&auto=format&fit=crop" },
-    { title: "Diabetes Management", category: "Digestive", desc: "Supportive care to maintain blood sugar levels and prevent diabetic complications.", image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=500&auto=format&fit=crop" },
+
     { title: "Immunity Boost", category: "General", desc: "Strengthen the body's natural defense mechanism against recurrent infections.", image: "/images/Immunity Boost.jpeg" }
   ];
 
