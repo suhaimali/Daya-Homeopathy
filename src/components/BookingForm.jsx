@@ -8,7 +8,7 @@ const BookingForm = () => {
     name: '', phone: '', place: '', date: '', time: '', condition: '', notes: ''
   });
   const [submitted, setSubmitted] = useState(false);
-  const WHATSAPP_NUMBER = "919544354655";
+  const WHATSAPP_NUMBER = "919947576123";
 
   const handleChange = (e) => {
     const { name, value } = e.target;

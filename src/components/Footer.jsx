@@ -21,7 +21,7 @@ const Footer = () => {
               <a href="https://www.instagram.com/dayahomeopathypathappiriyam" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram size={18} />
               </a>
-              <a href="https://wa.me/919544354655?text=Hello%20Daya%20Homeopathy" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a href="https://wa.me/919947576123?text=Hello%20Daya%20Homeopathy" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <FaWhatsapp size={18} />
               </a>
               <a href="mailto:dayahomeoppm@gmail.com" aria-label="Email">
