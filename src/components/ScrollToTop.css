@@ -8,26 +8,31 @@
 .scroll-button {
   width: 50px;
   height: 50px;
-  background-color: var(--primary-green);
-  color: white;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(12, 183, 143, 0.4);
-  transition: all 0.3s ease;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
   animation: fade-in-up 0.4s ease-out forwards;
 }
 
 .scroll-button:hover {
   transform: translateY(-5px);
-  background-color: var(--primary-green-hover);
-  box-shadow: 0 6px 16px rgba(12, 183, 143, 0.5);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 6px 20px rgba(14, 181, 144, 0.35);
 }
 
 .arrow-icon {
-  transition: transform 0.3s ease;
+  transition: var(--transition-fast);
 }
 
 .scroll-button:hover .arrow-icon {
@@ -48,12 +53,12 @@
 /* Responsive */
 @media (max-width: 768px) {
   .scroll-to-top {
-    bottom: 90px; /* Adjusted for mobile */
+    bottom: 84px; /* Adjusted for mobile */
     right: 25px;
   }
   
   .scroll-button {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { X, ArrowRight, Search } from 'lucide-react';
-import './Expertise.css';
+import './Specialties.css';
 
-const Expertise = () => {
+const Specialties = () => {
   const [selectedTreatment, setSelectedTreatment] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -100,7 +100,7 @@ const Expertise = () => {
         <div className="ex-list">
           {filtered.length === 0 ? (
             <div className="ex-empty">
-              <span>🔍</span>
+              <Search className="ex-empty-icon" size={40} />
               <p>No treatments found. Try a different keyword.</p>
             </div>
           ) : (
@@ -160,10 +160,10 @@ const Expertise = () => {
             <div className="ex-modal-body">
               <p className="ex-modal-desc">{selectedTreatment.desc}</p>
               <ul className="ex-modal-perks">
-                <li>✅ Personalised protocol</li>
-                <li>✅ No side effects</li>
-                <li>✅ Root-cause approach</li>
-                <li>✅ Proven results</li>
+                <li>✦ Personalised protocol</li>
+                <li>✦ No side effects</li>
+                <li>✦ Root-cause approach</li>
+                <li>✦ Proven results</li>
               </ul>
               <button
                 className="ex-modal-btn"
@@ -182,4 +182,4 @@ const Expertise = () => {
   );
 };
 
-export default Expertise;
+export default Specialties;

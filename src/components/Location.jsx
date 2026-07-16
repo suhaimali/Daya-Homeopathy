@@ -5,6 +5,10 @@ import './Location.css';
 const Location = () => {
   return (
     <section className="loc-simple-section" id="location">
+      {/* ── BACKGROUND GLOW BLOBS ── */}
+      <div className="loc-blob loc-blob-1"></div>
+      <div className="loc-blob loc-blob-2"></div>
+      
       <div className="loc-simple-container">
 
         {/* ── HEADER ── */}

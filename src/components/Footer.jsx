@@ -10,7 +10,7 @@ const Footer = () => {
         
         <div className="footer-top">
           <div className="footer-brand">
-            <h2 className="footer-logo">Daya Homeopathy</h2>
+            <h2 className="footer-logo">Daya <span>Homeopathy</span></h2>
             <p className="footer-desc">
               Your trusted destination for classical and advanced homeopathic care. We focus on holistic healing, treating the root cause rather than just the symptoms.
             </p>

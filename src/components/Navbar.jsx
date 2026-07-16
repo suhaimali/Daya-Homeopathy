@@ -10,7 +10,7 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Why Choose Us', href: '#why-choose-us' },
-    { name: 'Specialties', href: '#specialties' },
+    { name: 'Specialties', href: '#expertise' },
     { name: 'Doctors' , href: '#doctors' }
   ];
 

@@ -1,78 +1,92 @@
 .doctors-section {
-  padding: 120px 20px;
+  padding: 100px 24px;
   background-color: var(--bg-main);
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
+  overflow: hidden;
 }
 
 .doctors-container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .doctors-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 64px;
 }
 
 .doctors-subtitle {
-  color: var(--primary-green);
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 3px;
+  color: var(--primary);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 16px;
+  background: var(--primary-light);
+  border-radius: 30px;
 }
 
 .doctors-heading {
-  font-size: clamp(28px, 5vw, 48px);
+  font-size: clamp(28px, 4vw, 42px);
   font-weight: 800;
   color: var(--text-dark);
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .doctors-list-simple {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  gap: 32px;
   width: 100%;
 }
 
 .doctor-card-simple {
-  background: #ffffff;
-  border-radius: 20px;
+  background: #ffffff; /* Solid white background to blend vector cartoon backgrounds */
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid #f1f5f9;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+  transition: var(--transition-normal);
 }
 
 .doctor-card-simple:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(14, 181, 144, 0.25);
 }
 
 .doc-image-wrapper-simple {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Blends and hides cartoon background borders */
   width: 100%;
-  height: 280px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding-top: 20px;
+  position: relative;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .doc-img-simple {
+  width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: bottom;
+  transition: var(--transition-normal);
+}
+
+.doctor-card-simple:hover .doc-img-simple {
+  transform: scale(1.04);
 }
 
 .doc-info-simple {
-  padding: 30px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,75 +94,79 @@
 }
 
 .doc-name-simple {
+  font-family: 'Outfit', sans-serif;
   font-size: 24px;
   font-weight: 800;
   color: var(--text-dark);
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .doc-role-simple {
-  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  background: var(--primary-light);
+}
+
+/* Custom override for second doctor role */
+.doctor-card-simple:nth-child(2) .doc-role-simple {
+  background: var(--accent-light);
 }
 
 .doc-qual-simple {
-  font-size: 14px;
-  color: #64748b;
+  font-size: 14.5px;
+  color: var(--text-muted);
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .doc-quote-simple {
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--text-body);
-  line-height: 1.6;
+  line-height: 1.65;
   font-style: italic;
   margin: 0;
+  padding: 16px 20px;
+  background: var(--bg-main);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+  width: 100%;
 }
 
-/* Responsive */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .doctors-section {
-    padding: 60px 20px;
+    padding: 70px 16px;
   }
+  
   .doctors-header {
-    margin-bottom: 50px;
+    margin-bottom: 48px;
   }
-  .doctors-heading {
-    font-size: 32px;
-  }
+  
   .doctors-list-simple {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 24px;
   }
+  
   .doc-image-wrapper-simple {
-    height: 240px;
+    height: 260px;
   }
+  
   .doc-info-simple {
-    padding: 20px;
-  }
-  .doc-name-simple {
-    font-size: 20px;
-  }
-  .doc-role-simple {
-    font-size: 13px;
+    padding: 24px;
   }
 }
 
 @media (max-width: 480px) {
   .doctors-section {
-    padding: 50px 15px;
-  }
-  .doctors-heading {
-    font-size: 26px;
-  }
-  .doctors-subtitle {
-    font-size: 13px;
-    letter-spacing: 2px;
+    padding: 50px 12px;
   }
   .doc-image-wrapper-simple {
-    height: 200px;
+    height: 220px;
   }
 }

@@ -47,6 +47,13 @@ const Hero = () => {
             <div className="image-overlay"></div>
             <img src={heroImage} alt="Daya Homeopathy Clinic" className="hero-img" />
           </div>
+          <div className="hero-floating-card">
+            <div className="floating-icon-wrap">45+</div>
+            <div className="floating-text-wrap">
+              <h4>Years of Care</h4>
+              <p>Trusted natural healing</p>
+            </div>
+          </div>
         </div>
       </div>
 

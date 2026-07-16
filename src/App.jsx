@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import WhyChooseUs from './components/WhyChooseUs';
-import Expertise from './components/Expertise';
+import Specialties from './components/Specialties';
 import Doctors from './components/Doctors';
 import BookingForm from './components/BookingForm';
 import Location from './components/Location';
@@ -34,7 +34,7 @@ function App() {
         <Hero />
         <About />
         <WhyChooseUs />
-        <Expertise />
+        <Specialties />
         <Doctors />
         <BookingForm />
         <Location />
