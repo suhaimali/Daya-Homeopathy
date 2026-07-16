@@ -25,6 +25,9 @@ const conditionsList = [
   "Immunity & Constitutional Boost",
   "Constitutional Weight Management",
   "Chronic Insomnia & Sleep Disorders",
+    "Counselling Service
+",
+
   "Other / Multiple Conditions"
 ];
 
