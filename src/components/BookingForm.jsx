@@ -25,9 +25,7 @@ const conditionsList = [
   "Immunity & Constitutional Boost",
   "Constitutional Weight Management",
   "Chronic Insomnia & Sleep Disorders",
-    "Counselling Service
-",
-
+     "Counselling Service",
   "Other / Multiple Conditions"
 ];
 
@@ -211,3 +209,4 @@ const BookingForm = () => {
 };
 
 export default BookingForm;
+
