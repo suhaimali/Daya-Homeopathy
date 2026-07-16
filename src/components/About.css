@@ -1,5 +1,5 @@
 .about-section {
-  padding: 100px 24px;
+  padding: 100px 0;
   background-color: var(--bg-main);
   position: relative;
   overflow: hidden;
@@ -8,6 +8,7 @@
 .about-container {
   max-width: 1240px;
   margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
   position: relative;
   z-index: 2;
 }
@@ -209,29 +210,43 @@
 
 @media (max-width: 768px) {
   .about-section {
-    padding: 70px 16px;
+    padding: 70px 0;
   }
   
   .highlight-paragraph {
-    font-size: 17.5px;
+    font-size: 17px;
   }
   
   .feature-card {
-    padding: 24px;
+    padding: 24px 20px;
   }
 }
 
 @media (max-width: 480px) {
   .about-section {
-    padding: 50px 12px;
+    padding: 50px 0;
   }
   
   .about-header {
     margin-bottom: 36px;
   }
   
+  .feature-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 22px 18px;
+  }
+
   .about-stats-bar {
-    padding: 24px 20px;
+    padding: 24px 18px;
+    gap: 20px;
+  }
+
+  .about-stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
   
   .stat-info h4 {

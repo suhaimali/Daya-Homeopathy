@@ -3,7 +3,7 @@
    ============================================================ */
 
 .ex-section {
-  padding: 100px 24px;
+  padding: 100px 0;
   background: var(--bg-main);
   position: relative;
   overflow: hidden;
@@ -12,6 +12,7 @@
 .ex-container {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
   position: relative;
   z-index: 2;
 }
@@ -479,7 +480,7 @@
 
 @media (max-width: 768px) {
   .ex-section {
-    padding: 70px 16px;
+    padding: 70px 0;
   }
 
   .ex-search-wrap {
@@ -574,7 +575,7 @@
 }
 
 @media (max-width: 480px) {
-  .ex-section { padding: 50px 12px; }
+  .ex-section { padding: 50px 0; }
   .ex-row { padding: 12px 14px; gap: 12px; }
   .ex-thumb { width: 48px; height: 48px; }
   .ex-row-title { font-size: 15px; }

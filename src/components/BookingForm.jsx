@@ -1,13 +1,39 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaUserAlt, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaStethoscope, FaNotesMedical, FaCheckCircle, FaShieldAlt, FaUserMd } from 'react-icons/fa';
+import { FaWhatsapp, FaUserAlt, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaStethoscope, FaNotesMedical, FaCheckCircle, FaShieldAlt, FaUserMd, FaArrowRight } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import './BookingForm.css';
+
+const conditionsList = [
+  "Allergy & Asthma",
+  "Migraine & Chronic Headache",
+  "Female Health & Hormonal Disorders",
+  "Infertility Care (Male & Female)",
+  "Eczema, Psoriasis & Skin Complaints",
+  "Depression, Anxiety & Stress Management",
+  "Acidity, Ulcer & Gastric Disorders",
+  "Arthritis & Joint Pain",
+  "Pediatric & Child Health",
+  "Thyroid Disorders (Hypo/Hyper)",
+  "PCOD / PCOS Management",
+  "Hair Fall & Alopecia Treatment",
+  "Geriatric & Old Age Problems",
+  "Kidney Stone & Urinary Care",
+  "Piles, Fissures & Fistula",
+  "BPH (Prostate Enlargement)",
+  "Epilepsy & Neurological Care",
+  "Cancer Supportive Care",
+  "Immunity & Constitutional Boost",
+  "Constitutional Weight Management",
+  "Chronic Insomnia & Sleep Disorders",
+  "Other / Multiple Conditions"
+];
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
     name: '', phone: '', place: '', date: '', time: '', condition: '', notes: ''
   });
   const [submitted, setSubmitted] = useState(false);
+
   const WHATSAPP_NUMBER = "919947576123";
 
   const handleChange = (e) => {
@@ -17,17 +43,17 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const placeText = formData.place ? `%0A*Place:* ${formData.place}` : '';
-    const condText = formData.condition ? `%0A*Condition:* ${formData.condition}` : '';
-    const notesText = formData.notes ? `%0A*Notes:* ${formData.notes}` : '';
-    const text = `*New Booking — Daya Homeopathy*%0A%0A*Name:* ${formData.name}${placeText}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*WhatsApp:* ${formData.phone}${condText}${notesText}`;
+    const placeText = formData.place ? `%0A*City / Place:* ${formData.place}` : '';
+    const condText = formData.condition ? `%0A*Symptoms (Condition):* ${formData.condition}` : '';
+    const notesText = formData.notes ? `%0A*Additional Notes:* ${formData.notes}` : '';
+    const text = `*🌟 New Appointment Request — Daya Homeopathy*%0A%0A*Patient Name:* ${formData.name}${placeText}%0A*Preferred Date:* ${formData.date}%0A*Preferred Time:* ${formData.time}%0A*WhatsApp Number:* ${formData.phone}${condText}${notesText}%0A%0A_Sent via Daya Homeopathy Web Booking System_`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
     
     Swal.fire({
       toast: true,
       position: 'top-end',
       icon: 'success',
-      title: 'Redirecting to WhatsApp...',
+      title: 'Connecting to WhatsApp Doctor Reception...',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
@@ -51,45 +77,68 @@ const BookingForm = () => {
       <div className="bk-container">
         
         <div className="bk-grid">
-          {/* Left Column: Info & Trust */}
+          
+          {/* Left Column: Clean, Perfectly Aligned Horizontal Trust Rows */}
           <div className="bk-info">
-            <span className="bk-eyebrow">PREMIUM CARE</span>
-            <h2 className="bk-title">Book Your <span>Appointment</span></h2>
+            
+            <div className="bk-eyebrow-wrapper">
+              <span className="bk-live-dot"></span>
+              <span className="bk-eyebrow">PREMIUM CARE</span>
+            </div>
+
+            <h2 className="bk-title">
+              Book Your <span>Appointment</span>
+            </h2>
+            
             <p className="bk-desc">
-              Experience world-class homeopathy. Fill out this simple form to start a direct WhatsApp consultation with our expert doctors.
+              Experience world-class homeopathy. Fill out this simple form to start a direct WhatsApp consultation with our expert doctors without waiting in lines.
             </p>
 
+            {/* Clean Horizontal Rows with zero box wrapping or squished circles */}
             <div className="bk-trust-list">
+              
               <div className="bk-trust-item">
                 <div className="bk-trust-icon"><FaUserMd /></div>
                 <div className="bk-trust-text">
                   <h4>Expert Doctors</h4>
-                  <p>Personalized constitutional treatment plans.</p>
+                  <p>Personalized constitutional treatment plans tailored specifically by our senior specialists.</p>
                 </div>
               </div>
+
               <div className="bk-trust-item">
-                <div className="bk-trust-icon"><FaShieldAlt /></div>
+                <div className="bk-trust-icon coral"><FaShieldAlt /></div>
                 <div className="bk-trust-text">
                   <h4>Root-Cause Approach</h4>
-                  <p>Safe, natural, and highly effective remedies.</p>
+                  <p>Safe, natural, and highly effective remedies that heal from within without harmful side effects.</p>
                 </div>
               </div>
+
+              <div className="bk-trust-item">
+                <div className="bk-trust-icon"><FaWhatsapp /></div>
+                <div className="bk-trust-text">
+                  <h4>Direct WhatsApp Connect</h4>
+                  <p>Skip traditional waiting rooms and connect directly with clinic reception and triage doctors.</p>
+                </div>
+              </div>
+
             </div>
+
           </div>
 
-          {/* Right Column: Glass Form */}
+          {/* Right Column: Premium Glass Form Card */}
           <div className="bk-form-wrapper">
             <div className="bk-glass-card">
+              
               {!submitted ? (
                 <form className="bk-form" onSubmit={handleSubmit}>
                   
                   <div className="bk-input-group split">
                     <div className="bk-field">
-                      <label htmlFor="name"><FaUserAlt /> Full Name</label>
+                      <label htmlFor="name"><FaUserAlt /> Full Name <span className="req">*</span></label>
                       <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="e.g. John Doe" required />
                     </div>
                     <div className="bk-field">
-                      <label htmlFor="phone"><FaWhatsapp /> WhatsApp No.</label>
+                      <label htmlFor="phone"><FaWhatsapp /> WhatsApp No. <span className="req">*</span></label>
                       <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 99999 99999" required />
                     </div>
                   </div>
@@ -100,59 +149,42 @@ const BookingForm = () => {
                       <input type="text" id="place" name="place" value={formData.place} onChange={handleChange} placeholder="Location" />
                     </div>
                     <div className="bk-field">
-                      <label htmlFor="date"><FaCalendarAlt /> Date</label>
+                      <label htmlFor="date"><FaCalendarAlt /> Date <span className="req">*</span></label>
                       <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
                     </div>
                     <div className="bk-field">
-                      <label htmlFor="time"><FaClock /> Time</label>
+                      <label htmlFor="time"><FaClock /> Time <span className="req">*</span></label>
                       <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} required />
                     </div>
                   </div>
 
+                  {/* Classic Old UI Native Dropdown List (Simple, Reliable, Familiar & Clean) */}
                   <div className="bk-input-group">
                     <div className="bk-field">
-                      <label htmlFor="condition"><FaStethoscope /> Main Condition</label>
+                      <label htmlFor="condition"><FaStethoscope /> Symptoms</label>
                       <select id="condition" name="condition" value={formData.condition} onChange={handleChange}>
-                        <option value="">Select your main concern...</option>
-                        <option>Allergy & Asthma</option>
-                        <option>Migraine</option>
-                        <option>Female Disorders</option>
-                        <option>Infertility (M&F)</option>
-                        <option>Eczema</option>
-                        <option>Depression</option>
-                        <option>Acidity & Ulcer</option>
-                        <option>Arthritis</option>
-                        <option>Cancer Support</option>
-                        <option>Old Age Problems</option>
-                        <option>Hair Fall Treatment</option>
-                        <option>Psoriasis</option>
-                        <option>Epilepsy</option>
-                        <option>Piles & Fissures</option>
-                        <option>Kidney Stone</option>
-                        <option>BPH (Prostate)</option>
-                        <option>PCOD</option>
-                        <option>Child Health</option>
-                        <option>Counselling Service</option>
-                        <option>Thyroid Disorders</option>
-                        <option>Weight Management</option>
-                        <option>Insomnia</option>
-                        <option>Immunity Boost</option>
-                        <option>Other</option>
+                        <option value="">Select your main symptoms...</option>
+                        {conditionsList.map((cond) => (
+                          <option key={cond} value={cond}>{cond}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
 
                   <div className="bk-input-group">
                     <div className="bk-field">
-                      <label htmlFor="notes"><FaNotesMedical /> Symptoms / Notes</label>
-                      <textarea id="notes" name="notes" rows="2" value={formData.notes} onChange={handleChange} placeholder="Briefly describe how you're feeling..."></textarea>
+                      <label htmlFor="notes"><FaNotesMedical /> Additional Notes</label>
+                      <textarea id="notes" name="notes" rows="2" value={formData.notes} onChange={handleChange} placeholder="Briefly describe any other details or how long you've had these symptoms..."></textarea>
                     </div>
                   </div>
 
-                  <button type="submit" className="bk-submit-btn">
-                    <FaWhatsapp size={20} />
-                    <span>Book via WhatsApp</span>
-                  </button>
+                  <div className="bk-submit-wrapper">
+                    <button type="submit" className="bk-submit-btn">
+                      <FaWhatsapp className="bk-btn-wa-icon" />
+                      <span>Book via WhatsApp</span>
+                      <FaArrowRight className="bk-btn-arrow" />
+                    </button>
+                  </div>
 
                 </form>
               ) : (
@@ -161,12 +193,14 @@ const BookingForm = () => {
                     <FaCheckCircle size={64} />
                   </div>
                   <h3>Booking Initiated!</h3>
-                  <p>Opening WhatsApp... Our team will assist you shortly.</p>
-                  <button className="bk-reset-btn" onClick={resetForm}>Book Another</button>
+                  <p>Opening WhatsApp... Please tap Send to confirm your consultation slot with our doctors.</p>
+                  <button className="bk-reset-btn" onClick={resetForm}>Book Another Appointment</button>
                 </div>
               )}
+
             </div>
           </div>
+
         </div>
       </div>
     </section>

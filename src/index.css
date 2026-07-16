@@ -17,12 +17,12 @@
   --primary:             #0eb590; /* Premium Mint Teal */
   --primary-hover:       #0a9677;
   --primary-light:       #e6fbf6;
-  --primary-glow:        rgba(14, 181, 144, 0.15);
+  --primary-glow:        rgba(14, 181, 144, 0.2);
   
   --accent:              #ff6b8b; /* Soft Rose Coral */
   --accent-hover:        #f45274;
   --accent-light:        #fff0f3;
-  --accent-glow:         rgba(255, 107, 139, 0.15);
+  --accent-glow:         rgba(255, 107, 139, 0.2);
 
   --c-blue:              #1b75bc;
   --c-wa:                #25D366;
@@ -35,22 +35,22 @@
   --bg-card:             #ffffff;
   
   /* Glassmorphism settings */
-  --bg-glass:            rgba(255, 255, 255, 0.75);
-  --border-glass:        rgba(255, 255, 255, 0.5);
-  --shadow-glass:        0 8px 32px 0 rgba(14, 181, 144, 0.04);
+  --bg-glass:            rgba(255, 255, 255, 0.82);
+  --border-glass:        rgba(255, 255, 255, 0.6);
+  --shadow-glass:        0 12px 40px 0 rgba(14, 181, 144, 0.06);
   
   /* Standard Borders & Shadows */
   --border-light:        #e4edea;
   --border-focus:        #0eb590;
 
   --shadow-sm:           0 2px 8px rgba(18, 39, 36, 0.04);
-  --shadow-md:           0 8px 20px rgba(18, 39, 36, 0.06);
-  --shadow-lg:           0 16px 40px rgba(18, 39, 36, 0.09);
-  --shadow-xl:           0 24px 64px rgba(18, 39, 36, 0.12);
-  --shadow-card-hover:   0 20px 48px rgba(14, 181, 144, 0.08);
+  --shadow-md:           0 8px 24px rgba(18, 39, 36, 0.07);
+  --shadow-lg:           0 16px 48px rgba(18, 39, 36, 0.1);
+  --shadow-xl:           0 24px 64px rgba(18, 39, 36, 0.14);
+  --shadow-card-hover:   0 20px 48px rgba(14, 181, 144, 0.12);
 
   /* Radius */
-  --radius-sm:           8px;
+  --radius-sm:           10px;
   --radius-md:           16px;
   --radius-lg:           24px;
   --radius-xl:           32px;
@@ -67,11 +67,12 @@ html {
   scroll-padding-top: 90px;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;
+  font-size: 15.5px;
   color: var(--text-body);
   background-color: var(--bg-main);
   line-height: 1.7;
@@ -79,6 +80,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   width: 100%;
+  position: relative;
 }
 
 /* Media defaults */
@@ -93,13 +95,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-dark);
   font-weight: 700;
   line-height: 1.25;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(34px, 5.5vw, 64px); font-weight: 800; }
-h2 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; }
-h3 { font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; }
-h4 { font-size: clamp(16px, 2vw, 20px); font-weight: 600; }
+h1 { font-size: clamp(34px, 6vw, 64px); font-weight: 800; }
+h2 { font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; }
+h3 { font-size: clamp(20px, 2.8vw, 28px); font-weight: 700; }
+h4 { font-size: clamp(16px, 2.2vw, 22px); font-weight: 600; }
 
 p {
   color: var(--text-body);
@@ -126,7 +128,7 @@ button {
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* Custom Scrollbar */
@@ -137,7 +139,7 @@ button {
   background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-light);
+  background: #b9d2cc;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -155,7 +157,7 @@ button {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 4vw, 24px);
 }
 
 /* Shared Premium Utility Classes */
@@ -171,11 +173,11 @@ button {
 
 .glass-card:hover {
   box-shadow: var(--shadow-card-hover);
-  border-color: rgba(14, 181, 144, 0.2);
+  border-color: rgba(14, 181, 144, 0.25);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--text-dark) 20%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--text-dark) 15%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -191,10 +193,11 @@ button {
 
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
-  max-width: 650px;
+  margin-bottom: 56px;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 12px;
 }
 
 .section-eyebrow {
@@ -205,9 +208,10 @@ button {
   letter-spacing: 0.15em;
   color: var(--primary);
   margin-bottom: 12px;
-  padding: 6px 16px;
+  padding: 6px 18px;
   background: var(--primary-light);
   border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(14, 181, 144, 0.08);
 }
 
 .section-title {
@@ -216,7 +220,8 @@ button {
 
 .section-desc {
   color: var(--text-muted);
-  font-size: 16px;
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.7;
 }
 
 /* Global Responsive Layout Rules */
@@ -226,7 +231,12 @@ button {
 }
 
 @media (max-width: 768px) {
-  body { font-size: 14.5px; }
+  body { font-size: 15px; }
   .container { padding: 0 16px; }
   html { scroll-padding-top: 75px; }
+  .section-header { margin-bottom: 40px; }
+}
+
+@media (max-width: 480px) {
+  .section-eyebrow { font-size: 12px; padding: 5px 14px; }
 }
