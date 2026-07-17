@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="hero-image-wrapper">
           <div className="hero-image-placeholder">
             <div className="image-overlay"></div>
-            <img src={heroImage} alt="Daya Homeopathy Clinic – Best Homeopathic Doctor in Malappuram Kerala India, Online Consultation & Worldwide Medicine Delivery Since 1979" className="hero-img" loading="eager" fetchPriority="high" />
+            <img src={heroImage} alt="Daya Homeopathy Clinic – Best Homeopathic Doctor in Malappuram Kerala India, Online Consultation & Worldwide Medicine Delivery Since 1979" className="hero-img" loading="eager" fetchpriority="high" />
           </div>
           <div className="hero-floating-card">
             <div className="floating-icon-wrap">45+</div>

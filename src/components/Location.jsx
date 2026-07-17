@@ -64,11 +64,11 @@ const Location = () => {
               </div>
             </a>
 
-            <a href="mailto:dayahomeopathyclinic@gmail.com" className="contact-item-flat">
+            <a href="mailto:dayahomeoppm@gmail.com" className="contact-item-flat">
               <div className="contact-icon-box blue"><FaEnvelope /></div>
               <div className="contact-card-content">
                 <span className="contact-label">Official Email</span>
-                <strong className="contact-value email-val">dayahomeopathyclinic@gmail.com</strong>
+                <strong className="contact-value email-val">dayahomeoppm@gmail.com</strong>
                 <span className="contact-sub">Tap to send us a message</span>
               </div>
             </a>
