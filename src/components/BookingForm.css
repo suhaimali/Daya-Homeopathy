@@ -1,452 +1,210 @@
-/* ══════════════════════════════════════════════════════
-   BOOKING SECTION – Perfectly Aligned Responsive Layout
-   ══════════════════════════════════════════════════════ */
+import React, { useState } from 'react';
+import { FaWhatsapp, FaUserAlt, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaStethoscope, FaNotesMedical, FaCheckCircle, FaShieldAlt, FaUserMd, FaArrowRight } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import './BookingForm.css';
 
-.bk-section {
-  padding: 100px 0;
-  background-color: var(--bg-main);
-  position: relative;
-  overflow: hidden;
-}
+const conditionsList = [
+  "Allergy & Asthma",
+  "Migraine & Chronic Headache",
+  "Female Health & Hormonal Disorders",
+  "Infertility Care (Male & Female)",
+  "Eczema, Psoriasis & Skin Complaints",
+  "Depression, Anxiety & Stress Management",
+  "Acidity, Ulcer & Gastric Disorders",
+  "Arthritis & Joint Pain",
+  "Pediatric & Child Health",
+  "Thyroid Disorders (Hypo/Hyper)",
+  "PCOD / PCOS Management",
+  "Hair Fall & Alopecia Treatment",
+  "Geriatric & Old Age Problems",
+  "Kidney Stone & Urinary Care",
+  "Piles, Fissures & Fistula",
+  "BPH (Prostate Enlargement)",
+  "Epilepsy & Neurological Care",
+  "Cancer Supportive Care",
+  "Immunity & Constitutional Boost",
+  "Constitutional Weight Management",
+  "Chronic Insomnia & Sleep Disorders",
+  "Other / Multiple Conditions"
+];
 
-.bk-container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 24px);
-  position: relative;
-  z-index: 2;
-}
+const BookingForm = () => {
+  const [formData, setFormData] = useState({
+    name: '', phone: '', place: '', date: '', time: '', condition: '', notes: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
 
-.bk-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 64px;
-  align-items: center;
-}
+  const WHATSAPP_NUMBER = "919947576123";
 
-/* ══════════════════════════════════════════════════════
-   LEFT COLUMN: INFO & TRUST ROWS
-   ══════════════════════════════════════════════════════ */
-.bk-info {
-  padding-right: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
-.bk-eyebrow-wrapper {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--primary-light);
-  padding: 6px 16px;
-  border-radius: 100px;
-  margin-bottom: 20px;
-  align-self: flex-start;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(14, 181, 144, 0.2);
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const placeText = formData.place ? `%0A*City / Place:* ${formData.place}` : '';
+    const condText = formData.condition ? `%0A*Symptoms (Condition):* ${formData.condition}` : '';
+    const notesText = formData.notes ? `%0A*Additional Notes:* ${formData.notes}` : '';
+    const text = `*🌟 New Appointment Request — Daya Homeopathy*%0A%0A*Patient Name:* ${formData.name}${placeText}%0A*Preferred Date:* ${formData.date}%0A*Preferred Time:* ${formData.time}%0A*WhatsApp Number:* ${formData.phone}${condText}${notesText}%0A%0A_Sent via Daya Homeopathy Web Booking System_`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'success',
+      title: 'Connecting to WhatsApp Doctor Reception...',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
 
-.bk-live-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--primary);
-  border-radius: 50%;
-  position: relative;
-  box-shadow: 0 0 0 3px rgba(14, 181, 144, 0.25);
-  animation: pulseDot 2s infinite;
-}
+    setSubmitted(true);
+    setTimeout(() => window.open(url, '_blank'), 1500);
+  };
 
-@keyframes pulseDot {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 181, 144, 0.6); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(14, 181, 144, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 181, 144, 0); }
-}
+  const resetForm = () => {
+    setSubmitted(false);
+    setFormData({ name: '', phone: '', place: '', date: '', time: '', condition: '', notes: '' });
+  };
 
-.bk-eyebrow {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--primary);
-  line-height: 1;
-}
+  return (
+    <section className="bk-section" id="booking">
+      <div className="bk-container">
+        
+        <div className="bk-grid">
+          
+          {/* Left Column: Clean, Perfectly Aligned Horizontal Trust Rows */}
+          <div className="bk-info">
+            
+            <div className="bk-eyebrow-wrapper">
+              <span className="bk-live-dot"></span>
+              <span className="bk-eyebrow">PREMIUM CARE</span>
+            </div>
 
-.bk-title {
-  font-size: clamp(30px, 4vw, 46px);
-  font-weight: 800;
-  color: var(--text-dark);
-  line-height: 1.2;
-  margin: 0 0 20px;
-  letter-spacing: -0.02em;
-}
+            <h2 className="bk-title">
+              Book Your <span>Appointment</span>
+            </h2>
+            
+            <p className="bk-desc">
+              Experience world-class homeopathy. Fill out this simple form to start a direct WhatsApp consultation with our expert doctors without waiting in lines.
+            </p>
 
-.bk-title span {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+            {/* Clean Horizontal Rows with zero box wrapping or squished circles */}
+            <div className="bk-trust-list">
+              
+              <div className="bk-trust-item">
+                <div className="bk-trust-icon"><FaUserMd /></div>
+                <div className="bk-trust-text">
+                  <h4>Expert Doctors</h4>
+                  <p>Personalized constitutional treatment plans tailored specifically by our senior specialists.</p>
+                </div>
+              </div>
 
-.bk-desc {
-  font-size: 16px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin: 0 0 40px;
-  max-width: 500px;
-}
+              <div className="bk-trust-item">
+                <div className="bk-trust-icon coral"><FaShieldAlt /></div>
+                <div className="bk-trust-text">
+                  <h4>Root-Cause Approach</h4>
+                  <p>Safe, natural, and highly effective remedies that heal from within without harmful side effects.</p>
+                </div>
+              </div>
 
-/* Clean Horizontal Trust Rows */
-.bk-trust-list {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
+              <div className="bk-trust-item">
+                <div className="bk-trust-icon"><FaWhatsapp /></div>
+                <div className="bk-trust-text">
+                  <h4>Direct WhatsApp Connect</h4>
+                  <p>Skip traditional waiting rooms and connect directly with clinic reception and triage doctors.</p>
+                </div>
+              </div>
 
-.bk-trust-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
+            </div>
 
-.bk-trust-icon {
-  width: 52px;
-  height: 52px;
-  background: var(--primary-light);
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  font-size: 22px;
-  box-shadow: var(--shadow-sm);
-  flex-shrink: 0;
-  transition: var(--transition-normal);
-}
+          </div>
 
-.bk-trust-icon.coral {
-  background: var(--accent-light);
-  color: var(--accent);
-}
+          {/* Right Column: Premium Glass Form Card */}
+          <div className="bk-form-wrapper">
+            <div className="bk-glass-card">
+              
+              {!submitted ? (
+                <form className="bk-form" onSubmit={handleSubmit}>
+                  
+                  <div className="bk-input-group split">
+                    <div className="bk-field">
+                      <label htmlFor="name"><FaUserAlt /> Full Name <span className="req">*</span></label>
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="e.g. John Doe" required />
+                    </div>
+                    <div className="bk-field">
+                      <label htmlFor="phone"><FaWhatsapp /> WhatsApp No. <span className="req">*</span></label>
+                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 99999 99999" required />
+                    </div>
+                  </div>
 
-.bk-trust-item:hover .bk-trust-icon {
-  transform: scale(1.1) rotate(6deg);
-  background: var(--primary);
-  color: #ffffff;
-}
+                  <div className="bk-input-group split-three">
+                    <div className="bk-field">
+                      <label htmlFor="place"><FaMapMarkerAlt /> City / Place</label>
+                      <input type="text" id="place" name="place" value={formData.place} onChange={handleChange} placeholder="Location" />
+                    </div>
+                    <div className="bk-field">
+                      <label htmlFor="date"><FaCalendarAlt /> Date <span className="req">*</span></label>
+                      <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
+                    </div>
+                    <div className="bk-field">
+                      <label htmlFor="time"><FaClock /> Time <span className="req">*</span></label>
+                      <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} required />
+                    </div>
+                  </div>
 
-.bk-trust-item:hover .bk-trust-icon.coral {
-  background: var(--accent);
-  color: #ffffff;
-}
+                  {/* Classic Old UI Native Dropdown List (Simple, Reliable, Familiar & Clean) */}
+                  <div className="bk-input-group">
+                    <div className="bk-field">
+                      <label htmlFor="condition"><FaStethoscope /> Symptoms</label>
+                      <select id="condition" name="condition" value={formData.condition} onChange={handleChange}>
+                        <option value="">Select your main symptoms...</option>
+                        {conditionsList.map((cond) => (
+                          <option key={cond} value={cond}>{cond}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
 
-.bk-trust-text h4 {
-  margin: 0 0 6px;
-  font-size: 17px;
-  color: var(--text-dark);
-  font-weight: 700;
-}
+                  <div className="bk-input-group">
+                    <div className="bk-field">
+                      <label htmlFor="notes"><FaNotesMedical /> Additional Notes</label>
+                      <textarea id="notes" name="notes" rows="2" value={formData.notes} onChange={handleChange} placeholder="Briefly describe any other details or how long you've had these symptoms..."></textarea>
+                    </div>
+                  </div>
 
-.bk-trust-text p {
-  margin: 0;
-  font-size: 14.5px;
-  color: var(--text-body);
-  line-height: 1.55;
-}
+                  <div className="bk-submit-wrapper">
+                    <button type="submit" className="bk-submit-btn">
+                      <FaWhatsapp className="bk-btn-wa-icon" />
+                      <span>Book via WhatsApp</span>
+                      <FaArrowRight className="bk-btn-arrow" />
+                    </button>
+                  </div>
 
-/* ══════════════════════════════════════════════════════
-   RIGHT COLUMN: GLASS FORM CARD
-   ══════════════════════════════════════════════════════ */
-.bk-form-wrapper {
-  position: relative;
-}
+                </form>
+              ) : (
+                <div className="bk-success-state">
+                  <div className="bk-success-icon">
+                    <FaCheckCircle size={64} />
+                  </div>
+                  <h3>Booking Initiated!</h3>
+                  <p>Opening WhatsApp... Please tap Send to confirm your consultation slot with our doctors.</p>
+                  <button className="bk-reset-btn" onClick={resetForm}>Book Another Appointment</button>
+                </div>
+              )}
 
-.bk-glass-card {
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(14, 181, 144, 0.18);
-  border-radius: var(--radius-xl);
-  padding: 40px;
-  box-shadow: 0 20px 50px rgba(18, 39, 36, 0.1);
-  transition: var(--transition-normal);
-}
+            </div>
+          </div>
 
-.bk-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-.bk-input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.bk-input-group.split {
-  flex-direction: row;
-  gap: 20px;
-}
-
-.bk-input-group.split > .bk-field {
-  flex: 1;
-}
-
-.bk-input-group.split-three {
-  flex-direction: row;
-  gap: 16px;
-}
-
-.bk-input-group.split-three > .bk-field {
-  flex: 1;
-}
-
-.bk-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  position: relative;
-}
-
-.bk-field label {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--text-dark);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.bk-field label svg {
-  color: var(--primary);
-  font-size: 15px;
-}
-
-.req {
-  color: var(--accent);
-  margin-left: 2px;
-}
-
-/* High Contrast Inputs */
-.bk-field input,
-.bk-field select,
-.bk-field textarea {
-  width: 100%;
-  background: #f4fdfa;
-  border: 1.5px solid #cfe6df;
-  border-radius: 12px;
-  padding: 13px 16px;
-  font-size: 15px;
-  color: var(--text-dark);
-  font-family: inherit;
-  font-weight: 500;
-  transition: all var(--transition-fast);
-  outline: none;
-}
-
-.bk-field input::placeholder,
-.bk-field textarea::placeholder {
-  color: #8daaa3;
-  font-weight: 400;
-}
-
-.bk-field input:focus,
-.bk-field select:focus,
-.bk-field textarea:focus {
-  background: #ffffff;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px var(--primary-glow);
-}
-
-.bk-field textarea {
-  resize: vertical;
-  min-height: 84px;
-}
-
-/* High Contrast Select Styling */
-.bk-field select {
-  cursor: pointer;
-  appearance: auto;
-}
-
-/* Submit Button & Privacy */
-.bk-submit-wrapper {
-  margin-top: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.bk-submit-btn {
-  width: 100%;
-  background: linear-gradient(135deg, #25D366 0%, #11a044 100%);
-  color: #fff;
-  border: none;
-  border-radius: 14px;
-  padding: 18px 24px;
-  font-size: 16.5px;
-  font-weight: 800;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.3);
-}
-
-.bk-btn-wa-icon {
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.bk-btn-arrow {
-  font-size: 16px;
-  transition: transform var(--transition-fast);
-}
-
-.bk-submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.45);
-  color: white;
-}
-
-.bk-submit-btn:hover .bk-btn-arrow {
-  transform: translateX(5px);
-}
-
-/* Success State */
-.bk-success-state {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.bk-success-icon {
-  color: var(--primary);
-  margin-bottom: 24px;
-  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes scaleIn {
-  0% { transform: scale(0); }
-  100% { transform: scale(1); }
-}
-
-.bk-success-state h3 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--text-dark);
-  margin: 0 0 12px;
-}
-
-.bk-success-state p {
-  color: var(--text-body);
-  margin: 0 auto 32px;
-  max-width: 400px;
-  line-height: 1.6;
-}
-
-.bk-reset-btn {
-  background: var(--bg-card);
-  border: 1.5px solid var(--primary);
-  color: var(--primary);
-  padding: 14px 28px;
-  border-radius: 100px;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  box-shadow: var(--shadow-sm);
-}
-
-.bk-reset-btn:hover {
-  background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 8px 20px var(--primary-glow);
-}
-
-/* ══════════════════════════════════════════════════════
-   RESPONSIVE LAYOUT
-   ══════════════════════════════════════════════════════ */
-
-@media (max-width: 1024px) {
-  .bk-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  
-  .bk-info {
-    padding-right: 0;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .bk-eyebrow-wrapper {
-    align-self: center;
-  }
-  
-  .bk-title, .bk-desc {
-    text-align: center;
-  }
-
-  .bk-desc {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .bk-section {
-    padding: 70px 0;
-  }
-  
-  .bk-glass-card {
-    padding: 32px 24px;
-    border-radius: var(--radius-lg);
-  }
-  
-  .bk-input-group.split,
-  .bk-input-group.split-three {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .bk-trust-item {
-    gap: 16px;
-  }
-
-  .bk-trust-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
-  }
-
-  .bk-dropdown-menu {
-    max-height: 280px;
-  }
-}
-
-@media (max-width: 480px) {
-  .bk-section {
-    padding: 50px 0;
-  }
-
-  .bk-glass-card {
-    padding: 24px 18px;
-  }
-  
-  .bk-field input,
-  .bk-field select,
-  .bk-field textarea,
-  .bk-searchable-trigger {
-    font-size: 15px;
-    padding: 12px 14px;
-  }
-
-  .bk-submit-btn {
-    padding: 16px 18px;
-    font-size: 15.5px;
-  }
-}
+export default BookingForm;
