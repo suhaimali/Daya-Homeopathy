@@ -1,4 +1,36 @@
+# ═══════════════════════════════════════════════
+# Daya Homeopathy – robots.txt
+# https://www.dayahomeopathy.com/
+# ═══════════════════════════════════════════════
+
+# Allow all search engine crawlers
 User-agent: *
 Allow: /
 
+# Allow Google Image bot explicitly for hero/doctor images
+User-agent: Googlebot-Image
+Allow: /
+Allow: /hero.jpeg
+Allow: /doctors/
+Allow: /images/
+Allow: /icon/
+
+# Allow Bingbot
+User-agent: bingbot
+Allow: /
+
+# Block AI training crawlers (optional – protects content)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Sitemaps
 Sitemap: https://www.dayahomeopathy.com/sitemap.xml
+
+# Crawl-delay (optional – be gentle on server)
+Crawl-delay: 1

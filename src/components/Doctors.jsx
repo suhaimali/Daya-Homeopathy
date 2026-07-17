@@ -26,7 +26,7 @@ const doctorsData = [
 
 const Doctors = () => {
   return (
-    <section className="doctors-section" id="doctors">
+    <section className="doctors-section" id="doctors" aria-label="Meet the Doctors at Daya Homeopathy – Expert Homeopathic Physicians in Kerala India">
       <div className="doctors-container">
         
         {/* Clean Header without arrow circle */}
@@ -49,7 +49,7 @@ const Doctors = () => {
           {doctorsData.map((doctor) => (
             <div className="doctor-card-simple" key={doctor.id}>
               <div className="doc-image-wrapper-simple">
-                <img src={doctor.image} alt={doctor.name} className="doc-img-simple" />
+                <img src={doctor.image} alt={`${doctor.name} – ${doctor.title} at Daya Homeopathy, Malappuram Kerala, ${doctor.qualifications.join(', ')}, ${doctor.experience}`} className="doc-img-simple" loading="lazy" />
               </div>
               <div className="doc-info-simple">
                 <h3 className="doc-name-simple">{doctor.name}</h3>

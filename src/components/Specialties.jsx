@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, ArrowRight, Search } from 'lucide-react';
 import './Specialties.css';
 
-const Specialties = () => {
+const Specialties = ({ onSelectSpecialty }) => {
   const [selectedTreatment, setSelectedTreatment] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -45,17 +45,19 @@ const Specialties = () => {
 
   useEffect(() => {
     setVisibleItems([]);
-    const timers = filtered.map((_, i) =>
+    const count = filtered.length;
+    const timers = Array.from({ length: count }, (_, i) =>
       setTimeout(() => setVisibleItems(prev => [...prev, i]), i * 45)
     );
     return () => timers.forEach(clearTimeout);
+  // filtered.length captures the count at render time — intentional
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCategory, searchQuery]);
 
   const badgeClass = (cat) => `ex-badge badge-${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
 
   return (
-    <section className="ex-section" id="expertise">
+    <section className="ex-section" id="expertise" aria-label="Daya Homeopathy Specialties – Expert Homeopathic Treatment for Allergy, Asthma, Migraine, PCOD, Eczema, Depression, Arthritis, Thyroid, Infertility, Hair Fall, Kidney Stone, Epilepsy, Cancer Support & More">
       <div className="ex-container">
 
         {/* Header */}
@@ -115,7 +117,7 @@ const Specialties = () => {
 
                 {/* Thumbnail */}
                 <div className="ex-thumb">
-                  <img src={item.image} alt={item.title} loading="lazy" />
+                  <img src={item.image} alt={`Homeopathic treatment for ${item.title} at Daya Homeopathy Kerala India`} loading="lazy" />
                 </div>
 
                 {/* Content */}
@@ -148,7 +150,7 @@ const Specialties = () => {
               <X size={18} />
             </button>
             <div className="ex-modal-hero">
-              <img src={selectedTreatment.image} alt={selectedTreatment.title} />
+              <img src={selectedTreatment.image} alt={`Homeopathic treatment for ${selectedTreatment.title} at Daya Homeopathy`} loading="lazy" />
               <div className="ex-modal-hero-grad" />
               <div className="ex-modal-hero-info">
                 <span className={badgeClass(selectedTreatment.category)}>
@@ -168,6 +170,9 @@ const Specialties = () => {
               <button
                 className="ex-modal-btn"
                 onClick={() => {
+                  if (onSelectSpecialty) {
+                    onSelectSpecialty(selectedTreatment.title);
+                  }
                   setSelectedTreatment(null);
                   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
                 }}

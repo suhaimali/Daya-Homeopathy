@@ -15,6 +15,7 @@ import './App.css';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [selectedCondition, setSelectedCondition] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,9 +35,9 @@ function App() {
         <Hero />
         <About />
         <WhyChooseUs />
-        <Specialties />
+        <Specialties onSelectSpecialty={setSelectedCondition} />
         <Doctors />
-        <BookingForm />
+        <BookingForm selectedCondition={selectedCondition} setSelectedCondition={setSelectedCondition} />
         <Location />
       </main>
       <Footer />

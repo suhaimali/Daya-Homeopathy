@@ -4,7 +4,7 @@ import './Hero.css';
 
 const Hero = () => {
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="home" aria-label="Daya Homeopathy – Best Homeopathic Clinic in Kerala India, Online Worldwide Consultation & Medicine Delivery">
       <div className="hero-background">
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="hero-image-wrapper">
           <div className="hero-image-placeholder">
             <div className="image-overlay"></div>
-            <img src={heroImage} alt="Daya Homeopathy Clinic" className="hero-img" />
+            <img src={heroImage} alt="Daya Homeopathy Clinic – Best Homeopathic Doctor in Malappuram Kerala India, Online Consultation & Worldwide Medicine Delivery Since 1979" className="hero-img" loading="eager" fetchPriority="high" />
           </div>
           <div className="hero-floating-card">
             <div className="floating-icon-wrap">45+</div>

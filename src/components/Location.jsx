@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaPhoneAlt, FaEnvelope, FaClock, FaCalendarTimes, FaMapMarkerAlt, FaDirections, FaCheckCircle } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaClock, FaMapMarkerAlt, FaDirections, FaCheckCircle } from 'react-icons/fa';
 import './Location.css';
 
 const Location = () => {

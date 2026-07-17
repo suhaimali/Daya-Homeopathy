@@ -1,38 +1,59 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaUserAlt, FaMapMarkerAlt, FaCalendarAlt, FaClock, FaStethoscope, FaNotesMedical, FaCheckCircle, FaShieldAlt, FaUserMd, FaArrowRight } from 'react-icons/fa';
+import { FaWhatsapp, FaCheckCircle, FaShieldAlt, FaUserMd, FaArrowRight } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import './BookingForm.css';
 
 const conditionsList = [
   "Allergy & Asthma",
-  "Migraine & Chronic Headache",
-  "Female Health & Hormonal Disorders",
-  "Infertility Care (Male & Female)",
-  "Eczema, Psoriasis & Skin Complaints",
-  "Depression, Anxiety & Stress Management",
-  "Acidity, Ulcer & Gastric Disorders",
-  "Arthritis & Joint Pain",
-  "Pediatric & Child Health",
-  "Thyroid Disorders (Hypo/Hyper)",
-  "PCOD / PCOS Management",
-  "Hair Fall & Alopecia Treatment",
-  "Geriatric & Old Age Problems",
-  "Kidney Stone & Urinary Care",
-  "Piles, Fissures & Fistula",
-  "BPH (Prostate Enlargement)",
-  "Epilepsy & Neurological Care",
-  "Cancer Supportive Care",
-  "Immunity & Constitutional Boost",
-  "Constitutional Weight Management",
-  "Chronic Insomnia & Sleep Disorders",
+  "Migraine",
+  "Female Disorders",
+  "Infertility (M&F)",
+  "Eczema",
+  "Depression",
+  "Acidity & Ulcer",
+  "Arthritis",
+  "Cancer Support",
+  "Old Age Problems",
+  "Hair Fall Treatment",
+  "Psoriasis",
+  "Epilepsy",
+  "Piles & Fissures",
+  "Kidney Stone",
+  "BPH (Prostate)",
+  "PCOD",
+  "Child Health",
+  "Counselling Service",
+  "Thyroid Disorders",
+  "Weight Management",
+  "Insomnia",
+  "Immunity Boost",
   "Other / Multiple Conditions"
 ];
 
-const BookingForm = () => {
+const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
   const [formData, setFormData] = useState({
     name: '', phone: '', place: '', date: '', time: '', condition: '', notes: ''
   });
   const [submitted, setSubmitted] = useState(false);
+
+  React.useEffect(() => {
+    if (selectedCondition) {
+      if (conditionsList.includes(selectedCondition)) {
+        setFormData(prev => ({ ...prev, condition: selectedCondition }));
+      }
+      if (setSelectedCondition) {
+        setSelectedCondition('');
+      }
+    }
+  }, [selectedCondition, setSelectedCondition]);
+
+  const getTodayDateString = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  };
 
   const WHATSAPP_NUMBER = "919947576123";
 
@@ -43,12 +64,21 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const placeText = formData.place ? `%0A*City / Place:* ${formData.place}` : '';
-    const condText = formData.condition ? `%0A*Symptoms (Condition):* ${formData.condition}` : '';
-    const notesText = formData.notes ? `%0A*Additional Notes:* ${formData.notes}` : '';
-    const text = `*🌟 New Appointment Request — Daya Homeopathy*%0A%0A*Patient Name:* ${formData.name}${placeText}%0A*Preferred Date:* ${formData.date}%0A*Preferred Time:* ${formData.time}%0A*WhatsApp Number:* ${formData.phone}${condText}${notesText}%0A%0A_Sent via Daya Homeopathy Web Booking System_`;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-    
+    // Encode each field so special chars (& + # spaces etc.) don't break the WhatsApp URL
+    const enc = (str) => encodeURIComponent(str);
+    const placeText = formData.place ? `\n*City / Place:* ${enc(formData.place)}` : '';
+    const condText  = formData.condition ? `\n*Symptoms (Condition):* ${enc(formData.condition)}` : '';
+    const notesText = formData.notes ? `\n*Additional Notes:* ${enc(formData.notes)}` : '';
+    const message =
+      `*New Appointment Request — Daya Homeopathy*\n\n` +
+      `*Patient Name:* ${enc(formData.name)}${placeText}\n` +
+      `*Preferred Date:* ${enc(formData.date)}\n` +
+      `*Preferred Time:* ${enc(formData.time)}\n` +
+      `*WhatsApp Number:* ${enc(formData.phone)}` +
+      `${condText}${notesText}\n\n` +
+      `_Sent via Daya Homeopathy Web Booking System_`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
     Swal.fire({
       toast: true,
       position: 'top-end',
@@ -73,7 +103,7 @@ const BookingForm = () => {
   };
 
   return (
-    <section className="bk-section" id="booking">
+    <section className="bk-section" id="booking" aria-label="Book Homeopathic Appointment Online – Daya Homeopathy Kerala India, WhatsApp Consultation Worldwide">
       <div className="bk-container">
         
         <div className="bk-grid">
@@ -134,34 +164,34 @@ const BookingForm = () => {
                   
                   <div className="bk-input-group split">
                     <div className="bk-field">
-                      <label htmlFor="name"><FaUserAlt /> Full Name <span className="req">*</span></label>
+                      <label htmlFor="name">Full Name <span className="req">*</span></label>
                       <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="e.g. John Doe" required />
                     </div>
                     <div className="bk-field">
-                      <label htmlFor="phone"><FaWhatsapp /> WhatsApp No. <span className="req">*</span></label>
-                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 99999 99999" required />
+                      <label htmlFor="phone">WhatsApp No. <span className="req">*</span></label>
+                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 99999 99999" pattern="[+0-9\s\-()]{7,20}" title="Enter a valid phone number (7–20 digits)" required />
                     </div>
                   </div>
 
                   <div className="bk-input-group split-three">
                     <div className="bk-field">
-                      <label htmlFor="place"><FaMapMarkerAlt /> City / Place</label>
+                      <label htmlFor="place">City / Place</label>
                       <input type="text" id="place" name="place" value={formData.place} onChange={handleChange} placeholder="Location" />
                     </div>
                     <div className="bk-field">
-                      <label htmlFor="date"><FaCalendarAlt /> Date <span className="req">*</span></label>
-                      <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required />
+                      <label htmlFor="date">Date <span className="req">*</span></label>
+                      <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} min={getTodayDateString()} required />
                     </div>
                     <div className="bk-field">
-                      <label htmlFor="time"><FaClock /> Time <span className="req">*</span></label>
-                      <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} required />
+                      <label htmlFor="time">Time <span className="req">*</span></label>
+                      <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} min="09:30" max="14:00" required />
                     </div>
                   </div>
 
                   {/* Classic Old UI Native Dropdown List (Simple, Reliable, Familiar & Clean) */}
                   <div className="bk-input-group">
                     <div className="bk-field">
-                      <label htmlFor="condition"><FaStethoscope /> Symptoms</label>
+                      <label htmlFor="condition">Symptoms</label>
                       <select id="condition" name="condition" value={formData.condition} onChange={handleChange}>
                         <option value="">Select your main symptoms...</option>
                         {conditionsList.map((cond) => (
@@ -173,7 +203,7 @@ const BookingForm = () => {
 
                   <div className="bk-input-group">
                     <div className="bk-field">
-                      <label htmlFor="notes"><FaNotesMedical /> Additional Notes</label>
+                      <label htmlFor="notes">Additional Notes</label>
                       <textarea id="notes" name="notes" rows="2" value={formData.notes} onChange={handleChange} placeholder="Briefly describe any other details or how long you've had these symptoms..."></textarea>
                     </div>
                   </div>

@@ -28,14 +28,14 @@ const WhyChooseUs = () => {
     {
       icon: <FaGlobe size={36} />,
       title: "Global Access",
-      description: "Telephone and Online consultations available to bring our care to you, anywhere in the world.",
+      description: "Telephone & WhatsApp online consultations available for patients in UAE, Saudi Arabia, UK, USA, Canada, Australia, Malaysia, Gulf & worldwide. Real healing, anywhere.",
       color: "#F59E0B",
       delay: "0.4s"
     },
     {
       icon: <FaTruck size={36} />,
       title: "Door Delivery",
-      description: "Door Delivery of Medicines available across India and international locations for your convenience.",
+      description: "Door Delivery of homeopathic medicines across all of India and international courier to UAE, Saudi Arabia, Qatar, Kuwait, UK, USA, Australia, Canada & 50+ countries.",
       color: "#8B5CF6",
       delay: "0.5s"
     },
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="why-choose-section" id="why-choose-us">
+    <section className="why-choose-section" id="why-choose-us" aria-label="Why Choose Daya Homeopathy – Online Consultation & Worldwide Medicine Delivery">
       <div className="wcu-container">
         
         <div className="wcu-header">
