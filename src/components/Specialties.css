@@ -493,17 +493,28 @@
     padding: 12px 16px 12px 42px;
   }
 
-  /* Wrapped layout so tags are fully visible without horizontal cuts */
+  /* Horizontally scrollable tags for better mobile UX */
   .ex-tabs {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
     gap: 8px;
     margin-bottom: 24px;
+    padding-bottom: 4px;
+  }
+
+  .ex-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .ex-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
     font-size: 13px;
-    padding: 6px 14px;
+    padding: 6px 16px;
   }
 
   .ex-list {

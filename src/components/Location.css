@@ -379,9 +379,18 @@
 }
 
 @media (max-width: 480px) {
+  .location-section {
+    padding: 40px 0 60px 0;
+  }
+  
   .location-master-box {
     padding: 20px 16px;
     gap: 18px;
+    /* Edge-to-edge on mobile */
+    margin: 0 -16px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 
   .master-header-left {
