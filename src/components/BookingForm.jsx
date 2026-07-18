@@ -59,11 +59,68 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    if (name === 'date' && value) {
+      const [year, month, day] = value.split('-');
+      const dateObj = new Date(year, month - 1, day);
+      if (dateObj.getDay() === 0) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Clinic Closed on Sundays',
+          text: 'Sunday is our weekly holiday. Please select a day from Monday to Saturday.',
+          confirmButtonColor: 'var(--primary)'
+        });
+        setFormData(prev => ({ ...prev, date: '' }));
+        return;
+      }
+    }
+
+    if (name === 'time' && value) {
+      if (value < '09:30' || value > '14:00') {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Outside Clinic Hours',
+          text: 'Our clinic hours are Mon–Sat: 09:30 AM to 02:00 PM. Please select a time within this range.',
+          confirmButtonColor: 'var(--primary)'
+        });
+        setFormData(prev => ({ ...prev, time: '' }));
+        return;
+      }
+    }
+
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Secondary validation fallback
+    if (formData.date) {
+      const [year, month, day] = formData.date.split('-');
+      const dateObj = new Date(year, month - 1, day);
+      if (dateObj.getDay() === 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Clinic Closed on Sundays',
+          text: 'Sunday is our weekly holiday. Please select a day from Monday to Saturday.',
+          confirmButtonColor: 'var(--primary)'
+        });
+        return;
+      }
+    }
+
+    if (formData.time) {
+      if (formData.time < '09:30' || formData.time > '14:00') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Outside Clinic Hours',
+          text: 'Our clinic hours are Mon–Sat: 09:30 AM to 02:00 PM. Please select a time within this range.',
+          confirmButtonColor: 'var(--primary)'
+        });
+        return;
+      }
+    }
+
     const placeText = formData.place ? `\n*City / Place:* ${formData.place}` : '';
     const condText  = formData.condition ? `\n*Symptoms (Condition):* ${formData.condition}` : '';
     const notesText = formData.notes ? `\n*Additional Notes:* ${formData.notes}` : '';

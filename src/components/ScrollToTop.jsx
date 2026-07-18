@@ -33,9 +33,9 @@ const ScrollToTop = () => {
   return (
     <div className="scroll-to-top">
       {isVisible && (
-        <div onClick={scrollToTop} className="scroll-button" aria-label="Scroll to top">
+        <button onClick={scrollToTop} className="scroll-button" aria-label="Scroll to top">
           <ArrowUp size={24} className="arrow-icon" />
-        </div>
+        </button>
       )}
     </div>
   );
