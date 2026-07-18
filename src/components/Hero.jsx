@@ -48,7 +48,10 @@ const Hero = () => {
             <img src={heroImage} alt="Daya Homeopathy Clinic – Best Homeopathic Doctor in Malappuram Kerala India, Online Consultation & Worldwide Medicine Delivery Since 1979" className="hero-img" loading="eager" fetchPriority="high" />
           </div>
           <div className="hero-floating-card">
-            <div className="floating-icon-wrap">45+</div>
+            <div className="floating-icon-wrap">
+              45+
+              <span>Yrs</span>
+            </div>
             <div className="floating-text-wrap">
               <h4>Years of Care</h4>
               <p>Trusted natural healing</p>

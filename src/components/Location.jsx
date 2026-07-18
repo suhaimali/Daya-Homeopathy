@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaPhoneAlt, FaEnvelope, FaClock, FaMapMarkerAlt, FaDirections, FaCheckCircle } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaClock, FaMapMarkerAlt, FaDirections, FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
 import './Location.css';
 
 const Location = () => {
   return (
     <section className="location-section" id="location">
-      {/* Background Glow Blobs */}
+      {/* Background Glow Blobs for premium ambiance */}
       <div className="loc-glow loc-glow-1"></div>
       <div className="loc-glow loc-glow-2"></div>
       
@@ -20,15 +20,14 @@ const Location = () => {
           </p>
         </div>
 
-        {/* Responsive Content Grid */}
-        {/* ALL-IN-ONE MASTER BOX MODEL UI REDESIGN (`Interactive Map · Pathappiriyam, Malappuram District`) */}
-        <div className="location-master-box">
+        {/* Unified Master Box UI (Highly Responsive) */}
+        <div className="location-master-box glass-card">
           
           {/* Top Section: Clinic Brand & Directions Button */}
           <div className="master-box-header">
             <div className="master-header-left">
               <div className="brand-pin-icon"><FaMapMarkerAlt /></div>
-              <div>
+              <div className="brand-text-wrapper">
                 <h3 className="brand-title">Daya Homeopathy Clinic</h3>
                 <p className="brand-address">Pathappiriyam, Edavanna · Malappuram, Kerala</p>
               </div>
@@ -37,14 +36,14 @@ const Location = () => {
               href="https://www.google.com/maps/place/Daya+Homeopathy+Pathappiriyam/@11.198112,76.134073,17z" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="map-directions-btn master-directions-btn"
+              className="map-directions-btn"
             >
               <FaDirections /> Get Directions
             </a>
           </div>
 
           {/* Badges Section */}
-          <div className="brand-badge-row master-badge-row">
+          <div className="master-badge-row">
             <span className="live-status-pill">
               <span className="status-dot"></span> Direct WhatsApp Booking Open
             </span>
@@ -52,7 +51,7 @@ const Location = () => {
             <span className="feature-pill"><FaCheckCircle /> Root-Cause Constitutional Care</span>
           </div>
 
-          {/* Quick Contact Bar (Sleek 4-Column Responsive Grid) */}
+          {/* Quick Contact Bar (Sleek, Responsive Grid) */}
           <div className="contact-master-grid">
             
             <a href="tel:+919544354655" className="contact-item-flat">
@@ -64,34 +63,43 @@ const Location = () => {
               </div>
             </a>
 
+            <a href="https://wa.me/919947576123" target="_blank" rel="noopener noreferrer" className="contact-item-flat">
+              <div className="contact-icon-box whatsapp"><FaWhatsapp /></div>
+              <div className="contact-card-content">
+                <span className="contact-label">WhatsApp Booking</span>
+                <strong className="contact-value whatsapp-val">+91 99475 76123</strong>
+                <span className="contact-sub">Tap to chat instantly</span>
+              </div>
+            </a>
+
             <a href="mailto:dayahomeoppm@gmail.com" className="contact-item-flat">
               <div className="contact-icon-box blue"><FaEnvelope /></div>
               <div className="contact-card-content">
                 <span className="contact-label">Official Email</span>
                 <strong className="contact-value email-val">dayahomeoppm@gmail.com</strong>
-                <span className="contact-sub">Tap to send us a message</span>
+                <span className="contact-sub">Tap to send email</span>
               </div>
             </a>
 
-            <div className="contact-item-flat">
+            <div className="contact-item-flat no-hover">
               <div className="contact-icon-box teal"><FaClock /></div>
               <div className="contact-card-content">
                 <span className="contact-label">Clinic Hours</span>
                 <strong className="contact-value">Mon–Sat: 9:30 AM – 2:00 PM</strong>
-                <span className="contact-sub">Sunday: Holiday</span>
+                <span className="contact-sub">Sunday: Weekly Holiday</span>
               </div>
             </div>
 
           </div>
 
-          {/* Integrated Panoramic Interactive Map Section (`All In One Section Box Model`) */}
+          {/* Integrated Panoramic Interactive Map Section */}
           <div className="master-map-section">
             <div className="master-map-banner">
               <div className="map-banner-left">
-                <FaMapMarkerAlt className="banner-pin" />
+                <FaDirections className="banner-pin" />
                 <div>
                   <h4 className="banner-title">Interactive Map</h4>
-                  <p className="banner-subtitle">Pathappiriyam, Malappuram District · Live Google Navigation</p>
+                  <p className="banner-subtitle">Pathappiriyam, Malappuram District · Live Navigation</p>
                 </div>
               </div>
             </div>
@@ -117,4 +125,4 @@ const Location = () => {
   );
 };
 
-export default Location;
+export default Location;

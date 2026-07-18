@@ -213,54 +213,110 @@
 }
 
 /* Floating Stats Card */
+/* Floating Stats Card - Premium Glassmorphic Redesign */
 .hero-floating-card {
   position: absolute;
-  bottom: 0px;
-  left: 20px;
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glass);
+  bottom: -10px;
+  left: -20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(243, 250, 247, 0.8) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(14, 181, 144, 0.25);
   border-radius: var(--radius-md);
-  padding: 16px 22px;
-  box-shadow: var(--shadow-lg);
+  padding: 18px 24px;
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.03),
+    0 20px 40px rgba(14, 181, 144, 0.12),
+    inset 0 0 12px rgba(255, 255, 255, 0.6);
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   z-index: 5;
-  animation: floatCard 4s ease-in-out infinite alternate;
+  animation: floatCard 4.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-floating-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine-effect 4s infinite;
+}
+
+.hero-floating-card:hover {
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.03),
+    0 28px 56px rgba(14, 181, 144, 0.18),
+    inset 0 0 12px rgba(255, 255, 255, 0.8);
+  border-color: var(--primary);
 }
 
 @keyframes floatCard {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(1deg); }
+}
+
+@keyframes shine-effect {
+  0% { left: -100%; }
+  20% { left: 150%; }
+  100% { left: 150%; }
 }
 
 .floating-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--primary-light);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  color: white;
   font-weight: 800;
-  font-size: 15px;
+  font-size: 18px;
+  line-height: 1;
   flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(14, 181, 144, 0.3);
+}
+
+.floating-icon-wrap span {
+  font-size: 9px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+  opacity: 0.9;
+}
+
+.floating-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .floating-text-wrap h4 {
-  font-size: 16.5px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--text-dark);
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 .floating-text-wrap p {
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--text-body);
   font-weight: 600;
+  opacity: 0.95;
 }
 
 /* Perfectly Responsive Layout Rules */
