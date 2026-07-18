@@ -1,9 +1,9 @@
 import React from 'react';
 import './Preloader.css';
 
-const Preloader = () => {
+const Preloader = ({ fadeOut }) => {
   return (
-    <div className="preloader-overlay">
+    <div className={`preloader-overlay ${fadeOut ? 'fade-out' : ''}`}>
       <div className="preloader-content">
         <div className="preloader-spinner">
           <div className="spinner-circle"></div>

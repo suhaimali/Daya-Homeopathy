@@ -14,22 +14,35 @@ import Preloader from './components/Preloader';
 import './App.css';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [showPreloader, setShowPreloader] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
   const [selectedCondition, setSelectedCondition] = useState('');
 
   useEffect(() => {
+    if (showPreloader) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showPreloader]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
+      setFadeOut(true);
+      const unmountTimer = setTimeout(() => {
+        setShowPreloader(false);
+      }, 500); // match transition duration (0.5s)
+      return () => clearTimeout(unmountTimer);
     }, 800); // adjust time as needed
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <Preloader />;
-  }
-
   return (
     <div className="App">
+      {showPreloader && <Preloader fadeOut={fadeOut} />}
       <Navbar />
       <main>
         <Hero />
