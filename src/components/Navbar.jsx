@@ -26,13 +26,13 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo Section */}
-        <div className="navbar-logo">
+        <a href="#home" className="navbar-logo" onClick={() => setIsMobileMenuOpen(false)}>
           <div className="logo-icon">DH</div>
           <div className="logo-text">
             <span className="logo-title">Daya</span>
             <span className="logo-subtitle">Homeopathy</span>
           </div>
-        </div>
+        </a>
 
         {/* Desktop Menu */}
         <div className="navbar-menu">

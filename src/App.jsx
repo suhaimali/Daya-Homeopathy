@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500); // adjust time as needed
+    }, 800); // adjust time as needed
     return () => clearTimeout(timer);
   }, []);
 

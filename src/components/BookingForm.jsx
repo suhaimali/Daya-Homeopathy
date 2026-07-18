@@ -64,17 +64,15 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Encode each field so special chars (& + # spaces etc.) don't break the WhatsApp URL
-    const enc = (str) => encodeURIComponent(str);
-    const placeText = formData.place ? `\n*City / Place:* ${enc(formData.place)}` : '';
-    const condText  = formData.condition ? `\n*Symptoms (Condition):* ${enc(formData.condition)}` : '';
-    const notesText = formData.notes ? `\n*Additional Notes:* ${enc(formData.notes)}` : '';
+    const placeText = formData.place ? `\n*City / Place:* ${formData.place}` : '';
+    const condText  = formData.condition ? `\n*Symptoms (Condition):* ${formData.condition}` : '';
+    const notesText = formData.notes ? `\n*Additional Notes:* ${formData.notes}` : '';
     const message =
       `*New Appointment Request — Daya Homeopathy*\n\n` +
-      `*Patient Name:* ${enc(formData.name)}${placeText}\n` +
-      `*Preferred Date:* ${enc(formData.date)}\n` +
-      `*Preferred Time:* ${enc(formData.time)}\n` +
-      `*WhatsApp Number:* ${enc(formData.phone)}` +
+      `*Patient Name:* ${formData.name}${placeText}\n` +
+      `*Preferred Date:* ${formData.date}\n` +
+      `*Preferred Time:* ${formData.time}\n` +
+      `*WhatsApp Number:* ${formData.phone}` +
       `${condText}${notesText}\n\n` +
       `_Sent via Daya Homeopathy Web Booking System_`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -165,26 +163,26 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
                   <div className="bk-input-group split">
                     <div className="bk-field">
                       <label htmlFor="name">Full Name <span className="req">*</span></label>
-                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="e.g. John Doe" required />
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="e.g. John Doe" autoComplete="name" required />
                     </div>
                     <div className="bk-field">
                       <label htmlFor="phone">WhatsApp No. <span className="req">*</span></label>
-                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 99999 99999" pattern="[+0-9\s\-()]{7,20}" title="Enter a valid phone number (7–20 digits)" required />
+                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 99999 99999" pattern="[+0-9\s\-()]{7,20}" title="Enter a valid phone number (7–20 digits)" autoComplete="tel" required />
                     </div>
                   </div>
 
                   <div className="bk-input-group split-three">
                     <div className="bk-field">
                       <label htmlFor="place">City / Place</label>
-                      <input type="text" id="place" name="place" value={formData.place} onChange={handleChange} placeholder="Location" />
+                      <input type="text" id="place" name="place" value={formData.place} onChange={handleChange} placeholder="Location" autoComplete="address-level2" />
                     </div>
                     <div className="bk-field">
                       <label htmlFor="date">Date <span className="req">*</span></label>
-                      <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} min={getTodayDateString()} required />
+                      <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} min={getTodayDateString()} autoComplete="off" required />
                     </div>
                     <div className="bk-field">
                       <label htmlFor="time">Time <span className="req">*</span></label>
-                      <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} min="09:30" max="14:00" required />
+                      <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} min="09:30" max="14:00" autoComplete="off" required />
                     </div>
                   </div>
 
@@ -192,7 +190,7 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
                   <div className="bk-input-group">
                     <div className="bk-field">
                       <label htmlFor="condition">Symptoms</label>
-                      <select id="condition" name="condition" value={formData.condition} onChange={handleChange}>
+                      <select id="condition" name="condition" value={formData.condition} onChange={handleChange} autoComplete="off">
                         <option value="">Select your main symptoms...</option>
                         {conditionsList.map((cond) => (
                           <option key={cond} value={cond}>{cond}</option>
@@ -204,7 +202,7 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
                   <div className="bk-input-group">
                     <div className="bk-field">
                       <label htmlFor="notes">Additional Notes</label>
-                      <textarea id="notes" name="notes" rows="2" value={formData.notes} onChange={handleChange} placeholder="Briefly describe any other details or how long you've had these symptoms..."></textarea>
+                      <textarea id="notes" name="notes" rows="2" value={formData.notes} onChange={handleChange} placeholder="Briefly describe any other details or how long you've had these symptoms..." autoComplete="off"></textarea>
                     </div>
                   </div>
 

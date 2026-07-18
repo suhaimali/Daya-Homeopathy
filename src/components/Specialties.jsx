@@ -54,8 +54,6 @@ const Specialties = ({ onSelectSpecialty }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCategory, searchQuery]);
 
-  const badgeClass = (cat) => `ex-badge badge-${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
-
   return (
     <section className="ex-section" id="expertise" aria-label="Daya Homeopathy Specialties – Expert Homeopathic Treatment for Allergy, Asthma, Migraine, PCOD, Eczema, Depression, Arthritis, Thyroid, Infertility, Hair Fall, Kidney Stone, Epilepsy, Cancer Support & More">
       <div className="ex-container">
@@ -78,10 +76,13 @@ const Specialties = ({ onSelectSpecialty }) => {
           <Search size={17} className="ex-search-icon" />
           <input
             type="text"
+            id="specialty-search"
+            name="specialty-search"
             className="ex-search"
             placeholder="Search treatments, conditions…"
             value={searchQuery}
             onChange={e => { setSearchQuery(e.target.value); setActiveCategory('All'); }}
+            autoComplete="off"
           />
         </div>
 
@@ -124,7 +125,6 @@ const Specialties = ({ onSelectSpecialty }) => {
                 <div className="ex-row-content">
                   <div className="ex-row-top">
                     <h3 className="ex-row-title">{item.title}</h3>
-                    <span className={badgeClass(item.category)}>{item.category}</span>
                   </div>
                   <p className="ex-row-desc">{item.desc}</p>
                 </div>
@@ -153,9 +153,6 @@ const Specialties = ({ onSelectSpecialty }) => {
               <img src={selectedTreatment.image} alt={`Homeopathic treatment for ${selectedTreatment.title} at Daya Homeopathy`} loading="lazy" />
               <div className="ex-modal-hero-grad" />
               <div className="ex-modal-hero-info">
-                <span className={badgeClass(selectedTreatment.category)}>
-                  {selectedTreatment.category}
-                </span>
                 <h2>{selectedTreatment.title}</h2>
               </div>
             </div>

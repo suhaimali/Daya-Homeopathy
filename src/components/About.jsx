@@ -7,7 +7,7 @@ const About = () => {
     <section className="about-section" id="about">
       <div className="about-container">
         <div className="about-header">
-          <span className="section-subtitle">Who We Are</span>
+          <span className="section-eyebrow">Who We Are</span>
           <h2 className="section-title">A Legacy of <span className="text-highlight">Healing</span></h2>
         </div>
 
