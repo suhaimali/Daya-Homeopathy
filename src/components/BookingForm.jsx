@@ -55,6 +55,13 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
     return `${yyyy}-${mm}-${dd}`;
   };
 
+  const getCurrentTimeString = () => {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return `${hours}:${minutes}`;
+  };
+
   const WHATSAPP_NUMBER = "919947576123";
 
   const handleChange = (e) => {
@@ -73,6 +80,31 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
         setFormData(prev => ({ ...prev, date: '' }));
         return;
       }
+
+      if (value === getTodayDateString()) {
+        const currentTime = getCurrentTimeString();
+        if (currentTime > '14:00') {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Clinic Closed for Today',
+            text: "Today's clinic hours (09:30 AM - 02:00 PM) have already passed. Please select a future date.",
+            confirmButtonColor: 'var(--primary)'
+          });
+          setFormData(prev => ({ ...prev, date: '' }));
+          return;
+        }
+
+        if (formData.time && formData.time < currentTime) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Invalid Time Selected',
+            text: 'The previously selected time is in the past for today. Please select a future time.',
+            confirmButtonColor: 'var(--primary)'
+          });
+          setFormData(prev => ({ ...prev, date: '', time: '' }));
+          return;
+        }
+      }
     }
 
     if (name === 'time' && value) {
@@ -85,6 +117,20 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
         });
         setFormData(prev => ({ ...prev, time: '' }));
         return;
+      }
+
+      if (formData.date === getTodayDateString()) {
+        const currentTime = getCurrentTimeString();
+        if (value < currentTime) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Invalid Time',
+            text: 'The selected time is in the past. Please choose a current or later time.',
+            confirmButtonColor: 'var(--primary)'
+          });
+          setFormData(prev => ({ ...prev, time: '' }));
+          return;
+        }
       }
     }
 
@@ -115,6 +161,28 @@ const BookingForm = ({ selectedCondition, setSelectedCondition }) => {
           icon: 'error',
           title: 'Outside Clinic Hours',
           text: 'Our clinic hours are Mon–Sat: 09:30 AM to 02:00 PM. Please select a time within this range.',
+          confirmButtonColor: 'var(--primary)'
+        });
+        return;
+      }
+    }
+
+    if (formData.date === getTodayDateString() && formData.time) {
+      const currentTime = getCurrentTimeString();
+      if (currentTime > '14:00') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Clinic Closed for Today',
+          text: "Today's clinic hours (09:30 AM - 02:00 PM) have already passed. Please select a future date.",
+          confirmButtonColor: 'var(--primary)'
+        });
+        return;
+      }
+      if (formData.time < currentTime) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid Time',
+          text: 'The selected time is in the past. Please choose a current or later time.',
           confirmButtonColor: 'var(--primary)'
         });
         return;
